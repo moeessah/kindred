@@ -1,0 +1,992 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/svg+xml" href="assets/brand/favicon.svg">
+<title>AVAILABLE — Documentary Distribution</title>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;font-size:16px;}
+body{margin:0;font-family:'Plus Jakarta Sans',sans-serif;letter-spacing:-0.01em;line-height:1.6;background:#FAFAF7;color:#12272B;overflow-x:hidden;}
+
+:root{
+  --dark:#12272B;
+  --yellow:#F5D03B;
+  --yellow-light:#FDF7E3;
+  --yellow-pale:#FDF3A3;
+  --cream:#F7F3EC;
+  --cream2:#F2EDE3;
+  --green:#3DD97A;
+  --green-mid:#2FC96E;
+  --green-light:#E2F8EC;
+  --teal:#39BDC5;
+  --teal-light:#E4F8FA;
+  --pink:#E8547A;
+  --pink-light:#FDE8EC;
+  --lav:#B89FE8;
+  --lav-light:#F5F1FF;
+  --mint:#A8DDD4;
+  --ink80:rgba(18,39,43,.8);
+  --ink60:rgba(18,39,43,.6);
+  --ink40:rgba(18,39,43,.4);
+  --ink20:rgba(18,39,43,.2);
+  --ink10:rgba(18,39,43,.1);
+  --ink05:rgba(18,39,43,.05);
+  --ink03:rgba(18,39,43,.03);
+}
+
+/* ─────────────────────────────────────
+   HERO — exact v3 structure
+───────────────────────────────────── */
+@property --d-x1{syntax:'<percentage>';initial-value:10%;inherits:false;}
+@property --d-y1{syntax:'<percentage>';initial-value:22%;inherits:false;}
+@property --d-x2{syntax:'<percentage>';initial-value:80%;inherits:false;}
+@property --d-y2{syntax:'<percentage>';initial-value:20%;inherits:false;}
+@property --d-x3{syntax:'<percentage>';initial-value:50%;inherits:false;}
+@property --d-y3{syntax:'<percentage>';initial-value:80%;inherits:false;}
+
+.hero{
+  background:
+    radial-gradient(ellipse 70% 70% at var(--d-x1) var(--d-y1), rgba(239,145,170,.98) 0%, transparent 62%),
+    radial-gradient(ellipse 65% 60% at var(--d-x2) var(--d-y2), rgba(236,200,82,.98) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 60% at var(--d-x3) var(--d-y3), rgba(224,117,100,.98) 0%, transparent 60%),
+    radial-gradient(ellipse 55% 50% at 28% 72%, rgba(239,180,158,.98) 0%, transparent 58%),
+    radial-gradient(ellipse 50% 50% at 75% 62%, rgba(216,92,116,.9) 0%, transparent 56%),
+    radial-gradient(ellipse 100% 100% at 50% 50%, #EFC0AA 0%, #EFD09B 100%);
+  animation: ddrift1 6s ease-in-out infinite alternate,
+             ddrift2 6s ease-in-out infinite alternate,
+             ddrift3 6s ease-in-out infinite alternate;
+  padding:150px 52px 80px;
+  position:relative;overflow:hidden;
+  min-height:520px;
+  display:flex;align-items:center;
+}
+@keyframes ddrift1{
+  0%  {--d-x1:10%;--d-y1:22%;}
+  33% {--d-x1:22%;--d-y1:36%;}
+  66% {--d-x1:6%; --d-y1:14%;}
+  100%{--d-x1:18%;--d-y1:30%;}
+}
+@keyframes ddrift2{
+  0%  {--d-x2:80%;--d-y2:20%;}
+  33% {--d-x2:90%;--d-y2:35%;}
+  66% {--d-x2:74%;--d-y2:16%;}
+  100%{--d-x2:86%;--d-y2:28%;}
+}
+@keyframes ddrift3{
+  0%  {--d-x3:50%;--d-y3:80%;}
+  33% {--d-x3:38%;--d-y3:88%;}
+  66% {--d-x3:60%;--d-y3:74%;}
+  100%{--d-x3:46%;--d-y3:84%;}
+}
+.hero-blob{display:none;}
+.hero-blob2{display:none;}
+.hero-blob3{display:none;}
+.hero-inner{position:relative;z-index:2;max-width:760px;}
+
+.hero-tag{
+  display:inline-flex;align-items:center;gap:8px;
+  background:rgba(255,255,255,.34);
+  border:1px solid rgba(232,84,122,.42);
+  border-radius:999px;
+  padding:8px 18px 8px 12px;
+  margin-bottom:32px;
+  box-shadow:0 10px 30px rgba(232,84,122,.14);
+  backdrop-filter:blur(16px) saturate(170%);
+  -webkit-backdrop-filter:blur(16px) saturate(170%);
+}
+.hero-dot{
+  width:7px;height:7px;border-radius:50%;
+  background:var(--pink);flex-shrink:0;
+  animation:pulse 2s ease-in-out infinite;
+}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(232,84,122,.5);}70%{box-shadow:0 0 0 7px rgba(232,84,122,0);}100%{box-shadow:0 0 0 0 rgba(232,84,122,0);}}
+.hero-tag-text{font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--pink);}
+
+.hero h1{
+  font-family:'Plus Jakarta Sans',sans-serif;
+  font-size:clamp(64px,8vw,108px);
+  font-weight:800;line-height:.92;
+  letter-spacing:-0.07em;
+  margin-bottom:24px;
+  color:var(--dark);
+}
+.hero h1 em{font-style:normal;color:var(--pink);}
+
+.hero-sub{
+  font-family:'Plus Jakarta Sans',sans-serif;font-style:normal;font-size:18px;color:var(--ink80);max-width:520px;line-height:1.6;letter-spacing:-0.02em;margin-bottom:30px;
+}
+
+.hero-meta{
+  display:flex;gap:0;flex-wrap:wrap;
+  border-top:1px solid rgba(18,39,43,.1);
+  padding-top:32px;margin-top:8px;
+}
+.hero-meta-item{
+  padding-right:32px;
+  border-right:1px solid rgba(18,39,43,.1);
+  margin-right:32px;margin-bottom:12px;
+}
+.hero-meta-item:last-child{border-right:none;margin-right:0;}
+.hero-meta-label{font-size:9px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--ink60);margin-bottom:6px;}
+.hero-meta-value{font-size:14px;font-weight:700;letter-spacing:-0.03em;color:var(--dark);}
+
+.title-badge{
+  display:inline-flex;align-items:center;gap:7px;
+  background:rgba(18,39,43,.09);border:1px solid rgba(18,39,43,.14);
+  border-radius:999px;padding:5px 14px 5px 9px;
+  font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--dark);
+}
+.title-badge-dot{
+  width:6px;height:6px;border-radius:50%;
+  background:var(--green);flex-shrink:0;
+  animation:pulseGreen 2s ease-in-out infinite;
+}
+@keyframes pulseGreen{0%{box-shadow:0 0 0 0 rgba(61,217,122,.5);}70%{box-shadow:0 0 0 6px rgba(61,217,122,0);}100%{box-shadow:0 0 0 0 rgba(61,217,122,0);}}
+
+/* ─────────────────────────────────────
+   SHARED LABELS / EYEBROWS
+───────────────────────────────────── */
+.eyebrow{font-size:12px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:#0A6B50;display:block;margin-bottom:14px;}
+.eyebrow-lav{color:var(--lav);}
+.eyebrow-pink{color:var(--pink);}
+.eyebrow-green{color:var(--green-mid);}
+.eyebrow-yellow{color:#B08600;}
+
+/* ─────────────────────────────────────
+   HEADINGS
+───────────────────────────────────── */
+.sec-h2{
+  font-family:'Plus Jakarta Sans',sans-serif;
+  font-size:clamp(38px,5vw,64px);
+  font-weight:800;letter-spacing:-0.06em;line-height:1.02;
+}
+.sec-h2 em,.hero h1 em{
+  display:inline-block;
+  padding-right:.09em;
+  padding-bottom:.08em;
+  margin-right:-.035em;
+  line-height:1.08;
+  font-style:normal;
+  color:inherit;
+  background:
+    radial-gradient(circle at 20% 28%, #C73564 0%, transparent 32%),
+    radial-gradient(circle at 76% 64%, #F05B4F 0%, transparent 34%),
+    linear-gradient(115deg,#C22E61 0%,#E8547A 36%,#C75AA0 68%,#F06A42 100%);
+  background-size:220% 220%;
+  -webkit-background-clip:text;
+  background-clip:text;
+  -webkit-text-fill-color:transparent;
+  animation:accentFlow 6s ease-in-out infinite;
+}
+@keyframes accentFlow{0%{background-position:0% 45%;}50%{background-position:100% 55%;}100%{background-position:0% 45%;}}
+.sec-h2 .pk{color:var(--pink);}
+.sec-h2 .yw{color:var(--yellow);}
+.sec-h3{
+  font-family:'Plus Jakarta Sans',sans-serif;
+  font-size:clamp(26px,3.6vw,42px);
+  font-weight:800;letter-spacing:-0.05em;line-height:1.08;
+}
+
+/* ─────────────────────────────────────
+   BODY TEXT
+───────────────────────────────────── */
+.body-prose{font-size:clamp(15px,1.5vw,17px);line-height:1.85;color:var(--ink80);letter-spacing:-0.01em;}
+.body-prose p{margin-bottom:1.5em;}
+.body-prose p:last-child{margin-bottom:0;}
+.body-sm{font-size:13.5px;line-height:1.75;color:var(--ink60);}
+
+.pull-quote{
+  font-size:clamp(17px,2.2vw,24px);font-weight:700;letter-spacing:-0.04em;line-height:1.4;
+  color:var(--dark);border-left:3px solid var(--teal);
+  padding:4px 0 4px 24px;margin:2.4em 0;
+}
+.pull-quote.lav{border-left-color:var(--lav);}
+.pull-quote.yellow{border-left-color:var(--yellow);}
+
+/* ─────────────────────────────────────
+   SECTIONS
+───────────────────────────────────── */
+.section{padding:88px 52px;}
+.section-tight{padding:64px 52px;}
+.w{max-width:1260px;margin:0 auto;}
+
+.bg-white{background:#fff;}
+.bg-cream{background:#FAFAF7;}
+.bg-dark{background:var(--dark);}
+.bg-teal{background:var(--teal-light);}
+.bg-lav{background:var(--lav-light);}
+.bg-pink{background:var(--pink-light);}
+.bg-green{background:var(--green-light);}
+.bg-yellow{background:var(--yellow-pale);}
+
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:28px;}
+.g3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+.g-asym{display:grid;grid-template-columns:1.15fr 0.85fr;gap:64px;align-items:start;}
+.g-left{display:grid;grid-template-columns:1fr 1.6fr;gap:56px;align-items:start;}
+.g-right{display:grid;grid-template-columns:1.6fr 1fr;gap:56px;align-items:start;}
+
+.divider{width:100%;height:1px;background:var(--ink10);}
+.divider-dark{width:100%;height:1px;background:rgba(255,255,255,.07);}
+
+/* ─────────────────────────────────────
+   CALLOUT BOXES
+───────────────────────────────────── */
+.callout{border-radius:16px;padding:28px 32px;border-left:3px solid var(--teal);background:var(--teal-light);}
+.callout.lav{background:var(--lav-light);border-left-color:var(--lav);}
+.callout.yellow{background:var(--yellow-pale);border-left-color:var(--yellow);}
+.callout.pink{background:var(--pink-light);border-left-color:var(--pink);}
+
+/* ─────────────────────────────────────
+   BRIEF TABLE
+───────────────────────────────────── */
+.brief{display:grid;grid-template-columns:140px 1fr;gap:14px;padding:14px 0;border-bottom:1px solid var(--ink10);align-items:start;}
+.brief:last-child{border-bottom:none;}
+.bk{font-size:9.5px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:#0F7A5A;padding-top:2px;}
+.bv{font-size:14px;line-height:1.65;color:var(--ink80);}
+.brief-dark{display:grid;grid-template-columns:140px 1fr;gap:14px;padding:14px 0;border-bottom:1px solid rgba(255,255,255,.06);align-items:start;}
+.brief-dark:last-child{border-bottom:none;}
+.brief-dark .bk{font-size:9.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:rgba(57,189,197,.5);padding-top:2px;}
+.brief-dark .bv{font-size:14px;line-height:1.65;color:rgba(255,255,255,.55);}
+
+/* ─────────────────────────────────────
+   GENERIC CARD (outlined)
+───────────────────────────────────── */
+.card-outline{
+  background:#fff;border:3px solid var(--ink10);
+  border-radius:18px;padding:32px;
+  transition:transform .2s,box-shadow .2s;
+}
+.card-outline:hover{transform:translateY(-3px);box-shadow:0 14px 40px rgba(18,39,43,.07);}
+.card-outline.lav{border-color:var(--lav);background:var(--lav-light);}
+
+/* ─────────────────────────────────────
+   EMAIL MOCK
+───────────────────────────────────── */
+.email-shell{background:#fff;border-radius:18px;overflow:hidden;box-shadow:0 22px 64px rgba(18,39,43,.12);border:1px solid rgba(184,159,232,.28);}
+.email-bar{background:linear-gradient(180deg,#F8F5FF 0%,#EEE8FA 100%);padding:12px 16px;display:flex;align-items:center;gap:6px;border-bottom:1px solid rgba(184,159,232,.18);}
+.e-dot{width:9px;height:9px;border-radius:50%;}
+.email-head{background:#FBFAFD;padding:18px 26px 14px;border-bottom:1px solid rgba(18,39,43,.08);}
+.erow{margin-bottom:7px;}
+.erow:last-child{margin-bottom:0;}
+.ek{font-size:9.5px;font-weight:700;color:var(--ink40);letter-spacing:.1em;text-transform:uppercase;display:block;margin-bottom:2px;}
+.ev{font-size:13px;color:var(--dark);font-weight:500;}
+.ev.sub{font-size:14.5px;font-weight:900;color:#0D2E32;}
+.email-body{padding:28px 30px 32px;font-size:14.5px;line-height:1.82;color:var(--ink80);}
+.email-body p{margin-bottom:1.3em;}
+.email-body p:last-child{margin-bottom:0;}
+.email-cta{display:inline-block;background:var(--dark);color:white;padding:11px 24px;border-radius:999px;font-size:13px;font-weight:800;text-decoration:none;margin:4px 0 16px;letter-spacing:-.01em;}
+.email-sig{border-top:1px solid var(--ink10);margin-top:20px;padding-top:16px;}
+.sig-name{font-size:13px;font-weight:800;color:var(--dark);margin-bottom:2px;}
+.sig-role{font-size:11.5px;color:var(--ink40);}
+.sig-logo{margin-top:10px;display:inline-flex;align-items:center;gap:8px;background:var(--ink03);border:1px solid var(--ink10);border-radius:8px;padding:6px 12px 6px 10px;}
+.logo-ph{width:22px;height:22px;border-radius:5px;background:var(--ink10);border:1.5px dashed var(--ink20);display:flex;align-items:center;justify-content:center;font-size:7px;font-weight:800;color:var(--ink40);letter-spacing:.02em;}
+.sig-lname{font-size:11px;font-weight:700;color:var(--ink60);}
+.email-ps{margin-top:16px;font-size:15px;color:var(--ink60);font-style:italic;border-left:3px solid var(--ink10);padding-left:14px;font-family:'Caveat',cursive;line-height:1.6;}
+
+/* ─────────────────────────────────────
+   PHONE MOCK
+───────────────────────────────────── */
+.phone-wrap{max-width:240px;margin:0 auto;}
+.phone-shell{background:#0D1F22;border-radius:32px;overflow:hidden;aspect-ratio:9/16;position:relative;box-shadow:0 24px 64px rgba(18,39,43,.28);}
+.phone-notch{position:absolute;top:14px;left:50%;transform:translateX(-50%);width:64px;height:5px;background:rgba(255,255,255,.18);border-radius:3px;z-index:10;}
+.phone-bg{position:absolute;inset:0;background:linear-gradient(155deg,#1B3238 0%,#0C1D22 100%);z-index:1;}
+.phone-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:2;}
+.phone-overlay{position:absolute;inset:0;z-index:3;background:linear-gradient(to top,rgba(18,39,43,.92) 42%,rgba(18,39,43,.18) 76%,transparent 100%);}
+.phone-img-note{position:absolute;inset:0;z-index:2;display:flex;align-items:center;justify-content:center;padding:28px;text-align:center;}
+.phone-img-note p{font-size:10px;color:rgba(255,255,255,.26);line-height:1.55;}
+.phone-img-note p strong{display:block;font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.16);margin-bottom:6px;}
+.phone-ui{position:absolute;inset:0;z-index:4;display:flex;flex-direction:column;justify-content:space-between;padding:16px;}
+.phone-top{display:flex;justify-content:space-between;align-items:flex-start;}
+.phone-handle{font-size:11px;font-weight:700;color:white;text-shadow:0 1px 3px rgba(0,0,0,.5);}
+.phone-handle small{display:block;font-size:9px;font-weight:500;color:rgba(255,255,255,.42);margin-top:1px;}
+.phone-actions{display:flex;flex-direction:column;gap:14px;align-items:center;}
+.phone-action{display:flex;flex-direction:column;align-items:center;gap:3px;}
+.phone-action-icon{width:30px;height:30px;border-radius:50%;background:rgba(255,255,255,.14);display:flex;align-items:center;justify-content:center;font-size:13px;}
+.phone-action-n{font-size:9px;color:rgba(255,255,255,.5);font-weight:600;}
+.phone-bottom{display:flex;flex-direction:column;gap:5px;}
+.phone-cap{font-size:12px;font-weight:700;color:white;letter-spacing:-.02em;}
+.phone-cap-sub{font-size:10px;color:rgba(255,255,255,.42);}
+.phone-bar{height:2px;background:linear-gradient(to right,var(--teal) 38%,rgba(255,255,255,.1) 38%);border-radius:2px;margin:4px 0;}
+.phone-disc{display:flex;align-items:center;gap:6px;}
+.disc-icon{width:18px;height:18px;border-radius:50%;background:linear-gradient(135deg,var(--teal),var(--yellow));flex-shrink:0;}
+.disc-txt{font-size:9px;color:rgba(255,255,255,.36);font-weight:600;}
+
+/* ─────────────────────────────────────
+   LINKEDIN MOCK
+───────────────────────────────────── */
+.li-card{background:rgba(255,255,255,.05);border:3px solid rgba(255,255,255,.09);border-radius:16px;overflow:hidden;}
+.li-head{padding:18px 20px 14px;display:flex;align-items:center;gap:12px;border-bottom:1px solid rgba(255,255,255,.06);}
+.li-avatar{width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,var(--teal),var(--yellow));display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:800;color:var(--dark);flex-shrink:0;}
+.li-name{font-size:14px;font-weight:700;color:white;}
+.li-role{font-size:11px;color:rgba(255,255,255,.32);margin-top:1px;}
+.li-time{font-size:10px;color:rgba(255,255,255,.18);margin-top:3px;}
+.li-text{padding:18px 20px;font-size:14px;line-height:1.78;color:rgba(255,255,255,.62);}
+.li-text p{margin-bottom:.8em;}
+.li-text p:last-child{margin-bottom:0;}
+.li-link{margin:0 20px 14px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:8px;overflow:hidden;}
+.li-link-tag{background:var(--yellow);color:var(--dark);font-size:9px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;padding:4px 10px;}
+.li-link-title{font-size:12px;color:rgba(255,255,255,.36);padding:8px 10px;}
+.li-actions{display:flex;border-top:1px solid rgba(255,255,255,.06);}
+.li-actions span{flex:1;text-align:center;padding:10px 0;font-size:11px;color:rgba(255,255,255,.22);font-weight:600;}
+
+/* ─────────────────────────────────────
+   DISTRICT SLIDE
+───────────────────────────────────── */
+.dist-slide{background:var(--dark);border-radius:18px;padding:40px 44px;display:flex;flex-direction:column;justify-content:space-between;position:relative;overflow:hidden;min-height:260px;}
+.slide-glow{position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse 60% 65% at 85% 50%,rgba(57,189,197,.14) 0%,transparent 55%),radial-gradient(ellipse 40% 45% at 5% 88%,rgba(245,208,59,.09) 0%,transparent 50%);}
+.slide-label{font-size:9px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:rgba(255,255,255,.22);margin-bottom:10px;}
+.slide-title{font-size:clamp(28px,4vw,48px);font-weight:800;letter-spacing:-0.05em;color:white;line-height:1.1;margin-bottom:28px;}
+.slide-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
+.slide-box{background:rgba(255,255,255,.06);border-radius:10px;padding:14px;border-left:3px solid;}
+.slide-n{font-size:clamp(22px,3vw,34px);font-weight:800;letter-spacing:-0.07em;color:white;margin-bottom:4px;}
+.slide-d{font-size:10px;color:rgba(255,255,255,.4);line-height:1.5;}
+
+/* ─────────────────────────────────────
+   PODCAST CARDS
+───────────────────────────────────── */
+.pod-card{background:#fff;border:3px solid var(--ink10);border-radius:18px;padding:28px 30px;display:flex;gap:20px;transition:transform .2s,box-shadow .2s;}
+.pod-card:hover{transform:translateY(-3px);box-shadow:0 14px 40px rgba(18,39,43,.07);}
+.pod-icon{width:42px;height:42px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;margin-top:2px;}
+.pod-tag{font-size:9px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:3px 9px;border-radius:4px;display:inline-block;margin-bottom:8px;}
+.pod-title{font-size:16px;font-weight:800;letter-spacing:-0.03em;color:var(--dark);margin-bottom:6px;line-height:1.2;}
+.pod-host{font-size:13.5px;line-height:1.72;color:var(--ink60);margin-bottom:10px;}
+.pod-why{font-size:13px;line-height:1.75;color:var(--ink80);border-top:1px solid var(--ink10);padding-top:10px;margin-top:10px;}
+
+/* ─────────────────────────────────────
+   FESTIVAL CARDS
+───────────────────────────────────── */
+.fest-card{background:#fff;border:3px solid var(--ink10);border-radius:18px;padding:32px;transition:transform .2s,box-shadow .2s;}
+.fest-card:hover{transform:translateY(-3px);box-shadow:0 14px 40px rgba(18,39,43,.07);}
+.fest-window{display:inline-block;background:var(--teal-light);color:#0A6B50;font-size:9px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;padding:3px 9px;border-radius:4px;margin-bottom:10px;}
+.fest-name{font-size:17px;font-weight:800;letter-spacing:-0.04em;color:var(--dark);margin-bottom:10px;line-height:1.2;}
+.fest-detail{font-size:13.5px;line-height:1.75;color:var(--ink80);margin-bottom:12px;}
+.fest-contact{background:var(--ink03);border-radius:8px;padding:10px 12px;font-size:12px;color:var(--ink80);line-height:1.65;}
+.fest-contact strong{color:#0A6B50;font-weight:800;}
+.fest-tag{display:inline-block;font-size:9px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:3px 9px;border-radius:4px;margin-right:5px;margin-bottom:5px;margin-top:12px;}
+
+/* ─────────────────────────────────────
+   TABS
+───────────────────────────────────── */
+.tab-row{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:24px;}
+.tab-btn{padding:8px 18px;border-radius:999px;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;cursor:pointer;border:2px solid var(--ink20);background:transparent;color:var(--ink60);transition:all .18s;}
+.tab-btn.active,.tab-btn:hover{background:var(--dark);color:white;border-color:var(--dark);}
+.tab-pane{display:none;}
+.tab-pane.active{display:block;animation:fadein .22s ease;}
+@keyframes fadein{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:translateY(0)}}
+
+/* ─────────────────────────────────────
+   CLOSING
+───────────────────────────────────── */
+.closing-quote{font-size:clamp(20px,2.8vw,34px);font-weight:700;letter-spacing:-0.04em;line-height:1.45;color:rgba(255,255,255,.52);}
+
+/* ─────────────────────────────────────
+   ANIMATIONS
+───────────────────────────────────── */
+.fade-up{opacity:0;transform:translateY(18px);transition:opacity .65s ease,transform .65s ease;}
+.fade-up.visible{opacity:1;transform:translateY(0);}
+.reveal{opacity:0;transform:translateY(16px);transition:opacity .65s ease,transform .65s ease;}
+.reveal.in{opacity:1;transform:translateY(0);}
+
+/* ─────────────────────────────────────
+   RESPONSIVE
+───────────────────────────────────── */
+@media(max-width:960px){
+  .hero{padding:150px 24px 80px;}
+  .section,.section-tight{padding-left:24px;padding-right:24px;}
+  .g2,.g3,.g-asym,.g-left,.g-right{grid-template-columns:1fr;gap:24px;}
+  .slide-stats{grid-template-columns:1fr 1fr;}
+  .pod-card{flex-direction:column;gap:12px;}
+}
+@media(max-width:560px){
+  .hero{padding-top:132px;padding-bottom:64px;min-height:430px;}
+  .hero h1{font-size:clamp(48px,16vw,70px);}
+  .hero-sub{font-size:14px;}
+  .hero-meta{grid-template-columns:1fr;}
+  .email-shell,.dist-slide,.pod-card,.fest-card{border-radius:14px;}
+  .phone-wrap{max-width:220px;}
+  .slide-stats{grid-template-columns:1fr;}
+  .section,.section-tight{padding-left:18px;padding-right:18px;}
+}
+</style>
+<link rel="stylesheet" href="kindred-nav.css?v=3">
+</head>
+<body>
+<!-- SHARED NAV -->
+<nav class="hs-nav" aria-label="Primary navigation">
+  <a class="hs-nav-brand" href="index.html" aria-label="Kindred home">
+    <span class="hs-nav-logo" aria-hidden="true"></span>
+  </a>
+  <ul class="hs-nav-links">
+    <li><a class="hs-nav-item" href="index.html">Home</a></li>
+    <li class="hs-nav-menu">
+      <a class="hs-nav-item" href="Writing%20pages/what%20the%20file%20doesnt%20say.html">Writing</a>
+      <div class="hs-nav-dropdown" aria-label="Writing pages">
+        <a href="Writing%20pages/what%20the%20file%20doesnt%20say.html">Article 1</a>
+        <a href="Writing%20pages/didnt%20route%20them.html">Article 2</a>
+        <a href="Writing%20pages/three%20foot%20gap.html">Article 3</a>
+      </div>
+    </li>
+    <li><a class="hs-nav-item" href="compton%20pitch.html">District Pitch</a></li>
+    <li><a class="hs-nav-item" href="series.html">Series</a></li>
+    <li class="hs-nav-menu">
+      <a class="hs-nav-item is-active" href="documentary%20treatment.html">Documentary</a>
+      <div class="hs-nav-dropdown" aria-label="Documentary pages">
+        <a href="documentary%20treatment.html">Treatment</a>
+        <a class="is-active" href="documentary%20distribution.html">Distribution</a>
+      </div>
+    </li>
+  </ul>
+</nav>
+<!-- SECTION RAIL -->
+<nav class="hs-section-rail" aria-label="Section navigation">
+  <div class="hs-section-rail-tab">Sections</div>
+  <div class="hs-section-rail-panel">
+    <div class="hs-section-rail-kicker">On this page</div>
+    <a href="#top">Top</a>
+    <a href="#email">Email</a>
+    <a href="#teacher">Teachers</a>
+    <a href="#district">District</a>
+    <a href="#social">Social</a>
+    <a href="#podcasts">Podcasts</a>
+    <a href="#festivals">Festivals</a>
+  </div>
+</nav>
+
+<!-- ══════════════════════════════════
+     HERO — exact v3 badge/title/sub structure
+══════════════════════════════════ -->
+<section id="top" class="hero">
+  <div class="hero-blob"></div>
+  <div class="hero-blob2"></div>
+  <div class="hero-blob3"></div>
+  <div class="hero-inner">
+
+    <!-- badge — exact v3 position, above h1 -->
+    <div class="hero-tag">
+      <div class="hero-dot"></div>
+      <span class="hero-tag-text">Documentary Distribution</span>
+    </div>
+
+    <!-- title -->
+    <h1 class="fade-up">AVAILABLE<br>Documentary <em>Distribution</em></h1>
+
+    <!-- subtitle — directly below h1, exact v3 relationship -->
+    <p class="hero-sub fade-up">David Kahananui's story belongs in three rooms: a festival screen, a classroom, and the inbox of someone who can do something with it. This is how it gets there.</p>
+
+      <div class="hero-meta fade-up">
+      <div class="hero-meta-item">
+        <p class="hero-meta-label">Contact</p>
+        <p class="hero-meta-value">Chris Smith</p>
+      </div>
+      <div class="hero-meta-item">
+        <p class="hero-meta-label">Channels</p>
+        <p class="hero-meta-value">Donors · Teachers · Districts · Social · Podcasts · Festivals</p>
+      </div>
+      <div class="hero-meta-item">
+        <p class="hero-meta-label">Working Title</p>
+        <div class="title-badge">
+          <div class="title-badge-dot"></div>
+          AVAILABLE
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+<div class="hs-hero-divider"></div><!-- ══════════════════════════════════
+     DONOR EMAIL
+══════════════════════════════════ -->
+<section class="section bg-white" id="email">
+  <div class="w">
+    <span class="eyebrow">Donor Email</span>
+
+    <div class="g-right" style="grid-template-columns:2.08fr 1fr;margin-bottom:64px;">
+
+      <!-- email mock -->
+      <div>
+        <span class="eyebrow eyebrow-pink" style="margin-bottom:12px;">Year-End Donor Email · Draft</span>
+        <div class="email-shell">
+          <div class="email-bar">
+            <div class="e-dot" style="background:#FF5F57;"></div>
+            <div class="e-dot" style="background:#FEBC2E;margin-left:4px;"></div>
+            <div class="e-dot" style="background:#28C840;margin-left:4px;"></div>
+          </div>
+          <div class="email-head">
+            <div class="erow"><span class="ek">From</span><span class="ev">Chris Smith &lt;csmith@kindred.org&gt;</span></div>
+            <div class="erow"><span class="ek">To</span><span class="ev">Lisa Tanaka &lt;ltanaka@gmail.com&gt;</span></div>
+            <div class="erow"><span class="ek">Subject</span><span class="ev sub">He got up before his son every morning for seventeen years.</span></div>
+          </div>
+          <div class="email-body">
+            <p>Hi Lisa,</p>
+            <p>His name is David Kahananui. He lives in Kaneohe, on the windward side of O'ahu. He researched the charter school, drove to the information night, filed the application, and followed up twice. What Archer got to be asked, David never was.</p>
+            <p>Archer graduated from the Hawaiian Academy of Arts and Science in 2023. He used Kindred's platform in class the year before and saw, for the first time, careers he had never encountered growing up. For David, the same discovery arrived thirty years too late.</p>
+            <p>We made a film about David. Twenty-two minutes. It is called AVAILABLE.</p>
+            <a href="#" class="email-cta">Watch AVAILABLE</a>
+            <p>There are a lot of Davids. People who did the responsible thing, built a life, and still never got asked what kind of life they wanted. Every student who uses Kindred is one fewer person left to find out thirty years late. Your gift last year kept that work running in classrooms where districts cannot cover the licence fee. Thank you for that.</p>
+            <p>A gift before 31 December keeps Kindred in twelve classrooms through May.</p>
+            <div class="email-sig">
+              <div class="sig-name">Chris Smith</div>
+              <div class="sig-role">Growth Manager · Kindred</div>
+              <div class="sig-logo">
+                <img src="assets/brand/kindred_icon.png" alt="Kindred" style="width:22px;height:22px;border-radius:5px;object-fit:cover;">
+                <span class="sig-lname">Kindred</span>
+              </div>
+            </div>
+            <p class="email-ps">P.S. We start filming on the windward side of O'ahu in May. Donors who give before December get a letter when we get there.</p>
+          </div>
+        </div>
+      </div>
+
+      <div style="align-self:start;padding-top:8px;">
+        <h2 class="sec-h2" style="margin-bottom:22px;">Year-end.<br><em>One story.</em></h2>
+        <div class="body-prose" style="margin-bottom:28px;">
+          <p>David's name is the first thing they read. The ask is paragraph four. Short worked better here than long.</p>
+        </div>
+        <div class="tab-row">
+          <button class="tab-btn active" onclick="showTab(this,'e-donor')">Year-End Donor</button>
+          <button class="tab-btn" onclick="showTab(this,'e-district')">District Follow-Up</button>
+        </div>
+        <div class="tab-pane active" id="e-donor">
+          <div class="brief"><span class="bk">Send date</span><span class="bv">Tuesday 11 November, 10:30am recipient local time.</span></div>
+          <div class="brief"><span class="bk">List</span><span class="bv">Warm donors only: people who have given before or attended a Kindred event.</span></div>
+          <div class="brief"><span class="bk">From</span><span class="bv">Chris Smith, from his actual address. Not a CRM send. Not the org account.</span></div>
+          <div class="brief"><span class="bk">Follow-up</span><span class="bv">One reminder on 18 November, different subject line, for anyone who opened but did not click. No third send.</span></div>
+          <div class="brief"><span class="bk">The ask</span><span class="bv">Paragraph four. Specific: keeps us in twelve classrooms through May.</span></div>
+        </div>
+        <div class="tab-pane" id="e-district">
+          <div class="brief"><span class="bk">Timing</span><span class="bv">Within 24 hours of a phone call. Confirms what was discussed.</span></div>
+          <div class="brief"><span class="bk">To</span><span class="bv">Troy Sueoka, State CTE Educational Specialist, Hawaii DOE. troy.sueoka@k12.hi.us, 808-305-9705.</span></div>
+          <div class="brief"><span class="bk">Goal</span><span class="bv">A 20-minute demo. The film is why he takes it. Kindred is what it is about.</span></div>
+          <div class="brief"><span class="bk">Attachment</span><span class="bv">One PDF. Film link. Two-paragraph platform overview. A teacher quote from the state if one exists.</span></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ══════════════════════════════════
+     TEACHER EMAIL
+══════════════════════════════════ -->
+<section class="section bg-cream" id="teacher">
+  <div class="w">
+    <span class="eyebrow">Teacher Email</span>
+
+    <div class="g-right" style="grid-template-columns:2.08fr 1fr;">
+
+      <!-- email mock -->
+      <div>
+        <span class="eyebrow" style="margin-bottom:12px;">Draft 2</span>
+        <div class="email-shell">
+          <div class="email-bar">
+            <div class="e-dot" style="background:#FF5F57;"></div>
+            <div class="e-dot" style="background:#FEBC2E;margin-left:4px;"></div>
+            <div class="e-dot" style="background:#28C840;margin-left:4px;"></div>
+          </div>
+          <div class="email-head">
+            <div class="erow"><span class="ek">From</span><span class="ev">Chris Smith &lt;csmith@kindred.org&gt;</span></div>
+            <div class="erow"><span class="ek">To</span><span class="ev">Marcus Webb &lt;mwebb@kamehamehaschools.org&gt;</span></div>
+            <div class="erow"><span class="ek">Subject</span><span class="ev sub">22 minutes. Worth your lunch break.</span></div>
+          </div>
+          <div class="email-body">
+            <p>Hi Marcus,</p>
+            <p>One of your students graduated in 2023 from a charter school on O'ahu. Or one exactly like him did. His name is Archer. He used the platform in class and said it made careers feel real. Not career-fair real. Real like he could see lives that had never once been described to him before.</p>
+            <p>It's 22 minutes and it's called AVAILABLE. Show it in class if it fits. Forward it to one colleague if it doesn't. That's all it needs from you.</p>
+            <a href="#" class="email-cta">Watch AVAILABLE</a>
+            <div class="email-sig">
+              <div class="sig-name">Chris Smith</div>
+              <div class="sig-role">Growth Manager · Kindred</div>
+              <div class="sig-logo">
+                <img src="assets/brand/kindred_icon.png" alt="Kindred" style="width:22px;height:22px;border-radius:5px;object-fit:cover;">
+                <span class="sig-lname">Kindred</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- brief -->
+      <div style="align-self:start;padding-top:8px;">
+        <h3 class="sec-h3" style="margin-bottom:16px;">For teachers already in the room.</h3>
+        <div class="body-prose" style="margin-bottom:24px;">
+          <p>No pitch language. Their students are in the film. Two sentences says that, then asks one thing.</p>
+        </div>
+        <div class="brief"><span class="bk">Send date</span><span class="bv">Monday 6 October, 8am. Before the week starts. Not a Friday, not during state testing.</span></div>
+        <div class="brief"><span class="bk">Tone</span><span class="bv">Colleague to colleague. Chris has met some of these teachers. This reads like he knows that.</span></div>
+        <div class="brief"><span class="bk">Length</span><span class="bv">Two paragraphs and a link. If it takes more than 30 seconds, it won't be read.</span></div>
+        <div class="brief"><span class="bk">Ask</span><span class="bv">Watch it. Show it or forward it. One action. Nothing else.</span></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════
+     DISTRICT OUTREACH
+══════════════════════════════════ -->
+<section class="section bg-yellow" id="district">
+  <div class="w">
+    <span class="eyebrow eyebrow-yellow">District Outreach</span>
+    <div style="max-width:640px;margin-bottom:44px;">
+      <h2 class="sec-h2" style="margin-bottom:18px;">The brief that follows<br>the call.</h2>
+      <div class="body-prose">
+        <p>CTE directors do not need an introduction to the problem. They need a reason to take the meeting. AVAILABLE is that reason. The brief goes out within 24 hours of the call and it opens with David, not the platform.</p>
+        <p>The first call in Hawaii goes to Troy Sueoka. He is the State CTE Educational Specialist at the Hawaii DOE Office of Curriculum and Instructional Design. troy.sueoka@k12.hi.us, 808-305-9705. AVAILABLE was filmed in his catchment. That is the first sentence.</p>
+      </div>
+    </div>
+
+    <div class="g2">
+      <div>
+        <div class="brief"><span class="bk">First contact</span><span class="bv">Phone call to Troy Sueoka before anything is sent. The brief confirms that call; it does not replace it.</span></div>
+        <div class="brief"><span class="bk">Subject line</span><span class="bv">"Following up, Troy. The film and what it means for Windward's CTE students."</span></div>
+        <div class="brief"><span class="bk">From</span><span class="bv">Chris, by first name, from his own address.</span></div>
+      </div>
+      <div>
+        <div class="brief"><span class="bk">Brief timing</span><span class="bv">Within 24 hours of the call.</span></div>
+        <div class="brief"><span class="bk">Follow-up</span><span class="bv">Once, two weeks later. Offers a 20-minute demo with a Hawaii teacher already using the platform.</span></div>
+        <div class="brief"><span class="bk">Attachment</span><span class="bv">One PDF. Film link. Two-paragraph platform overview. A teacher quote from the state if one exists.</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════
+     SOCIAL CONTENT
+══════════════════════════════════ -->
+<section class="section bg-dark" id="social">
+  <div class="w">
+    <span class="eyebrow" style="color:rgba(255,255,255,.28);">Social Content</span>
+    <div style="max-width:560px;margin-bottom:52px;">
+      <h2 class="sec-h2" style="color:white;margin-bottom:16px;">The reel.<br><em style="color:var(--teal);">The post.</em></h2>
+      <p style="color:rgba(255,255,255,.38);font-size:clamp(15px,1.6vw,17px);line-height:1.78;">Fifteen seconds of real footage: David's hands, or his face in the moment before he answers. No graphics overlaid, no caption quoting the film back at itself. The LinkedIn post opens on a person, not a product.</p>
+    </div>
+
+    <div class="divider-dark" style="margin-bottom:48px;"></div>
+
+    <div class="g2" style="gap:48px;align-items:start;">
+
+      <!-- Instagram -->
+      <div>
+        <span class="eyebrow eyebrow-pink" style="margin-bottom:18px;">Instagram Reel · 15 seconds</span>
+        <div class="phone-wrap">
+            <div class="phone-shell">
+              <div class="phone-notch"></div>
+              <div class="phone-bg"></div>
+              <img class="phone-img" src="assets/documentary/david-truck-hands.webp" alt="David's hands on a truck hood">
+              <div class="phone-overlay"></div>
+            <div class="phone-ui">
+              <div class="phone-top">
+                <div class="phone-handle">@kindred<small>Kindred</small></div>
+                <div class="phone-actions">
+                  <div class="phone-action"><div class="phone-action-icon">❤️</div><span class="phone-action-n">2.4k</span></div>
+                  <div class="phone-action"><div class="phone-action-icon">💬</div><span class="phone-action-n">148</span></div>
+                  <div class="phone-action"><div class="phone-action-icon">↗</div><span class="phone-action-n">Send</span></div>
+                </div>
+              </div>
+              <div class="phone-bottom">
+                <div class="phone-cap">David. Kaneohe. Nobody asked him.</div>
+                <div class="phone-cap-sub">AVAILABLE — link in bio</div>
+                <div class="phone-bar"></div>
+                <div class="phone-disc"><div class="disc-icon"></div><span class="disc-txt">Original audio · AVAILABLE</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div style="margin-top:20px;">
+          <div class="brief-dark"><span class="bk">Footage</span><span class="bv">15 seconds of actual film. No graphics, no text overlay except the caption.</span></div>
+          <div class="brief-dark"><span class="bk">Caption</span><span class="bv">David's name, Kaneohe, film title. Three tags: #AVAILABLE #Kindred #CareerReady</span></div>
+          <div class="brief-dark" style="border-bottom:none;"><span class="bk">Post time</span><span class="bv">Tuesday 7pm or Thursday 6pm.</span></div>
+        </div>
+      </div>
+
+      <!-- LinkedIn -->
+      <div>
+        <span class="eyebrow" style="color:rgba(255,255,255,.28);margin-bottom:18px;">LinkedIn · Chris's voice</span>
+        <div class="li-card">
+          <div class="li-head">
+            <div class="li-avatar">Z</div>
+            <div>
+              <div class="li-name">Chris Smith</div>
+              <div class="li-role">Growth Manager · Kindred</div>
+              <div class="li-time">3h · 🌐</div>
+            </div>
+          </div>
+          <div class="li-text">
+            <p>Archer Kahananui graduated high school in 2023 knowing exactly what he wanted to do next.</p>
+            <p>His father David drove him to school every morning for twelve years. Nobody asked David the same question.</p>
+            <p>We went to film Archer's story. The better one was standing behind it.</p>
+            <p>22 minutes. It's called AVAILABLE.</p>
+            <p>If you work in schools or workforce development, it's worth 22 minutes.</p>
+            <p>If you know a David, send it to him.</p>
+          </div>
+          <div class="li-link">
+            <div class="li-link-tag">AVAILABLE</div>
+            <div class="li-link-title">Watch: kindred.org/available</div>
+          </div>
+          <div class="li-actions">
+            <span>👍 Like</span><span>💬 Comment</span><span>↗ Repost</span><span>✉ Send</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════
+     PODCAST OUTREACH
+══════════════════════════════════ -->
+<section class="section bg-white" id="podcasts">
+  <div class="w">
+    <span class="eyebrow">Podcast Outreach</span>
+
+    <div class="g-left" style="margin-bottom:48px;">
+      <div>
+        <h2 class="sec-h2" style="margin-bottom:20px;">Six shows.<br><em>Different question each time.</em></h2>
+        <div class="body-prose">
+          <p>Chris does not pitch the film. He pitches what it uncovered, and every host gets a different version of it. A workforce researcher hears one thing. A CTE teacher hears another. A documentary programmer hears something else. The pitch changes. The film does not.</p>
+        </div>
+      </div>
+      <div class="card-outline" style="align-self:start;">
+        <p class="pull-quote lav" style="margin-bottom:22px;">The show talks to Chris. The audience finds David.</p>
+        <span class="eyebrow" style="margin-bottom:10px;">Pitch formula</span>
+        <div class="brief"><span class="bk">Subject</span><span class="bv">One sentence: Chris's name, Kindred, the film. Nothing else.</span></div>
+        <div class="brief"><span class="bk">Angle</span><span class="bv">What the film means for their specific audience. Not "a great fit for your show."</span></div>
+        <div class="brief"><span class="bk">Assets</span><span class="bv">Film link, 60-word bio, three talking points. No deck.</span></div>
+        <div class="brief"><span class="bk">Follow-up</span><span class="bv">Once, day 10. Plain text. No second pitch.</span></div>
+      </div>
+    </div>
+
+    <div class="g2" style="gap:16px;">
+
+      <div class="pod-card reveal">
+        <div class="pod-icon" style="background:var(--pink-light);">🎙</div>
+        <div>
+          <span class="pod-tag" style="background:var(--pink-light);color:var(--pink);">Narrative Doc</span>
+          <div class="pod-title">Rough Cut — Radiotopia / PRX</div>
+          <div class="pod-host">Produced by Julie Shapiro. Long-form audio documentary. The audience is documentary programmers, film fund staff, and the people who shortlist films for Tribeca and Full Frame.</div>
+          <div class="pod-why">This is where Essah is the guest, not Chris. The craft of AVAILABLE deserves this room as much as its subject: available light, the relationship built before the camera arrived, why the editor came in before the shoot ended.</div>
+        </div>
+      </div>
+
+      <div class="pod-card reveal">
+        <div class="pod-icon" style="background:var(--teal-light);">🏫</div>
+        <div>
+          <span class="pod-tag" style="background:var(--teal-light);color:var(--teal);">Teachers</span>
+          <div class="pod-title">The Cult of Pedagogy</div>
+          <div class="pod-host">Hosted by Jennifer Gonzalez. 200,000+ subscribers, a significant share of them CTE teachers. When she recommends something, her community acts on it.</div>
+          <div class="pod-why">Pitch angle: what happens in a classroom when students see a parent on screen who looks like their own. AVAILABLE is not a product. Jennifer Gonzalez's audience knows the difference.</div>
+        </div>
+      </div>
+
+      <div class="pod-card reveal">
+        <div class="pod-icon" style="background:var(--yellow-light);">📊</div>
+        <div>
+          <span class="pod-tag" style="background:var(--yellow-light);color:#9A7200;">Workforce · Funders</span>
+          <div class="pod-title">Work Forces</div>
+          <div class="pod-host">Hosted by Julian Alssid and Kaitlin LeMoine, backed by the Lumina Foundation. Listeners include the district leaders and foundation programme officers who fund what gets into schools.</div>
+          <div class="pod-why">Chris's angle: what making the film revealed about the adults the platform was built for. The conversation is not about Kindred. It earns Kindred.</div>
+        </div>
+      </div>
+
+      <div class="pod-card reveal">
+        <div class="pod-icon" style="background:var(--yellow-light);">🎬</div>
+        <div>
+          <span class="pod-tag" style="background:var(--yellow-light);color:#9A7200;">Documentary</span>
+          <div class="pod-title">The Documentary Life</div>
+          <div class="pod-host">An audience of working documentary filmmakers, producers, and festival programmers. Essah goes here, not Chris.</div>
+          <div class="pod-why">The production approach: why the sound recordist was hired before the DP, why the editor arrived before the shoot ended, what available light costs and what it gives back. Garrett Bradley's <em>Time</em> is the reference the audience already knows.</div>
+        </div>
+      </div>
+
+      <div class="pod-card reveal">
+        <div class="pod-icon" style="background:var(--lav-light);">💡</div>
+        <div>
+          <span class="pod-tag" style="background:var(--lav-light);color:var(--lav);">EdTech</span>
+          <div class="pod-title">EdSurge Podcast</div>
+          <div class="pod-host">Produced by ISTE. Reaches district administrators, instructional coaches, and curriculum directors with editorial rigour.</div>
+          <div class="pod-why">Chris's angle: what making the film revealed about what keeps adults out of the career conversation. Peer-to-peer. Not a product announcement.</div>
+        </div>
+      </div>
+
+      <div class="pod-card reveal">
+        <div class="pod-icon" style="background:var(--yellow-light);">🌺</div>
+        <div>
+          <span class="pod-tag" style="background:var(--yellow-light);color:#9A7200;">Local</span>
+          <div class="pod-title">Hawaii Public Radio · The Conversation</div>
+          <div class="pod-host">The film is set in Kaneohe. David's community hears about it first. This is not a distribution play and should not be presented as one.</div>
+          <div class="pod-why">Local coverage also strengthens grant applications with a Pacific communities focus. The obligation to David comes before the strategy. They are not the same thing.</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════
+     FESTIVAL CIRCUIT
+══════════════════════════════════ -->
+<section class="section bg-cream" id="festivals">
+  <div class="w">
+    <span class="eyebrow">Festival Circuit</span>
+
+    <div class="g-left" style="margin-bottom:56px;">
+      <div>
+        <h2 class="sec-h2" style="margin-bottom:20px;">One premiere.<br><em>Protected.</em></h2>
+        <div class="body-prose">
+          <p>Short documentary at 22 minutes has a specific circuit. Tribeca and Full Frame are the credibility anchors in the US. Hot Docs brings the international conversation and a market. SXSW EDU is the room where the people who decide what goes into schools are physically present.</p>
+          <p>Don't burn the premiere online before the film has had a room. One festival, protect it. Educational distribution opens after that: Kanopy, Docuseek, the Video Project.</p>
+        </div>
+      </div>
+      <div class="card-outline lav" style="align-self:start;">
+        <span class="eyebrow eyebrow-lav" style="margin-bottom:10px;">Submission basics</span>
+        <div class="brief"><span class="bk">Premiere</span><span class="bv">Hold the US premiere for Tribeca or Full Frame. Not both simultaneously.</span></div>
+        <div class="brief"><span class="bk">Platform</span><span class="bv">FilmFreeway for most submissions. Tribeca has its own Extranet.</span></div>
+        <div class="brief"><span class="bk">Screener</span><span class="bv">Vimeo. Password-protected, unchanging through review.</span></div>
+        <div class="brief"><span class="bk">Disclosure</span><span class="bv">All submissions note that Kindred's platform appears in the film and that Kindred is the producing organisation.</span></div>
+        <p style="font-size:13px;color:var(--ink60);margin-top:16px;">Kindred is a 501(c)(3). Sundance Documentary Fund (open call closes June 15, 2026), NEH Public Programs, and the Fledgling Fund all have eligibility criteria the organisation meets. The grant strategy starts during pre-production, not after the edit is finished.</p>
+      </div>
+    </div>
+
+    <div class="g2" style="gap:16px;">
+
+      
+
+      <div class="fest-card reveal">
+        <div class="fest-window">Screens annually, typically spring</div>
+        <div class="fest-name">Hawai'i International Film Festival</div>
+        <div class="fest-detail">David Kahananui lives in Kaneohe. His community sees the film before any mainland premiere is locked. HIFF has a short documentary programme with a strong windward-side audience. Check eligibility before committing the US premiere elsewhere.</div>
+        <div class="fest-contact">
+          <strong>Submit via:</strong> FilmFreeway · hiff.org<br>
+          <strong>Why first:</strong> An O'ahu premiere for a film set on the windward side belongs to that community first.
+        </div>
+        <div>
+          <span class="fest-tag" style="background:var(--yellow-light);color:#9A7200;">Local premiere</span>
+          <span class="fest-tag" style="background:var(--pink-light);color:var(--pink);">Comes first</span>
+        </div>
+      </div>
+
+
+      <div class="fest-card reveal">
+        <div class="fest-window">Submissions open late 2026</div>
+        <div class="fest-name">Tribeca Festival — Short Documentary</div>
+        <div class="fest-detail">New York City. Oscar-qualifying. Ben Thompson, VP of Shorts Programming, has watched over 12,000 short films for Tribeca. His 2026 programme leaned toward films about people the industry rarely follows. Fewer short documentaries are submitted than narrative shorts, which means less competition and a programmer who knows the form.</div>
+        <div class="fest-contact">
+          <strong>Programmer:</strong> Ben Thompson, VP Shorts Programming<br>
+          <strong>Submit via:</strong> tribecafilm.com/submissions (Tribeca Extranet)<br>
+          <strong>Premiere:</strong> US Premiere minimum for awards consideration.
+        </div>
+        <div>
+          <span class="fest-tag" style="background:var(--teal-light);color:var(--teal);">First priority</span>
+          <span class="fest-tag" style="background:var(--yellow-light);color:#9A7200;">Oscar-qualifying</span>
+        </div>
+      </div>
+
+      <div class="fest-card reveal">
+        <div class="fest-window">Submissions close late 2026, festival April 2027</div>
+        <div class="fest-name">Full Frame Documentary Film Festival</div>
+        <div class="fest-detail">Durham, NC. Exclusively documentary. The audience is programmers, educators, and working doc filmmakers. No theatrical premiere requirement; decisions notified by March. David is a working father from Kaneohe. Full Frame is run by people who think that story belongs on a screen.</div>
+        <div class="fest-contact">
+          <strong>Submit via:</strong> tickets.duke.edu/fullframe<br>
+          <strong>Contact:</strong> fullframesubmissions@duke.edu<br>
+          <strong>Eligibility:</strong> Films completed after January 1, 2026.
+        </div>
+        <div>
+          <span class="fest-tag" style="background:var(--teal-light);color:var(--teal);">First priority</span>
+          <span class="fest-tag" style="background:var(--pink-light);color:var(--pink);">Doc-only</span>
+        </div>
+      </div>
+
+      <div class="fest-card reveal">
+        <div class="fest-window">Submissions typically open August</div>
+        <div class="fest-name">SXSW EDU</div>
+        <div class="fest-detail">Austin, Texas. The annual gathering for education innovation. Attendees include district administrators, edtech funders, and curriculum directors: the people who decide what resources reach CTE teachers. A film that screens here is not in front of an audience that loves documentary. It is in front of an audience that makes purchasing decisions.</div>
+        <div class="fest-contact">
+          <strong>Format:</strong> Submit as a session, not only as a film. Essah and Chris speak on what the film revealed about what students are shown versus what their parents were never offered.<br>
+          <strong>Submit via:</strong> sxswedu.com/proposals
+        </div>
+        <div>
+          <span class="fest-tag" style="background:var(--yellow-light);color:#9A7200;">Impact audience</span>
+        </div>
+      </div>
+
+      <div class="fest-card reveal">
+        <div class="fest-window">Submissions close late 2026</div>
+        <div class="fest-name">Hot Docs — Toronto</div>
+        <div class="fest-detail">North America's largest documentary festival and market. Awards include Best International Short; requires at minimum a Toronto premiere for competition. The Hot Docs market is where broadcasters, streaming buyers, and educational distributors review new work. This is where the post-festival distribution conversation starts.</div>
+        <div class="fest-contact">
+          <strong>Submit via:</strong> hotdocs.ca/industry/submit-a-film<br>
+          <strong>Industry contact:</strong> programsales@hotdocs.ca<br>
+          <strong>Note:</strong> The film cannot be available online before screening here.
+        </div>
+        <div>
+          <span class="fest-tag" style="background:var(--teal-light);color:var(--teal);">International premiere</span>
+          <span class="fest-tag" style="background:var(--yellow-light);color:#9A7200;">Market access</span>
+        </div>
+      </div>
+
+      <div class="fest-card reveal">
+        <div class="fest-window">Submissions open annually in spring</div>
+        <div class="fest-name">AFI Docs — Washington, D.C.</div>
+        <div class="fest-detail">Screens at the Smithsonian and AFI Silver in Silver Spring. The audience skews toward policy, journalism, and DC-based advocacy organisations. The education system never asked David the question. The people in this room are deciding whether to change that. The festival has direct ties to PBS documentary distribution.</div>
+        <div class="fest-contact">
+          <strong>Submit via:</strong> FilmFreeway<br>
+          <strong>Why here:</strong> The workforce and education policy audience is concentrated in DC. AVAILABLE lands in front of people who set the conditions David Kahananui grew up in.
+        </div>
+        <div>
+          <span class="fest-tag" style="background:var(--teal-light);color:var(--teal);">Policy audience</span>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="callout yellow" style="margin-top:40px;">
+      <p class="body-sm" style="font-style:italic;">22 minutes fits the short documentary programme at Tribeca, Hot Docs, and Full Frame. It plays in a school gymnasium. It embeds on a website. The festival run and the classroom life of this film are not in competition. They need each other.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════
+     CLOSING
+══════════════════════════════════ -->
+<section class="section-tight bg-dark">
+  <div class="w">
+    <div style="max-width:680px;margin:0 auto;text-align:center;">
+      <p class="closing-quote fade-up">What his face does in the seconds before he answers. Not the answer. That is the film.</p>
+    </div>
+  </div>
+</section>
+
+
+
+<footer class="hs-site-footer">
+  <p class="foot-l">Essah &middot; Lead Storyteller</p>
+  <p class="foot-r">Kindred Portfolio &middot; 2026</p>
+</footer>
+<script>
+function showTab(btn, id) {
+  const parent = btn.closest('section') || document.body;
+  parent.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  parent.querySelectorAll('.tab-pane').forEach(p => p.classList.remove('active'));
+  const pane = document.getElementById(id);
+  if (pane) pane.classList.add('active');
+}
+
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('in');
+      e.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.1 });
+document.querySelectorAll('.reveal, .fade-up').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>

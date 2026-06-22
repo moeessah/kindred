@@ -1,0 +1,2091 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/svg+xml" href="assets/brand/favicon.svg">
+<title>Kindred × Compton Unified</title>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;font-size:16px;}
+body{margin:0;font-family:'Plus Jakarta Sans',sans-serif;letter-spacing:-0.01em;line-height:1.6;background:#FAFAF7;color:#12272B;overflow-x:hidden;}
+
+:root{
+  --dark:#12272B;
+  --yellow:#F5D03B;
+  --yellow-light:#FDF7E3;
+  --cream:#F7F3EC;
+  --cream2:#F2EDE3;
+  --green:#3DD97A;
+  --green-mid:#2FC96E;
+  --green-light:#E2F8EC;
+  --teal:#39BDC5;
+  --teal-light:#E4F8FA;
+  --pink:#E8547A;
+  --pink-light:#FDE8EC;
+  --lav:#B89FE8;
+  --lav-light:#F5F1FF;
+  --mint:#A8DDD4;
+  --ink80:rgba(18,39,43,.8);
+  --ink60:rgba(18,39,43,.6);
+  --ink40:rgba(18,39,43,.4);
+  --ink20:rgba(18,39,43,.2);
+  --ink10:rgba(18,39,43,.1);
+  --ink05:rgba(18,39,43,.05);
+}
+
+/* ── NAV REMOVED ── */
+
+/* ── HERO ── */
+@property --cp-x1 { syntax: '<percentage>'; initial-value: 8%;  inherits: false; }
+@property --cp-y1 { syntax: '<percentage>'; initial-value: 18%; inherits: false; }
+@property --cp-x2 { syntax: '<percentage>'; initial-value: 80%; inherits: false; }
+@property --cp-y2 { syntax: '<percentage>'; initial-value: 22%; inherits: false; }
+@property --cp-x3 { syntax: '<percentage>'; initial-value: 48%; inherits: false; }
+@property --cp-y3 { syntax: '<percentage>'; initial-value: 80%; inherits: false; }
+
+.hero{
+  background:
+    radial-gradient(ellipse 70% 75% at var(--cp-x1) var(--cp-y1), rgba(239,145,160,.98) 0%, transparent 62%),
+    radial-gradient(ellipse 65% 65% at var(--cp-x2) var(--cp-y2), rgba(240,190,82,.98) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 60% at var(--cp-x3) var(--cp-y3), rgba(232,162,102,.98) 0%, transparent 58%),
+    radial-gradient(ellipse 55% 55% at 30% 70%,             rgba(238,173,148,.98) 0%, transparent 56%),
+    radial-gradient(ellipse 50% 50% at 75% 65%,             rgba(242,210,92,.98) 0%, transparent 54%),
+    radial-gradient(ellipse 100% 100% at 50% 50%,           #EFC0AA 0%, #EFD09B 100%);
+  animation:
+    cpdrift1 6s ease-in-out infinite alternate,
+    cpdrift2 6s ease-in-out infinite alternate,
+    cpdrift3 6s ease-in-out infinite alternate;
+  padding:150px 52px 80px;
+  position:relative;overflow:hidden;
+  min-height:520px;
+  display:flex;align-items:center;
+}
+.hero-blob{display:none;}
+.hero-blob2{display:none;}
+.hero-blob3{display:none;}
+@keyframes cpdrift1 {
+  0%   { --cp-x1: 8%;  --cp-y1: 18%; }
+  33%  { --cp-x1: 20%; --cp-y1: 32%; }
+  66%  { --cp-x1: 5%;  --cp-y1: 12%; }
+  100% { --cp-x1: 16%; --cp-y1: 26%; }
+}
+@keyframes cpdrift2 {
+  0%   { --cp-x2: 80%; --cp-y2: 22%; }
+  33%  { --cp-x2: 90%; --cp-y2: 36%; }
+  66%  { --cp-x2: 74%; --cp-y2: 16%; }
+  100% { --cp-x2: 86%; --cp-y2: 30%; }
+}
+@keyframes cpdrift3 {
+  0%   { --cp-x3: 48%; --cp-y3: 80%; }
+  33%  { --cp-x3: 36%; --cp-y3: 88%; }
+  66%  { --cp-x3: 60%; --cp-y3: 74%; }
+  100% { --cp-x3: 44%; --cp-y3: 84%; }
+}
+.hero-inner{position:relative;z-index:2;max-width:760px;}
+.hero-tag{
+  display:inline-flex;align-items:center;gap:8px;
+  background:rgba(255,255,255,.34);
+  border:1.5px solid rgba(232,84,122,.42);
+  border-radius:999px;
+  padding:8px 18px 8px 12px;
+  margin-bottom:32px;
+  box-shadow:0 10px 30px rgba(232,84,122,.14);
+  backdrop-filter:blur(16px) saturate(170%);
+  -webkit-backdrop-filter:blur(16px) saturate(170%);
+}
+.hero-dot{
+  width:7px;height:7px;border-radius:50%;
+  background:var(--pink);flex-shrink:0;
+  animation:pulse 2s ease-in-out infinite;
+}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(232,84,122,.5);}70%{box-shadow:0 0 0 7px rgba(232,84,122,0);}100%{box-shadow:0 0 0 0 rgba(232,84,122,0);}}
+.hero-tag-text{font-family:'Plus Jakarta Sans',sans-serif;font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--pink);}
+.hero h1{
+  font-family:'Plus Jakarta Sans',sans-serif;
+  font-size:clamp(64px,8vw,108px);
+  font-weight:800;line-height:.92;
+  letter-spacing:-0.07em;
+  margin-bottom:24px;
+  color:var(--dark);
+}
+.hero h1 em{
+  font-style:normal;
+  color:var(--pink);
+}
+.hero-sub{
+  font-family:'Plus Jakarta Sans',sans-serif;
+  font-size:18px;
+  font-style:normal;
+  line-height:1.6;
+  letter-spacing:-0.02em;
+  color:var(--ink80);
+  max-width:520px;
+  margin-bottom:30px;
+}
+.hero-free{
+  display:inline-flex;align-items:center;gap:12px;
+  background:#FDF3A3;
+  border:1.5px solid rgba(200,160,0,.2);
+  border-radius:18px;
+  padding:16px 24px;
+}
+.hero-free-icon{
+  width:38px;height:38px;border-radius:12px;
+  background:rgba(180,140,0,.15);
+  display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;font-size:17px;
+}
+.hero-free p{font-size:13px;color:rgba(60,45,0,.65);line-height:1.55;}
+.hero-free p strong{color:#3a2f00;font-weight:700;}
+
+/* ── SHARED SECTION PARTS ── */
+.eyebrow{
+  font-family:'Plus Jakarta Sans',sans-serif;
+  font-style:normal;
+  font-size:12px;
+  font-weight:700;
+  letter-spacing:0.12em;
+  text-transform:uppercase;
+  color:var(--teal);
+  display:block;
+  margin-bottom:14px;
+}
+.eyebrow-dark{
+  font-family:'Plus Jakarta Sans',sans-serif;
+  font-style:normal;
+  font-size:12px;
+  font-weight:700;
+  letter-spacing:0.12em;
+  text-transform:uppercase;
+  color:var(--mint);
+  display:block;
+  margin-bottom:14px;
+  opacity:.7;
+}
+.sec-h2{
+  font-family:'Plus Jakarta Sans',sans-serif;
+  font-size:clamp(38px,5vw,64px);
+  font-weight:800;letter-spacing:-0.06em;line-height:1.02;
+}
+.sec-h2 em,.sec-h2 .pk,.sec-h2 .gr,.sec-h2 .yw,.sec-h2 .lv,.sec-h2 .accent-text,.cta-section h2 em{
+  display:inline-block;
+  padding-right:.09em;
+  padding-bottom:.08em;
+  margin-right:-.035em;
+  line-height:1.08;
+  font-style:normal;
+  color:inherit;
+  background:
+    radial-gradient(circle at 20% 30%, #6FE0D8 0%, transparent 30%),
+    radial-gradient(circle at 72% 68%, #2EA7C9 0%, transparent 34%),
+    linear-gradient(115deg,#39BDC5 0%,#49D0B8 38%,#249AB8 72%,#39BDC5 100%);
+  background-size:220% 220%;
+  -webkit-background-clip:text;
+  background-clip:text;
+  -webkit-text-fill-color:transparent;
+  animation:accentFlow 6s ease-in-out infinite;
+}
+.hero h1 em{
+  display:inline-block;
+  padding-right:.09em;
+  padding-bottom:.08em;
+  margin-right:-.035em;
+  line-height:1.08;
+  font-style:normal;
+  color:inherit;
+  background:
+    radial-gradient(circle at 20% 28%, #C73564 0%, transparent 32%),
+    radial-gradient(circle at 76% 64%, #F05B4F 0%, transparent 34%),
+    linear-gradient(115deg,#C22E61 0%,#E8547A 36%,#C75AA0 68%,#F06A42 100%);
+  background-size:220% 220%;
+  -webkit-background-clip:text;
+  background-clip:text;
+  -webkit-text-fill-color:transparent;
+  animation:accentFlow 6s ease-in-out infinite;
+}
+.sec-h2 .pk,.cta-section h2 em{
+  background:
+    radial-gradient(circle at 20% 28%, #C73564 0%, transparent 32%),
+    radial-gradient(circle at 76% 64%, #F05B4F 0%, transparent 34%),
+    linear-gradient(115deg,#C22E61 0%,#E8547A 36%,#C75AA0 68%,#F06A42 100%);
+  background-size:220% 220%;
+  -webkit-background-clip:text;
+  background-clip:text;
+}
+@keyframes accentFlow{
+  0%{background-position:0% 45%;}
+  50%{background-position:100% 55%;}
+  100%{background-position:0% 45%;}
+}
+
+/* ── ACCENT & GRADIENT TEXT ── */
+.accent-text{
+  color:var(--pink);
+  font-weight:800;
+}
+.gradient-text{
+  display:inline-block;
+  padding-right:.08em;
+  position:relative;
+  z-index:2;
+  background: linear-gradient(90deg, var(--pink), #F2B46F, var(--yellow), var(--green), var(--pink));
+  background-size: 300% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradientMove 4s ease infinite;
+  font-weight:800;
+}
+@keyframes gradientMove{
+  0%{background-position: 0% 50%;}
+  50%{background-position: 100% 50%;}
+  100%{background-position: 0% 50%;}
+}
+
+/* ── OPEN LETTER ── */
+.open-letter{
+  background:#fff;
+  padding:88px 52px;
+  text-align:center;
+}
+.letter-inner{max-width:1200px;margin:0 auto;}
+.letter-body{
+  font-family:'Plus Jakarta Sans',sans-serif;
+  font-size:16px;
+  letter-spacing:-0.015em;
+  line-height:1.88;
+  color:var(--ink80);
+  max-width:850px;
+  margin:0 auto;
+}
+.letter-body p{margin-bottom:1.5em;}
+.letter-body p:last-child{margin-bottom:0;}
+.free-callout{
+  margin:32px 0 28px;
+  background:var(--dark);
+  border-radius:18px;
+  padding:24px 28px;
+  display:flex;align-items:flex-start;gap:16px;
+}
+.free-callout-icon{font-size:20px;flex-shrink:0;margin-top:3px;}
+.free-callout p{
+  font-family:'Plus Jakarta Sans',sans-serif;
+  font-size:15px;
+  font-weight:400;
+  letter-spacing:-0.01em;
+  color:rgba(255,255,255,.65);
+  line-height:1.7;
+}
+.free-callout p strong{color:#fff;font-weight:700;}
+.caveat-note{
+  font-family:'Caveat',cursive;
+  font-size:21px;
+  font-style:italic;
+  font-weight:500;
+  color:var(--teal);
+  margin-top:24px;
+  display:block;
+  line-height:1.5;
+}
+.expand-block{
+  border:1.5px solid var(--ink10);
+  border-radius:14px;
+  overflow:hidden;
+  margin-top:22px;
+  max-width:850px;
+  margin-left:auto;
+  margin-right:auto;
+}
+.expand-trigger{
+  width:100%;display:flex;align-items:center;justify-content:space-between;
+  padding:18px 22px;
+  background:none;border:none;cursor:pointer;
+  font-family:'Plus Jakarta Sans',sans-serif;
+  font-size:15px;font-weight:600;letter-spacing:-0.02em;color:var(--dark);
+  text-align:left;
+  transition:background .18s;
+}
+.expand-trigger:hover{background:var(--ink05);}
+.expand-trigger .arrow{transition:transform .25s;font-size:16px;color:var(--ink40);}
+.expand-trigger.open .arrow{transform:rotate(180deg);}
+.expand-body{
+  max-height:0;overflow:hidden;
+  transition:max-height .35s cubic-bezier(.4,0,.2,1),padding .35s;
+  padding:0 22px;
+  font-family:'Plus Jakarta Sans',sans-serif;
+  font-size:15px;letter-spacing:-0.01em;color:var(--ink60);line-height:1.75;
+}
+.expand-body.open{max-height:400px;padding:18px 22px;}
+
+/* DEMO STRIP */
+.demo-strip{
+  background:var(--dark);
+  padding:48px 52px;
+  display:flex;align-items:center;justify-content:space-between;
+  gap:32px;flex-wrap:wrap;
+}
+.demo-strip-left h3{
+  font-family:'Plus Jakarta Sans',sans-serif;
+  font-size:clamp(28px,3.2vw,42px);
+  font-weight:800;letter-spacing:-0.04em;
+  color:#fff;margin-bottom:8px;
+}
+.demo-strip-left p{
+  font-family:'Plus Jakarta Sans',sans-serif;
+  font-size:15px;letter-spacing:-0.01em;color:rgba(255,255,255,.4);max-width:400px;line-height:1.65;
+}
+.demo-btn{
+  background:var(--green);
+  color:var(--dark);
+  font-family:'Plus Jakarta Sans',sans-serif;
+  font-weight:700;font-size:15px;letter-spacing:-0.03em;
+  padding:14px 28px;border-radius:999px;
+  text-decoration:none;
+  white-space:nowrap;
+  box-shadow:0 4px 0 #27a958;
+  transition:transform .15s, box-shadow .15s;
+  display:inline-flex;align-items:center;gap:8px;flex-shrink:0;
+}
+.demo-btn:hover{transform:translateY(2px);box-shadow:0 2px 0 #27a958;}
+
+/* ── DISTRICT SECTION ── */
+.district-section{
+  padding:88px 52px;
+  background:var(--teal-light);
+}
+.district-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:56px;
+  align-items:start;
+  margin-top:40px;
+}
+.district-prose{
+  font-family:'Plus Jakarta Sans',sans-serif;
+  font-size:clamp(15px,1.5vw,16px);
+  letter-spacing:-0.015em;
+  line-height:1.88;color:var(--ink80);
+}
+.district-prose p{margin-bottom:1.4em;}
+.district-prose p:last-child{margin-bottom:0;}
+.pull-quote{
+  font-family:'Plus Jakarta Sans',sans-serif;
+  font-size:clamp(15px,1.6vw,16px);
+  font-weight:700;
+  letter-spacing:-0.02em;
+  line-height:1.5;
+  color:var(--dark);
+  border-left:4px solid var(--teal);
+  padding:8px 0 8px 24px;
+  margin-top:32px;
+}
+.stat-stack{display:flex;flex-direction:column;gap:14px;}
+.stat-tile{
+  border-radius:22px;
+  padding:28px 26px;
+  position:relative;overflow:hidden;
+}
+.stat-tile.yellow{background:var(--yellow-light);border:1.5px solid rgba(245,208,59,.4);}
+.stat-tile.teal{background:var(--teal-light);border:1.5px solid rgba(57,189,197,.25);}
+.stat-tile.lav{background:var(--lav-light);border:1.5px solid rgba(184,159,232,.3);}
+.stat-tile .tile-label{
+  font-family:'Plus Jakarta Sans',sans-serif;
+  font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--teal);margin-bottom:10px;
+}
+.stat-tile .tile-num{
+  font-family:'Plus Jakarta Sans',sans-serif;
+  font-size:clamp(36px,4vw,52px);font-weight:800;letter-spacing:-0.08em;
+  color:var(--dark);line-height:1;margin-bottom:6px;
+}
+.stat-tile .tile-desc{font-family:'Plus Jakarta Sans',sans-serif;font-size:13px;color:var(--ink60);line-height:1.6;}
+.gap-bar{
+  margin-top:14px;
+  background:rgba(18,39,43,.1);
+  border-radius:999px;height:7px;
+  overflow:hidden;
+}
+.gap-fill{
+  height:100%;border-radius:999px;
+  background:var(--yellow);
+  width:0;
+  transition:width 1.4s cubic-bezier(.4,0,.2,1);
+}
+
+/* ── COUNSELOR SECTION ── */
+.counselor-section{
+  background:#FAFAF7;
+  padding:88px 52px;
+}
+.counselor-inner{max-width:780px;margin:0 auto;text-align:center;}
+.counselor-inner .sec-h2{margin-bottom:10px;}
+.counselor-kicker{
+  font-family:'Plus Jakarta Sans',sans-serif;font-style:normal;
+  font-size:15.5px;color:var(--ink60);
+  margin-bottom:48px;display:block;
+}
+.timeline{
+  position:relative;
+  padding-left:36px;
+  text-align:left;
+}
+.timeline::before{
+  content:'';
+  position:absolute;left:12px;top:0;bottom:0;
+  width:2px;background:var(--ink10);
+}
+.timeline-step{position:relative;margin-bottom:36px;}
+.timeline-step:last-child{margin-bottom:0;}
+.tl-dot{
+  position:absolute;left:-28px;top:4px;
+  width:14px;height:14px;border-radius:50%;
+  background:#fff;
+  border:2px solid var(--ink20);
+  transition:border-color .3s,background .3s;
+}
+.timeline-step.active .tl-dot{background:var(--yellow);border-color:var(--yellow);}
+.tl-time{
+  font-size:10px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;
+  color:var(--ink40);margin-bottom:6px;
+}
+.tl-head{
+  font-family:'Plus Jakarta Sans',sans-serif;
+  font-size:16px;font-weight:700;letter-spacing:-0.04em;color:var(--dark);margin-bottom:6px;
+}
+.tl-body{
+  font-family:'Plus Jakarta Sans',sans-serif;
+  font-size:14px;letter-spacing:-0.015em;line-height:1.78;color:var(--ink60);
+}
+.tl-highlight{
+  display:inline-block;
+  background:rgba(245,208,59,.3);
+  padding:2px 6px;border-radius:5px;
+  color:var(--dark);font-style:normal;font-weight:600;
+}
+.photo-ph{
+  border-radius:18px;
+  background:var(--ink05);
+  border:2px dashed var(--ink10);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  padding:32px;text-align:center;
+  min-height:180px;
+}
+.photo-ph p{font-size:12px;color:var(--ink40);line-height:1.6;max-width:240px;font-style:italic;}
+.photo-ph span{font-size:22px;margin-bottom:10px;}
+.field-photo{
+  width:100%;
+  min-height:300px;
+  border-radius:18px;
+  object-fit:cover;
+  display:block;
+}
+
+/* ── PROFESSIONAL CAROUSEL ── */
+.prof-carousel-wrap{
+  margin-top:48px;
+  width:100vw;
+  margin-left:calc(50% - 50vw);
+  margin-right:calc(50% - 50vw);
+  overflow:hidden;
+  position:relative;
+  padding:34px 0;
+  isolation:isolate;
+}
+.prof-carousel-wrap::before,
+.prof-carousel-wrap::after{
+  display:none;
+}
+.prof-carousel-wrap::before,
+.prof-carousel-wrap::after{
+  content:"";
+  position:absolute;
+  width:520px;
+  height:280px;
+  border-radius:999px;
+  filter:blur(34px);
+  opacity:.38;
+  pointer-events:none;
+  z-index:0;
+  animation:carouselFloat 18s ease-in-out infinite alternate;
+}
+.prof-carousel-wrap::before{
+  left:-140px;
+  top:0;
+  background:radial-gradient(circle at 30% 35%, rgba(244,96,122,.55), transparent 68%),
+             radial-gradient(circle at 75% 55%, rgba(245,208,59,.38), transparent 70%);
+}
+.prof-carousel-wrap::after{
+  right:-150px;
+  bottom:2px;
+  background:radial-gradient(circle at 35% 50%, rgba(57,189,197,.46), transparent 68%),
+             radial-gradient(circle at 72% 30%, rgba(184,159,232,.36), transparent 70%);
+  animation-delay:-7s;
+}
+@keyframes carouselFloat{
+  from{transform:translate3d(-18px,-8px,0) scale(1);}
+  to{transform:translate3d(22px,14px,0) scale(1.08);}
+}
+.prof-carousel-track{
+  display:flex;
+  flex-wrap:nowrap;
+  gap:16px;
+  will-change:transform;
+  position:relative;
+  z-index:1;
+}
+.prof-carousel-track.row-top{
+  animation:scrollRight 22s linear infinite;
+}
+.prof-carousel-track.row-bottom{
+  animation:scrollLeft 22s linear infinite;
+  margin-top:16px;
+}
+@keyframes scrollRight{
+  0%{transform:translateX(0);}
+  100%{transform:translateX(-50%);}
+}
+@keyframes scrollLeft{
+  0%{transform:translateX(-50%);}
+  100%{transform:translateX(0);}
+}
+.prof-carousel-wrap:hover .prof-carousel-track{animation-play-state:paused;}
+.prof-c-card{
+  flex-shrink:0;
+  width:164px;
+  border-radius:22px;
+  overflow:hidden;
+  background:#fff;
+  border:1.5px solid var(--ink10);
+  box-shadow:0 2px 12px rgba(18,39,43,.06);
+}
+.prof-c-img-wrap{
+  width:100%;
+  overflow:hidden;
+}
+.prof-c-img-wrap img{
+  width:100%;
+  height:auto;
+  display:block;
+  transition:transform .3s ease;
+}
+.prof-c-card:hover .prof-c-img-wrap img{
+  transform:scale(1.04);
+}
+
+
+/* ── EVIDENCE SECTION ── */
+.evidence-section{
+  background:#fff;
+  padding:88px 52px;
+}
+.evidence-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:56px;
+  align-items:start;
+  margin-top:40px;
+}
+.evidence-quote{
+  font-family:'Plus Jakarta Sans',sans-serif;
+  font-size:17px;
+  font-weight:500;font-style:normal;
+  letter-spacing:-0.03em;
+  line-height:1.5;color:var(--dark);
+  margin-bottom:22px;
+}
+.evidence-attr p{font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:14px;letter-spacing:-0.03em;color:var(--dark);}
+.evidence-attr span{font-size:13px;color:var(--ink60);}
+.annotation{
+  margin-top:24px;
+  border-left:3px solid var(--teal);
+  padding-left:18px;
+}
+.annotation p{
+  font-family:'Patrick Hand',cursive;
+  font-size:22px;
+  font-weight:500;
+  color:var(--ink60);line-height:1.6;
+}
+.ba-card{
+  background:var(--pink);
+  border-radius:26px;
+  padding:44px;
+  text-align:center;
+}
+.ba-label{
+  font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+  color:rgba(255,255,255,.7);margin-bottom:28px;
+}
+.ring-wrap{position:relative;width:110px;height:110px;}
+.ring-wrap svg{transform:rotate(-90deg);}
+.ring-track{fill:none;stroke:rgba(255,255,255,.25);stroke-width:9;}
+.ring-fill{fill:none;stroke-width:9;stroke-linecap:round;
+  stroke-dasharray:314;stroke-dashoffset:314;
+  transition:stroke-dashoffset 1.5s cubic-bezier(.4,0,.2,1);}
+.ring-num{
+  position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+  font-family:'Plus Jakarta Sans',sans-serif;
+  font-size:18px;font-weight:800;white-space:nowrap;
+  color:#fff;
+}
+.ring-row{display:flex;justify-content:center;align-items:center;gap:20px;margin-bottom:24px;}
+.ring-arrow{font-size:18px;color:rgba(255,255,255,.4);}
+.ba-divider{border-top:1px solid rgba(255,255,255,.2);padding-top:16px;}
+.ba-foot{font-size:12px;color:rgba(255,255,255,.7);line-height:1.65;}
+
+/* ── VOICE / STUDENT QUOTES ── */
+.voice-section{
+  background:var(--lav-light);
+  padding:88px 52px;
+}
+.voice-section .sec-h2{margin-bottom:48px;}
+.voice-grid{
+  display:grid;grid-template-columns:1fr 1fr 1fr;
+  gap:20px;
+}
+.voice-card{
+  border-radius:22px;
+  padding:30px;
+  position:relative;
+}
+.voice-card.c1{background:#FFF;border:3px solid var(--pink);}
+.voice-card.c2{background:#FFF;border:3px solid var(--teal);}
+.voice-card.c3{background:#FFF;border:3px solid var(--lav);}
+.voice-quote{
+  font-family:'Plus Jakarta Sans',sans-serif;font-style:normal;
+  font-size:15px;letter-spacing:-0.015em;line-height:1.78;
+  color:var(--ink80);
+  margin-bottom:20px;
+}
+.voice-name{font-family:'Plus Jakarta Sans',sans-serif;font-size:14px;font-weight:700;letter-spacing:-0.03em;color:var(--dark);}
+.voice-detail{font-family:'Plus Jakarta Sans',sans-serif;font-size:12px;color:var(--ink40);margin-top:2px;}
+.voice-accent{
+  position:absolute;top:20px;right:20px;
+  width:28px;height:28px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  font-size:14px;
+}
+.voice-card.c1 .voice-accent{background:var(--pink-light);}
+.voice-card.c2 .voice-accent{background:var(--teal-light);}
+.voice-card.c3 .voice-accent{background:var(--lav-light);}
+
+/* ── PERSONA TABS (CHANGES SECTION) ── */
+.changes-section{
+  padding:88px 52px;
+  background:#fff;
+}
+.changes-section .sec-h2{margin-bottom:12px;}
+.changes-kicker{
+  font-family:'Plus Jakarta Sans',sans-serif;font-style:normal;
+  font-size:13px;color:var(--ink60);margin-bottom:40px;display:block;
+}
+.persona-tabs{
+  display:flex;gap:10px;margin-bottom:-2px;
+  border-bottom:none;
+  padding-bottom:0;
+  position:relative;
+  z-index:2;
+}
+.ptab{
+  font-family:'Plus Jakarta Sans',sans-serif;
+  font-size:11px;font-weight:700;letter-spacing:-0.02em;
+  padding:12px 22px 14px;
+  border-radius:12px 12px 0 0;
+  cursor:pointer;
+  border:2px solid transparent;
+  border-bottom:2px solid transparent;
+  position:relative;
+  transition:background .2s, color .2s, border-color .2s;
+  display:flex;align-items:center;gap:8px;
+  color:var(--ink40);
+  background:transparent;
+  user-select:none;
+}
+.ptab .ptab-icon{
+  width:26px;height:26px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  font-size:13px;
+  background:var(--ink05);
+  transition:background .2s;
+}
+.ptab.active-super{background:var(--teal-light);color:var(--dark);border-color:var(--teal) var(--teal) var(--teal-light) var(--teal);}
+.ptab.active-super .ptab-icon{background:var(--teal-light);}
+.ptab.active-counselor{background:var(--lav-light);color:var(--dark);border-color:var(--lav) var(--lav) var(--lav-light) var(--lav);}
+.ptab.active-counselor .ptab-icon{background:var(--lav-light);}
+.ptab.active-student{background:var(--yellow-light);color:var(--dark);border-color:var(--yellow) var(--yellow) var(--yellow-light) var(--yellow);}
+.ptab.active-student .ptab-icon{background:var(--yellow-light);}
+.ptab:hover:not(.active-super):not(.active-counselor):not(.active-student){background:var(--ink05);color:var(--ink80);}
+
+.persona-panel{
+  display:none;
+  border-radius:0 20px 20px 20px;
+  padding:44px;
+  opacity:0;
+  transform:translateY(8px);
+  transition:opacity .35s ease, transform .35s ease;
+}
+.persona-panel.shown{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start;}
+.persona-panel.animate-in{opacity:1;transform:translateY(0);}
+.persona-panel.super-bg{background:var(--teal-light);border:2px solid rgba(57,189,197,.25);}
+.persona-panel.counselor-bg{background:var(--lav-light);border:2px solid rgba(184,159,232,.3);}
+.persona-panel.student-bg{background:var(--yellow-light);border:2px solid rgba(245,208,59,.35);}
+
+.panel-head{font-family:'Plus Jakarta Sans',sans-serif;font-size:28px;font-weight:800;letter-spacing:-0.05em;margin-bottom:14px;color:var(--dark);}
+.panel-body{font-family:'Plus Jakarta Sans',sans-serif;font-size:clamp(15px,1.5vw,16px);letter-spacing:-0.015em;line-height:1.85;color:var(--ink80);}
+.panel-stat{
+  border-radius:18px;
+  padding:28px;
+  text-align:center;
+}
+.panel-stat.s-teal{background:rgba(57,189,197,.15);}
+.panel-stat.s-lav{background:rgba(184,159,232,.2);}
+.panel-stat.s-yellow{background:rgba(245,208,59,.2);}
+.panel-stat-num{font-family:'Plus Jakarta Sans',sans-serif;font-size:clamp(32px,4vw,48px);font-weight:800;letter-spacing:-0.07em;color:var(--dark);line-height:1;}
+.panel-stat-label{font-family:'Plus Jakarta Sans',sans-serif;font-size:12px;letter-spacing:-0.01em;color:var(--ink60);margin-top:8px;line-height:1.5;}
+
+/* ── PILOT SECTION ── */
+.pilot-section{
+  background:var(--green-light);
+  padding:88px 52px;
+  text-align:center;
+}
+.pilot-section .sec-h2{margin-bottom:10px;}
+.pilot-kicker{
+  font-family:'Lora',serif;font-style:italic;
+  font-size:clamp(18px,2vw,20px);color:var(--ink60);margin-bottom:52px;display:block;
+}
+.pilot-steps{
+  display:grid;grid-template-columns:repeat(4,1fr);
+  gap:16px;
+  max-width:1080px;margin:0 auto;
+}
+.pilot-step{
+  border-radius:22px;
+  padding:32px 24px;
+  text-align:left;
+  transition:transform .2s, box-shadow .2s;
+  position:relative;
+  overflow:hidden;
+}
+.pilot-step:hover{transform:translateY(-4px);box-shadow:0 12px 32px rgba(18,39,43,.1);}
+.pilot-step.ps-green{background:#fff;border:2px solid rgba(80,225,122,.4);}
+.pilot-step.ps-yellow{background:var(--yellow-light);border:2px solid rgba(245,208,59,.4);}
+.pilot-step.ps-teal{background:var(--teal-light);border:2px solid rgba(57,189,197,.3);}
+.pilot-step.ps-lav{background:var(--lav-light);border:2px solid rgba(184,159,232,.3);}
+.ps-badge{
+  display:inline-block;
+  font-family:'Plus Jakarta Sans',sans-serif;
+  font-size:10px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;
+  padding:4px 12px;border-radius:999px;
+  margin-bottom:16px;
+}
+.ps-green .ps-badge{background:var(--green);color:var(--dark);}
+.ps-yellow .ps-badge{background:var(--yellow);color:var(--dark);}
+.ps-teal .ps-badge{background:var(--teal);color:var(--dark);}
+.ps-lav .ps-badge{background:var(--lav);color:#fff;}
+.pilot-step h4{
+  font-family:'Plus Jakarta Sans',sans-serif;
+  font-size:13px;font-weight:800;margin-bottom:10px;letter-spacing:-.5px;
+}
+.pilot-step p{font-size:12px;color:var(--ink60);line-height:1.7;}
+.ps-icon{font-size:28px;margin-bottom:14px;display:block;}
+
+/* ── TRUST BAR ── */
+.trust-bar{
+  background:var(--dark);
+  padding:52px;
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:18px;
+}
+.trust-item{
+  min-width:0;
+  display:flex;align-items:flex-start;gap:14px;
+  padding:22px 24px;
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:20px;
+  background:rgba(255,255,255,.035);
+}
+.trust-item:last-child{padding:22px 24px;}
+.trust-item:first-child{padding:22px 24px;}
+.trust-icon{
+  width:42px;height:42px;border-radius:13px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:18px;flex-shrink:0;
+}
+.trust-icon.ti-teal{background:rgba(57,189,197,.15);}
+.trust-icon.ti-lav{background:rgba(184,159,232,.15);}
+.trust-icon.ti-green{background:rgba(80,225,122,.15);}
+.trust-text h5{font-family:'Plus Jakarta Sans',sans-serif;font-size:11px;font-weight:800;color:#fff;margin-bottom:7px;letter-spacing:-.01em;}
+.trust-text p{font-size:13px;color:rgba(255,255,255,.48);line-height:1.65;max-width:280px;}
+
+/* ── CTA ── */
+.cta-section{
+  background: linear-gradient(135deg, #F9AEBB 0%, #F7C8A8 30%, #F5D87A 65%, #EFD84A 100%);
+  background-size: 300% 300%;
+  animation: gradientShift 8s ease infinite;
+  padding:112px 52px;
+  text-align:center;
+  position:relative;overflow:hidden;
+}
+@keyframes gradientShift{
+  0%{background-position:0% 0%;}
+  25%{background-position:100% 0%;}
+  50%{background-position:100% 100%;}
+  75%{background-position:0% 100%;}
+  100%{background-position:0% 0%;}
+}
+.cta-arc{
+  display:none;
+  position:absolute;left:50%;top:-200px;transform:translateX(-50%);
+  width:700px;height:700px;border-radius:50%;
+  border:1.5px solid rgba(18,39,43,.08);
+  pointer-events:none;
+}
+.cta-arc2{
+  display:none;
+  position:absolute;left:50%;top:-300px;transform:translateX(-50%);
+  width:950px;height:950px;border-radius:50%;
+  border:1px solid rgba(244,96,122,.15);
+  pointer-events:none;
+}
+.cta-section h2{
+  font-family:'Plus Jakarta Sans',sans-serif;
+  font-size:clamp(40px,6vw,72px);
+  font-weight:800;letter-spacing:-0.06em;
+  color:var(--dark);line-height:.92;
+  margin-bottom:22px;
+  position:relative;z-index:2;
+}
+.cta-section h2 em{font-style:normal;}
+.cta-sub{
+  font-family:'Plus Jakarta Sans',sans-serif;font-style:normal;
+  font-size:clamp(15px,1.6vw,17px);
+  color:var(--ink60);
+  max-width:460px;margin:0 auto 40px;
+  line-height:1.72;
+  position:relative;z-index:2;
+}
+.cta-pill{
+  display:inline-flex;align-items:center;gap:12px;
+  background:var(--green);color:var(--dark);
+  font-family:'Plus Jakarta Sans',sans-serif;
+  font-weight:800;font-size:14px;
+  padding:18px 38px;border-radius:999px;
+  text-decoration:none;
+  box-shadow:0 5px 0 #27a958;
+  transition:transform .18s, box-shadow .18s;
+  position:relative;z-index:2;
+}
+.cta-pill:hover{transform:translateY(2px);box-shadow:0 2px 0 #27a958;}
+.arrow-left,.arrow-right{
+  display:inline-block;
+  animation:pointArrow 1.5s ease-in-out infinite;
+}
+.arrow-left{animation-delay:0s;}
+.arrow-right{animation-delay:0.75s;}
+@keyframes pointArrow{
+  0%,100%{transform:translateX(0);}
+  50%{transform:translateX(6px);}
+}
+.cta-note{
+  margin-top:20px;
+  font-size:11px;color:var(--ink40);
+  position:relative;z-index:2;
+}
+
+/* ── APP SECTION ── */
+.app-section{
+  background:var(--green-light);
+  padding:88px 52px;
+  text-align:center;
+}
+.app-section .sec-h2{margin-bottom:24px;}
+.app-sub{
+  font-family:'Plus Jakarta Sans',sans-serif;
+  font-size:clamp(18px,2vw,20px);
+  letter-spacing:-0.02em;
+  line-height:1.6;
+  color:var(--ink80);
+  max-width:680px;
+  margin:0 auto;
+}
+.app-demo-wrapper{
+  margin-top:48px;
+  max-width:920px;
+  margin-left:auto;
+  margin-right:auto;
+}
+
+/* ── DEMO TOOL STYLES ── */
+.demo-shell{width:100%;max-width:880px;margin:0 auto;}
+.chrome{border:1px solid #d8d8d8;border-radius:14px;overflow:hidden;box-shadow:0 8px 40px rgba(0,0,0,0.13);background:#fff;display:flex;flex-direction:column;min-height:640px;}
+.chrome-bar{background:#f2f2f2;border-bottom:1px solid #e0e0e0;display:flex;align-items:center;justify-content:space-between;padding:10px 16px;flex-shrink:0;}
+.chrome-dots{display:flex;gap:6px;}
+.chrome-dots span{width:12px;height:12px;border-radius:50%;display:block;}
+.chrome-dots span:nth-child(1){background:#ff5f57;}
+.chrome-dots span:nth-child(2){background:#febc2e;}
+.chrome-dots span:nth-child(3){background:#28c840;}
+.chrome-url{font-size:12px;color:#888;font-weight:500;display:flex;align-items:center;gap:5px;background:#fff;border:1px solid #e0e0e0;border-radius:6px;padding:4px 12px;text-decoration:none;}
+.chrome-url:hover,.chrome-url:visited,.chrome-url:active,.chrome-url:focus{text-decoration:none;color:#888;}
+.chrome-right{width:80px;}
+.iscreen{display:none;flex-direction:column;flex:1;}
+.iscreen.active{display:flex;}
+.app-hdr{text-align:center;padding:16px 0 12px;border-bottom:1px solid #f0f0f0;position:relative;flex-shrink:0;}
+.app-hdr h2{font-size:16px;font-weight:700;color:#2d3748;letter-spacing:-0.01em;}
+.app-hdr p{font-size:12px;color:#bbb;margin-top:2px;}
+.hdr-back{position:absolute;left:14px;top:50%;transform:translateY(-50%);background:none;border:none;font-size:20px;cursor:pointer;color:#666;line-height:1;padding:4px;}
+.hdr-back:hover{color:#1a1a2e;}
+
+/* LANDING */
+#s-landing{align-items:center;justify-content:center;padding:60px 32px;position:relative;overflow:hidden;background:#fff;min-height:580px;}
+.blob{position:absolute;border-radius:50%;background:radial-gradient(circle,#A8DDD4 0%,transparent 70%);pointer-events:none;}
+.blob1{width:240px;height:240px;bottom:10%;left:2%;animation:pulse 3s ease-in-out infinite;opacity:0.45;}
+.blob2{width:160px;height:160px;bottom:25%;right:4%;animation:pulse 3s ease-in-out infinite 0.7s;opacity:0.45;}
+.blob3{width:120px;height:120px;top:20%;left:0%;animation:pulse 3s ease-in-out infinite 1.4s;opacity:0.45;}
+.blob4{width:100px;height:100px;top:15%;right:3%;animation:pulse 3s ease-in-out infinite 2.1s;opacity:0.45;}
+.blob5{width:80px;height:80px;bottom:6%;right:26%;animation:pulse 3s ease-in-out infinite 1s;opacity:0.45;}
+@keyframes pulse{0%,100%{transform:scale(1);opacity:0.4;}50%{transform:scale(1.35);opacity:0.75;}}
+.landing-inner{position:relative;z-index:1;max-width:600px;width:100%;}
+.fm-pill{display:inline-flex;align-items:center;gap:10px;margin-bottom:32px;font-size:18px;font-weight:700;color:#2d3748;}
+.fm-icon{width:36px;height:36px;border-radius:8px;overflow:hidden;display:flex;align-items:center;justify-content:center;}
+.fm-icon img{width:36px;height:36px;object-fit:contain;}
+.landing-h1{font-size:40px;font-weight:800;color:#1a1a2e;line-height:1.18;margin-bottom:14px;letter-spacing:-0.02em;}
+.landing-sub{font-size:16px;color:#777;margin-bottom:40px;line-height:1.6;}
+.btn-start{background:#5b6af0;color:#fff;border:none;border-radius:12px;padding:17px 38px;font-size:17px;font-weight:700;cursor:pointer;font-family:inherit;display:inline-flex;align-items:center;gap:10px;box-shadow:0 4px 22px rgba(91,106,240,0.38);transition:transform .15s,box-shadow .15s;}
+.btn-start:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(91,106,240,0.48);}
+
+/* INTRO */
+#s-intro{min-height:580px;}
+.intro-body{padding:48px 36px 40px;display:flex;flex-direction:column;align-items:flex-start;gap:22px;flex:1;}
+.blue-box{background:#5b6af0;color:#fff;border-radius:14px;padding:22px 24px;font-size:13px;line-height:1.6;max-width:420px;animation:fadeUp .5s ease;font-weight:500;}
+.ov-arrow{background:rgba(255,255,255,0.22);border:none;border-radius:50%;width:34px;height:34px;display:flex;align-items:center;justify-content:center;cursor:pointer;color:#fff;font-size:16px;margin-top:14px;transition:background .2s;font-family:inherit;}
+.ov-arrow:hover{background:rgba(255,255,255,0.38);}
+.pink-pulse-wrap{display:flex;flex-direction:column;align-items:flex-start;gap:12px;margin-top:4px;}
+.pink-dot{width:38px;height:38px;border-radius:50%;border:2.5px solid #3DD4C0;background:transparent;display:flex;align-items:center;justify-content:center;animation:pingGrow 1.6s ease-in-out infinite;cursor:pointer;}
+.pink-dot::after{content:'';width:14px;height:14px;border-radius:50%;background:#3DD4C0;display:block;}
+@keyframes pingGrow{0%,100%{transform:scale(1);box-shadow:0 0 0 0 rgba(61,212,192,0.38);}50%{transform:scale(1.2);box-shadow:0 0 0 14px rgba(61,212,192,0);}}
+.btn-pink{background:#e74c8b;color:#fff;border:none;border-radius:10px;padding:14px 28px;font-size:15px;font-weight:700;cursor:pointer;font-family:inherit;box-shadow:0 4px 16px rgba(231,76,139,0.3);transition:transform .15s;}
+.btn-pink:hover{transform:translateY(-2px);}
+
+/* CHAT */
+#s-chat{position:relative;}
+.chat-msgs{flex:1;padding:20px 20px 10px;overflow-y:auto;display:flex;flex-direction:column;gap:14px;min-height:400px;max-height:460px;}
+.chat-msgs::-webkit-scrollbar{width:3px;}
+.chat-msgs::-webkit-scrollbar-thumb{background:#e0e0e0;border-radius:3px;}
+.msg-row{display:flex;align-items:flex-end;gap:10px;animation:fadeUp .3s ease;}
+.msg-row.user{flex-direction:row-reverse;}
+.hope-av{width:36px;height:36px;flex-shrink:0;display:flex;align-items:center;justify-content:center;}
+.hope-av img{width:100%;height:100%;object-fit:contain;}
+.prof-av-img{width:36px;height:36px;border-radius:50%;flex-shrink:0;overflow:hidden;border:1.5px solid #eee;}
+.prof-av-img img{width:100%;height:100%;object-fit:cover;}
+.bubble{background:#f4f4f4;border-radius:18px 18px 18px 4px;padding:11px 15px;font-size:14px;line-height:1.6;max-width:74%;color:#2d3748;}
+.bubble.user{background:rgba(100,185,195,0.22);border:1.5px solid rgba(100,185,195,0.4);border-radius:18px 18px 4px 18px;color:#1a2a30;}
+.typing{display:inline-flex;gap:5px;padding:12px 16px;background:#f4f4f4;border-radius:18px 18px 18px 4px;}
+.typing span{width:7px;height:7px;border-radius:50%;background:#c0c0c0;animation:dot 1.2s ease-in-out infinite;}
+.typing span:nth-child(2){animation-delay:.2s;}
+.typing span:nth-child(3){animation-delay:.4s;}
+@keyframes dot{0%,80%,100%{transform:scale(1);opacity:.5;}40%{transform:scale(1.5);opacity:1;}}
+.chat-input-row{display:flex;align-items:center;gap:10px;padding:12px 16px;border-top:1px solid #f0f0f0;flex-shrink:0;}
+.user-dot{width:32px;height:32px;border-radius:50%;background:#8ad0d8;display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0;}
+.chat-inp{flex:1;border:1.5px solid #e4e4e4;border-radius:22px;padding:10px 16px;font-size:14px;font-family:inherit;outline:none;color:#2d3748;background:#fafafa;transition:border-color .2s;}
+.chat-inp:focus{border-color:#5b6af0;background:#fff;}
+.send-btn{width:34px;height:34px;border-radius:50%;background:#5b6af0;border:none;cursor:pointer;color:#fff;font-size:14px;display:flex;align-items:center;justify-content:center;transition:transform .15s;flex-shrink:0;}
+.send-btn:hover{transform:scale(1.1);}
+
+/* OVERLAY TOOLTIP */
+.ov-tip{position:absolute;background:#5b6af0;color:#fff;border-radius:14px;padding:18px 20px;font-size:12px;line-height:1.6;max-width:310px;z-index:30;box-shadow:0 6px 28px rgba(91,106,240,0.35);animation:fadeUp .4s ease;font-weight:500;}
+.ov-tip::before{content:'';position:absolute;inset:-12px;border-radius:22px;background:rgba(91,106,240,0.13);z-index:-1;animation:halogrow 2s ease-in-out infinite;}
+@keyframes halogrow{0%,100%{transform:scale(1);opacity:0.7;}50%{transform:scale(1.04);opacity:1;}}
+.ov-tip .ov-arrow{margin-top:12px;}
+
+/* PROFESSIONALS */
+#s-profs{position:relative;}
+.profs-top{display:flex;justify-content:flex-end;padding:12px 20px 0;flex-shrink:0;}
+.prof-cards-row{display:flex;padding:16px 20px;overflow-x:auto;flex-shrink:0;gap:14px;}
+.prof-cards-row::-webkit-scrollbar{height:3px;}
+.prof-card{border:1.5px solid #e8e8e8;border-radius:16px;padding:24px 18px 18px;min-width:380px;max-width:420px;flex-shrink:0;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:8px;transition:box-shadow .2s,border-color .2s,transform .2s;background:#fff;}
+.prof-card:hover{border-color:#5b6af0;box-shadow:0 6px 22px rgba(91,106,240,0.15);transform:translateY(-3px);}
+.prof-avatar{width:72px;height:72px;border-radius:50%;overflow:hidden;border:2px solid #eee;margin-bottom:4px;}
+.prof-avatar img{width:100%;height:100%;object-fit:cover;}
+.prof-name{font-size:15px;font-weight:700;color:#2d3748;}
+.prof-role2{font-size:12.5px;color:#666;font-weight:500;}
+.prof-meta{display:flex;flex-direction:column;align-items:center;gap:3px;margin-top:2px;}
+.prof-meta span{font-size:11.5px;color:#999;}
+.btn-talk{background:#2a3747;color:#fff;border:none;border-radius:10px;padding:11px 0;width:100%;font-size:13px;font-weight:700;font-family:inherit;cursor:pointer;margin-top:6px;transition:background .2s;}
+.btn-talk:hover{background:#1a202c;}
+.profs-input-row{display:flex;align-items:center;gap:10px;padding:12px 16px;border-top:1px solid #f0f0f0;flex-shrink:0;}
+
+/* PROF CHAT */
+#s-prof-chat{position:relative;}
+#prof-msgs{flex:1;padding:20px 20px 10px;overflow-y:auto;display:flex;flex-direction:column;gap:14px;min-height:360px;max-height:440px;}
+#prof-msgs::-webkit-scrollbar{width:3px;}
+#prof-msgs::-webkit-scrollbar-thumb{background:#e0e0e0;border-radius:3px;}
+.thinking-panel{background:#f9f9f9;border-radius:12px;margin:16px;padding:28px 20px;text-align:center;color:#bbb;font-size:11px;flex-shrink:0;}
+.sugg-panel{background:#fafafa;border-top:1px solid #eee;padding:10px 14px;display:flex;flex-wrap:wrap;gap:8px;flex-shrink:0;}
+.sugg-q{background:#fff;border:1.5px solid #e2e2e2;border-radius:20px;padding:7px 14px;font-size:11px;color:#444;cursor:pointer;font-family:inherit;transition:border-color .2s,background .2s;}
+.sugg-q:hover{border-color:#5b6af0;background:#eef0ff;}
+
+/* EMAIL */
+#s-email,#s-email-form{flex:1;}
+.email-bg{background:#c8dff5;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:60px 32px;position:relative;overflow:hidden;flex:1;}
+.eblob{position:absolute;border-radius:50%;background:rgba(91,130,210,0.18);pointer-events:none;}
+.eblob1{width:320px;height:320px;bottom:-60px;left:-80px;}
+.eblob2{width:240px;height:240px;top:-60px;right:-60px;}
+.eblob3{width:160px;height:160px;bottom:12%;right:10%;}
+.eblob4{width:120px;height:120px;top:12%;left:10%;}
+.email-bg h2{font-size:24px;font-weight:800;color:#1a1a2e;margin-bottom:12px;position:relative;z-index:1;letter-spacing:-0.02em;}
+.email-bg p{font-size:13px;color:#3a4a5a;margin-bottom:28px;position:relative;z-index:1;line-height:1.55;}
+.email-btns{display:flex;flex-direction:column;gap:12px;width:100%;max-width:340px;position:relative;z-index:1;}
+.btn-yes{background:#5b6af0;color:#fff;border:none;border-radius:10px;padding:15px;font-size:13px;font-weight:700;cursor:pointer;font-family:inherit;box-shadow:0 4px 18px rgba(91,106,240,0.32);transition:transform .15s;}
+.btn-yes:hover{transform:translateY(-2px);}
+.btn-continue{background:#fff;color:#2d3748;border:1.5px solid #c8c8c8;border-radius:10px;padding:13px;font-size:12px;font-weight:600;cursor:pointer;font-family:inherit;transition:border-color .2s;}
+.btn-continue:hover{border-color:#aaa;}
+.email-form-wrap{display:flex;flex-direction:column;gap:10px;width:100%;max-width:340px;position:relative;z-index:1;}
+.email-field{border:1.5px solid #ccc;border-radius:8px;padding:13px 15px;font-size:12px;font-family:inherit;outline:none;background:#fff;transition:border-color .2s;}
+.email-field:focus{border-color:#5b6af0;}
+.btn-submit{background:#5b6af0;color:#fff;border:none;border-radius:8px;padding:14px;font-size:13px;font-weight:700;cursor:pointer;font-family:inherit;transition:transform .15s;}
+.btn-submit:hover{transform:translateY(-1px);}
+.btn-restart{background:transparent;color:#5b6af0;border:1.5px solid #5b6af0;border-radius:8px;padding:12px;font-size:12px;font-weight:600;cursor:pointer;font-family:inherit;margin-top:8px;transition:background .2s,color .2s;}
+.btn-restart:hover{background:#5b6af0;color:#fff;}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:translateY(0);}}
+.hidden{display:none!important;}
+
+/* ANIMATIONS */
+.fade-up{opacity:0;transform:translateY(18px);transition:opacity .65s ease,transform .65s ease;}
+.fade-up.visible{opacity:1;transform:translateY(0);}
+.fade-up:nth-child(2){transition-delay:.08s;}
+.fade-up:nth-child(3){transition-delay:.16s;}
+
+/* ── RESPONSIVE ── */
+@media(max-width:900px){
+  nav{padding:0 20px;}
+  .hero,.open-letter,.district-section,.counselor-section,.evidence-section,.pilot-section,.voice-section,.changes-section,.trust-bar,.cta-section{padding-left:20px;padding-right:20px;}
+  .hero{padding-top:150px;padding-bottom:80px;}
+  .district-grid,.evidence-grid{grid-template-columns:1fr;}
+  .voice-grid{grid-template-columns:1fr;}
+  .pilot-steps{grid-template-columns:1fr 1fr;}
+  .trust-bar{grid-template-columns:1fr;gap:14px;}
+  .trust-item{border-right:none;padding:0 0 24px;border-bottom:1px solid rgba(255,255,255,.07);}
+  .trust-item:last-child{border-bottom:none;padding-bottom:0;}
+  .persona-panel.shown{grid-template-columns:1fr;}
+  .persona-tabs{overflow-x:auto;padding-bottom:2px;}
+  .demo-strip{flex-direction:column;gap:20px;}
+  .field-photo{min-height:240px;}
+  .prof-carousel-wrap{margin-left:-20px;margin-right:-20px;}
+  .prof-c-card{width:136px;border-radius:18px;}
+}
+@media(max-width:560px){
+  .hero{padding-top:132px;padding-bottom:64px;min-height:430px;}
+  .hero h1{font-size:clamp(48px,16vw,70px);}
+  .hero-sub{font-size:14px;}
+  .pilot-steps,.slide-stats{grid-template-columns:1fr;}
+  .field-photo{min-height:220px;border-radius:14px;}
+  .prof-carousel-wrap::before,.prof-carousel-wrap::after{width:360px;height:220px;opacity:.32;}
+}
+</style>
+<link rel="stylesheet" href="kindred-nav.css?v=3">
+</head>
+<body>
+<!-- SHARED NAV -->
+<nav class="hs-nav" aria-label="Primary navigation">
+  <a class="hs-nav-brand" href="index.html" aria-label="Kindred home">
+    <span class="hs-nav-logo" aria-hidden="true"></span>
+  </a>
+  <ul class="hs-nav-links">
+    <li><a class="hs-nav-item" href="index.html">Home</a></li>
+    <li class="hs-nav-menu">
+      <a class="hs-nav-item" href="Writing%20pages/what%20the%20file%20doesnt%20say.html">Writing</a>
+      <div class="hs-nav-dropdown" aria-label="Writing pages">
+        <a href="Writing%20pages/what%20the%20file%20doesnt%20say.html">Article 1</a>
+        <a href="Writing%20pages/didnt%20route%20them.html">Article 2</a>
+        <a href="Writing%20pages/three%20foot%20gap.html">Article 3</a>
+      </div>
+    </li>
+    <li><a class="hs-nav-item is-active" href="compton%20pitch.html">District Pitch</a></li>
+    <li><a class="hs-nav-item" href="series.html">Series</a></li>
+    <li class="hs-nav-menu">
+      <a class="hs-nav-item" href="documentary%20treatment.html">Documentary</a>
+      <div class="hs-nav-dropdown" aria-label="Documentary pages">
+        <a href="documentary%20treatment.html">Treatment</a>
+        <a href="documentary%20distribution.html">Distribution</a>
+      </div>
+    </li>
+  </ul>
+</nav>
+<!-- SECTION RAIL -->
+<nav class="hs-section-rail" aria-label="Section navigation">
+  <div class="hs-section-rail-tab">Sections</div>
+  <div class="hs-section-rail-panel">
+    <div class="hs-section-rail-kicker">On this page</div>
+    <a href="#top">Top</a>
+    <a href="#letter">Letter</a>
+    <a href="#district">District</a>
+    <a href="#evidence">Evidence</a>
+    <a href="#demo">Demo</a>
+    <a href="#pilot">Pilot</a>
+    <a href="#cta">CTA</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="top" class="hero">
+  <div class="hero-blob"></div>
+  <div class="hero-blob2"></div>
+  <div class="hero-blob3"></div>
+  <div class="hero-inner">
+    <div class="hero-tag">
+      <div class="hero-dot"></div>
+      <span class="hero-tag-text">Compton Unified School District</span>
+    </div>
+    <h1 class="fade-up">Compton's<br>graduation rate<br>is <em>moving.</em></h1>
+    <p class="hero-sub fade-up">Career clarity is the next wall. And there is no way (yet) to hire enough counselors to knock it down alone.</p>
+    <div class="hero-free fade-up">
+      <div class="hero-free-icon">🔓</div>
+      <p><strong>Free for teachers.</strong> Five minutes to set up. No contract, no commitment. The only ask is that you watch what happens in three classrooms and then decide.</p>
+    </div>
+  </div>
+</section>
+<div class="hs-hero-divider"></div><!-- OPEN LETTER -->
+<section id="letter" class="open-letter">
+  <div class="letter-inner">
+    <span class="eyebrow">Before we say anything else</span>
+    <h2 class="sec-h2 fade-up">Before <em>anything</em> else.</h2>
+    <span class="caveat-note">Rose Gonzalez noticed Compton students needed more than a graduation rate. So do we.</span>
+    <div style="margin-top:28px;" class="letter-body fade-up">
+      <p>Every year something new comes through a district office promising to change what students know about their futures. Most require weeks of teacher training. Most create work. Most produce data that doesn't travel cleanly to a board meeting, and most disappear when the grant runs out.</p>
+      <p>Compton Unified has done serious work getting students to graduation. Kindred is not here to take credit for what your district has already built. It is here for the students who finish the senior portfolio and still cannot name what they want to do next.</p>
+
+      <div class="free-callout fade-up">
+        <div class="free-callout-icon">🔓</div>
+        <p>Kindred is <strong>free for every teacher in your district.</strong> It takes five minutes to set up. There is no contract to sign, no budget line to justify, no procurement process to survive. A CTE teacher at Compton High can start Tuesday morning. The only risk is three classrooms and a semester of attention.</p>
+      </div>
+
+      <p>That is the pitch. Everything below is what happened when another California district tried it.</p>
+    </div>
+
+    <div class="expand-block fade-up">
+      <button class="expand-trigger" onclick="toggleExpand(this)">
+        What does "no commitment" actually mean?
+        <span class="arrow">↓</span>
+      </button>
+      <div class="expand-body">
+        Teachers access Kindred with no account required and no district IT involvement. Students log in through a class link. Nothing is installed. Data is FERPA-compliant and ISO 27001 certified. If three classrooms try it and nothing changes, you have lost nothing. If something does change, there is a conversation worth having.
+      </div>
+    </div>
+    <div class="expand-block fade-up">
+      <button class="expand-trigger" onclick="toggleExpand(this)">
+        What about student data and AI safety?
+        <span class="arrow">↓</span>
+      </button>
+      <div class="expand-body">
+        The AI is career-scoped only. Students cannot use it to ask about anything outside career exploration. It is FERPA and HIPAA compliant, ISO 27001 certified, and the platform does not allow AI-generated professionals from illegal or harmful fields to appear. No student personally identifiable information is sold or shared.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DEMO STRIP -->
+<div class="demo-strip">
+  <div class="demo-strip-left">
+    <h3>See it before you forward it.</h3>
+    <p>The most useful thing on this page is the demo. A student enters their interests and watches career paths emerge. It takes about four minutes.</p>
+  </div>
+  <span class="demo-btn">
+    👉 Try the student demo
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+  </span>
+</div>
+
+<!-- COUNSELOR MOMENT / TIMELINE -->
+<section class="counselor-section">
+  <div class="counselor-inner">
+    <span class="eyebrow" style="text-align:center;">One appointment</span>
+    <h2 class="sec-h2 fade-up">A very <em>different</em> start.</h2>
+    <span class="counselor-kicker">What changes when a student arrives with direction already forming.</span>
+    <div class="timeline">
+      <div class="timeline-step active fade-up">
+        <div class="tl-dot"></div>
+        <div class="tl-time">Before Kindred</div>
+        <div class="tl-head">Counselor starts from zero</div>
+        <div class="tl-body">The student sits down. The counselor asks what they are thinking about for after high school. The student says they are not sure. The next 12 minutes are spent finding the question, not answering it.</div>
+      </div>
+      <div class="timeline-step active fade-up">
+        <div class="tl-dot"></div>
+        <div class="tl-time">After two quests</div>
+        <div class="tl-head">The student has language for what they want</div>
+        <div class="tl-body">They explored environmental health and supply chain logistics. They found one word that felt right: <span class="tl-highlight">urban systems</span>. They do not know what to do with it yet. But they brought it to the room.</div>
+      </div>
+      <div class="timeline-step active fade-up">
+        <div class="tl-dot"></div>
+        <div class="tl-time">The appointment</div>
+        <div class="tl-head">20 minutes starts at minute two</div>
+        <div class="tl-body">The counselor does not start from zero. She asks one follow-up question and they spend 18 minutes on a specific plan. The 491-student caseload does not disappear. The meeting just starts further in.</div>
+      </div>
+    </div>
+    <img class="field-photo fade-up" src="assets/compton/counselor-session.webp" alt="Student and counselor working through a career map" style="margin-top:44px;">
+  </div>
+</section>
+
+<!-- DISTRICT SITUATION -->
+<section id="district" class="district-section">
+  <span class="eyebrow">What Compton is actually dealing with</span>
+  <h2 class="sec-h2 fade-up">The academic work is done.<br><em>Career clarity</em> is next.</h2>
+  <div class="district-grid">
+    <div>
+      <div class="district-prose fade-up">
+        <p>Compton Unified has 24,000 students across Compton High, Dominguez, Centennial, and Compton Early College. Graduation rates have improved substantially under Dr. Brawley. The college-and-career readiness rate sits at 43 percent against a 2030 target of 64 percent. That is 21 percentage points in six years.</p>
+        <p>The counselor caseload mirrors California's average: roughly 491 students per counselor, against a recommended 250:1. In practice, a student gets a 20-minute session, and whatever direction they walk in with is what they work with. Most walk in without one.</p>
+      </div>
+      <div class="pull-quote fade-up">
+        When a student arrives at a counselor appointment with Kindred already on their phone, the conversation begins at the second minute instead of the twelfth.
+      </div>
+    </div>
+    <div class="stat-stack">
+      <div class="stat-tile yellow fade-up">
+        <div class="tile-label">College and career readiness</div>
+        <div class="tile-num">43%</div>
+        <div class="tile-desc">Current rate. Target is 64% by 2030. That gap is 21 percentage points and six years.</div>
+        <div class="gap-bar"><div class="gap-fill" id="gapBar"></div></div>
+        <div style="display:flex;justify-content:space-between;margin-top:8px;">
+          <span style="font-size:11px;color:var(--ink40);">Now: 43%</span>
+          <span style="font-size:11px;color:var(--ink40);">Target: 64%</span>
+        </div>
+      </div>
+      <div class="stat-tile teal fade-up">
+        <div class="tile-label">Students per counselor</div>
+        <div class="tile-num">491:1</div>
+        <div class="tile-desc">The recommended ratio is 250:1. No California district is meeting it. Hiring alone will not close it.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EVIDENCE: SUTTER UNION -->
+<section id="evidence" class="evidence-section">
+  <span class="eyebrow">One district that already worked</span>
+  <h2 class="sec-h2 fade-up">What happened at<br>Sutter <em>Union.</em></h2>
+  <div class="evidence-grid fade-up">
+    <div>
+      <p class="evidence-quote">"It helped us grow from 49 percent to 94 percent pathway completers in just two years. But more importantly, it helped every student find a direction and a sense of purpose for their future."</p>
+      <div class="evidence-attr">
+        <p>Mrs. Charm Hopkins</p>
+        <span>CTE Advisor, Sutter Union High School, California</span>
+      </div>
+      <div class="annotation">
+        <p style="font-size:17px;">The number she mentions second, "a sense of purpose," is the one that does not appear in any dataset. <strong style="font-size:25px;font-family:'Caveat',cursive;font-weight:600;color:var(--dark);">It is the number worth chasing in Compton.</strong></p>
+      </div>
+    </div>
+    <div>
+      <div class="ba-card">
+        <div class="ba-label">Sutter Union High School, CA · Two years</div>
+        <div class="ring-row">
+          <div class="ring-wrap">
+            <svg width="110" height="110" viewBox="0 0 110 110">
+              <circle class="ring-track" cx="55" cy="55" r="50"/>
+              <circle class="ring-fill" id="ring1" cx="55" cy="55" r="50" stroke="rgba(255,255,255,.18)"/>
+            </svg>
+            <div class="ring-num" style="font-size:19px;color:rgba(255,255,255,.28);">49%</div>
+          </div>
+          <div class="ring-arrow">→</div>
+          <div class="ring-wrap">
+            <svg width="110" height="110" viewBox="0 0 110 110">
+              <circle class="ring-track" cx="55" cy="55" r="50"/>
+              <circle class="ring-fill" id="ring2" cx="55" cy="55" r="50" stroke="#F5D03B"/>
+            </svg>
+            <div class="ring-num" style="font-size:19px;color:#F5D03B;">94%</div>
+          </div>
+        </div>
+        <div class="ba-divider">
+          <div class="ba-foot">CTE pathway completion rate. Before and after. One school. One advisor. Two years. The platform was free the entire time.</div>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+
+  <!-- PROFESSIONAL CAROUSEL -->
+  <div class="prof-carousel-wrap">
+    <div class="prof-carousel-track row-top" id="carousel-top">
+      <div class="prof-c-card">
+        <div class="prof-c-img-wrap"><img src="assets/carousel-image-01.webp" alt="Aisha Patel"></div></div>
+      <div class="prof-c-card">
+        <div class="prof-c-img-wrap"><img src="assets/carousel-image-02.webp" alt="Cheng Wei"></div></div>
+      <div class="prof-c-card">
+        <div class="prof-c-img-wrap"><img src="assets/carousel-image-03.webp" alt="Kira Volkov"></div></div>
+      <div class="prof-c-card">
+        <div class="prof-c-img-wrap"><img src="assets/carousel-image-04.webp" alt="Esteban Rodríguez"></div></div>
+      <div class="prof-c-card">
+        <div class="prof-c-img-wrap"><img src="assets/carousel-image-05.webp" alt="Liam O'Connor"></div></div>
+      <div class="prof-c-card">
+        <div class="prof-c-img-wrap"><img src="assets/carousel-image-06.webp" alt="Mei-Ling Chen"></div></div>
+      <div class="prof-c-card">
+        <div class="prof-c-img-wrap"><img src="assets/carousel-image-07.webp" alt="Greta Müller"></div></div>
+      <div class="prof-c-card">
+        <div class="prof-c-img-wrap"><img src="assets/carousel-image-01.webp" alt="Aisha Patel"></div></div>
+      <div class="prof-c-card">
+        <div class="prof-c-img-wrap"><img src="assets/carousel-image-02.webp" alt="Cheng Wei"></div></div>
+      <div class="prof-c-card">
+        <div class="prof-c-img-wrap"><img src="assets/carousel-image-03.webp" alt="Kira Volkov"></div></div>
+      <div class="prof-c-card">
+        <div class="prof-c-img-wrap"><img src="assets/carousel-image-04.webp" alt="Esteban Rodríguez"></div></div>
+      <div class="prof-c-card">
+        <div class="prof-c-img-wrap"><img src="assets/carousel-image-05.webp" alt="Liam O'Connor"></div></div>
+      <div class="prof-c-card">
+        <div class="prof-c-img-wrap"><img src="assets/carousel-image-06.webp" alt="Mei-Ling Chen"></div></div>
+      <div class="prof-c-card">
+        <div class="prof-c-img-wrap"><img src="assets/carousel-image-07.webp" alt="Greta Müller"></div></div>
+    </div>
+    <div class="prof-carousel-track row-bottom" id="carousel-bottom">
+      <div class="prof-c-card">
+        <div class="prof-c-img-wrap"><img src="assets/carousel-image-08.webp" alt="Olga Petrov"></div></div>
+      <div class="prof-c-card">
+        <div class="prof-c-img-wrap"><img src="assets/carousel-image-09.webp" alt="Priya Sharma"></div></div>
+      <div class="prof-c-card">
+        <div class="prof-c-img-wrap"><img src="assets/carousel-image-10.webp" alt="Isabella Rossi"></div></div>
+      <div class="prof-c-card">
+        <div class="prof-c-img-wrap"><img src="assets/carousel-image-11.webp" alt="Quan Nguyen"></div></div>
+      <div class="prof-c-card">
+        <div class="prof-c-img-wrap"><img src="assets/carousel-image-02.webp" alt="Cheng Wei"></div></div>
+      <div class="prof-c-card">
+        <div class="prof-c-img-wrap"><img src="assets/carousel-image-01.webp" alt="Aisha Patel"></div></div>
+      <div class="prof-c-card">
+        <div class="prof-c-img-wrap"><img src="assets/carousel-image-03.webp" alt="Kira Volkov"></div></div>
+      <div class="prof-c-card">
+        <div class="prof-c-img-wrap"><img src="assets/carousel-image-04.webp" alt="Esteban Rodríguez"></div></div>
+      <div class="prof-c-card">
+        <div class="prof-c-img-wrap"><img src="assets/carousel-image-08.webp" alt="Olga Petrov"></div></div>
+      <div class="prof-c-card">
+        <div class="prof-c-img-wrap"><img src="assets/carousel-image-09.webp" alt="Priya Sharma"></div></div>
+      <div class="prof-c-card">
+        <div class="prof-c-img-wrap"><img src="assets/carousel-image-10.webp" alt="Isabella Rossi"></div></div>
+      <div class="prof-c-card">
+        <div class="prof-c-img-wrap"><img src="assets/carousel-image-11.webp" alt="Quan Nguyen"></div></div>
+      <div class="prof-c-card">
+        <div class="prof-c-img-wrap"><img src="assets/carousel-image-02.webp" alt="Cheng Wei"></div></div>
+      <div class="prof-c-card">
+        <div class="prof-c-img-wrap"><img src="assets/carousel-image-01.webp" alt="Aisha Patel"></div></div>
+      <div class="prof-c-card">
+        <div class="prof-c-img-wrap"><img src="assets/carousel-image-03.webp" alt="Kira Volkov"></div></div>
+      <div class="prof-c-card">
+        <div class="prof-c-img-wrap"><img src="assets/carousel-image-04.webp" alt="Esteban Rodríguez"></div></div>
+    </div>
+  </div>
+</section>
+<section id="demo" class="app-section">
+  <span class="eyebrow">Our App</span>
+  <h2 class="sec-h2 fade-up">Kindred</h2>
+  <p class="app-sub fade-up">Students use Kindred to jump into interactive quests that help them uncover their interests, explore and evaluate career paths, and make clear next steps for their future.</p>
+  <div class="app-demo-wrapper fade-up">
+    <div class="demo-shell">
+      <div class="chrome">
+        <div class="chrome-bar">
+          <div class="chrome-dots"><span></span><span></span><span></span></div>
+          <span class="chrome-url">&#128279; FutureMe</span>
+          <div class="chrome-right"></div>
+        </div>
+
+        <!-- LANDING -->
+        <div id="s-landing" class="iscreen active">
+          <div class="blob blob1"></div>
+          <div class="landing-inner">
+            <div class="fm-pill">
+              <div class="fm-icon"><img id="logo-img" src="assets/brand/kindred_icon.png" alt="Kindred"></div>
+              FutureMe
+            </div>
+            <h1 class="landing-h1">Get students excited about<br>your class &mdash; with zero prep &#10024;</h1>
+            <p class="landing-sub">84% of students said their course felt more relevant afterwards.</p>
+            <button class="btn-start" onclick="startDemo()">&#128640; Start The Demo</button>
+          </div>
+        </div>
+
+        <!-- INTRO -->
+        <div id="s-intro" class="iscreen">
+          <div class="app-hdr"><h2>Kindred</h2><p>Your Personal Career Advisor</p></div>
+          <div class="intro-body">
+            <div class="blue-box">
+              In this intro lesson plan, your student starts by entering their course + a few hobbies/interests.
+              <button class="ov-arrow" onclick="gotoChat()">&#8594;</button>
+            </div>
+            <div class="pink-pulse-wrap">
+              <div class="pink-dot" onclick="gotoChat()"></div>
+              <button class="btn-pink" onclick="gotoChat()">Click here to continue</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- CHAT WITH HOPE -->
+        <div id="s-chat" class="iscreen" style="position:relative;">
+          <div class="app-hdr"><h2>Kindred</h2><p>Your Personal Career Advisor</p></div>
+          <div class="chat-msgs" id="chat-msgs"></div>
+          <div id="ov-magic" class="ov-tip hidden" style="top:150px;left:20px;">
+            &#10024; Here's the magic<br><br>A few professionals will be generated who work right at the intersection of their course and their interests.
+            <button class="ov-arrow" onclick="gotoProfs()">&#8594;</button>
+          </div>
+          <div class="chat-input-row">
+            <div class="user-dot">&#128161;</div>
+            <input class="chat-inp" id="chat-inp" placeholder="Type here to start..." onkeydown="if(event.key==='Enter')sendChat()"/>
+            <button class="send-btn" onclick="sendChat()">&#10148;</button>
+          </div>
+        </div>
+
+        <!-- PROFESSIONALS -->
+        <div id="s-profs" class="iscreen" style="position:relative;">
+          <div class="app-hdr"><h2>Kindred</h2><p>Your Personal Career Advisor</p></div>
+          <div class="profs-top"><div class="bubble user">ok</div></div>
+          <div id="ov-choose" class="ov-tip hidden" style="top:90px;left:50%;transform:translateX(-50%);">
+            You choose a professional to chat with
+            <button class="ov-arrow" onclick="showHopeAnythingTip()">&#8594;</button>
+          </div>
+          <div class="prof-cards-row" id="prof-cards-row"></div>
+          <div id="ov-hope-anything" class="ov-tip hidden" style="bottom:80px;left:20px;max-width:300px;">
+            You can ask Kindred anything. What courses to take, how to find internships, applying for financial aid, finding your passion. You can also ask to chat with different professionals.
+            <button class="ov-arrow" onclick="document.getElementById('ov-hope-anything').classList.add('hidden')">&#8594;</button>
+          </div>
+          <div class="profs-input-row">
+            <div class="user-dot">&#128161;</div>
+            <input class="chat-inp" placeholder="Ask me anything..." readonly style="color:#aaa;cursor:default;"/>
+          </div>
+        </div>
+
+        <!-- PROFESSIONAL CHAT -->
+        <div id="s-prof-chat" class="iscreen" style="position:relative;">
+          <div class="app-hdr" id="prof-hdr">
+            <button class="hdr-back" onclick="backToProfs()">&#8592;</button>
+            <h2 id="prof-hdr-name">Rohan Sidana</h2>
+            <p id="prof-hdr-role">Sports Medicine Physician</p>
+          </div>
+          <div id="prof-msgs"></div>
+          <div id="thinking-panel" class="thinking-panel hidden">
+            <div style="font-size:20px;opacity:0.25;">&#9651; &#9675; &#9633;</div>
+            <div style="margin-top:6px;">Thinking of great questions for you...</div>
+          </div>
+          <div id="ov-sugg" class="ov-tip hidden" style="top:60px;right:16px;left:auto;max-width:280px;">
+            You can pick from suggested questions, or type your own. Answers are based on real career information.
+            <button class="ov-arrow" onclick="document.getElementById('ov-sugg').classList.add('hidden')">&#8594;</button>
+          </div>
+          <div id="ov-back" class="ov-tip hidden" style="top:60px;left:16px;max-width:250px;">
+            Hit the back arrow to return to the chat with Kindred.
+          </div>
+          <div class="sugg-panel" id="sugg-panel"></div>
+          <div class="chat-input-row">
+            <div class="user-dot" style="background:#a8d8ea;">&#9998;</div>
+            <input class="chat-inp" id="prof-inp" placeholder="Ask me anything..." onkeydown="if(event.key==='Enter')sendProfChat()"/>
+            <button class="send-btn" onclick="sendProfChat()">&#10148;</button>
+          </div>
+        </div>
+
+        <!-- EMAIL CAPTURE -->
+        <div id="s-email" class="iscreen">
+          <div class="email-bg">
+            <div class="eblob eblob1"></div><div class="eblob eblob2"></div><div class="eblob eblob3"></div><div class="eblob eblob4"></div>
+            <h2>&#128204; Don't lose this idea!</h2>
+            <p>We'd be happy to email you a reminder + a free starter lesson plan.</p>
+            <div class="email-btns">
+              <button class="btn-yes" onclick="showEmailForm()">Yes, please!</button>
+              <button class="btn-continue" onclick="restartDemo()">Just continue the demo</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- EMAIL FORM -->
+        <div id="s-email-form" class="iscreen">
+          <div class="email-bg">
+            <div class="eblob eblob1"></div><div class="eblob eblob2"></div><div class="eblob eblob3"></div><div class="eblob eblob4"></div>
+            <h2>&#128228; You're all set!</h2>
+            <p>Your free lesson plan is on its way. In the meantime, explore the demo.</p>
+            <div class="email-form-wrap">
+              <input class="email-field" id="email-field" type="email" placeholder="Enter your email"/>
+              <button class="btn-submit" onclick="submitEmail()">Send it to me</button>
+              <button class="btn-restart" onclick="restartDemo()">Restart demo</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STUDENT VOICE -->
+<section class="voice-section">
+  <span class="eyebrow">What students actually said</span>
+  <h2 class="sec-h2 fade-up">Not testimonials.<br><em>Transcripts.</em></h2>
+  <div style="height:36px;"></div>
+  <div class="voice-grid">
+    <div class="voice-card c1 fade-up">
+      <span class="voice-accent">💬</span>
+      <p class="voice-quote">"The quests made careers feel real. I could actually see what each path looked like, the choices, the work, even the lifestyle. It helped me figure out what I want, not just what I thought I was supposed to do."</p>
+      <div class="voice-name">Archer</div>
+      <div class="voice-detail">2023 Graduate, Hawaiian Academy of Arts and Science</div>
+    </div>
+    <div class="voice-card c2 fade-up">
+      <span class="voice-accent">✨</span>
+      <p class="voice-quote">"Thanks to Kindred, I was able to transform my career dreams into a clear vision, guiding me from early career awareness to a well-defined path toward becoming a pharmaceutical researcher."</p>
+      <div class="voice-name">Tori</div>
+      <div class="voice-detail">Student, Sutter Union High School</div>
+    </div>
+    <div class="voice-card c3 fade-up">
+      <span class="voice-accent">🎯</span>
+      <p class="voice-quote">"It changed my perspective on continuing my education. What helped the most was having someone to talk to. It was helpful to map out a career path so I wasn't just going to college without a purpose."</p>
+      <div class="voice-name">Morgan</div>
+      <div class="voice-detail">Student, Sutter Union High School</div>
+    </div>
+  </div>
+</section>
+
+<!-- PERSONA TABS (THREE CONVERSATIONS) -->
+<section class="changes-section">
+  <span class="eyebrow">Three conversations. One platform.</span>
+  <h2 class="sec-h2 fade-up">What changes.<br>For <em>whom.</em></h2>
+  <span class="changes-kicker">Click each role to see what shifts for them.</span>
+
+  <div class="persona-tabs">
+    <div class="ptab active-super" data-panel="super" onclick="switchTab(this,'super')">
+      <span class="ptab-icon">🏫</span>
+      Superintendent
+    </div>
+    <div class="ptab" data-panel="counselor" onclick="switchTab(this,'counselor')">
+      <span class="ptab-icon">🧭</span>
+      Counselor
+    </div>
+    <div class="ptab" data-panel="student" onclick="switchTab(this,'student')">
+      <span class="ptab-icon">🎒</span>
+      Student
+    </div>
+  </div>
+
+  <div id="panel-super" class="persona-panel shown animate-in super-bg">
+    <div>
+      <div class="panel-head">For the board meeting</div>
+      <div class="panel-body">A platform moving toward 64 percent college-and-career readiness with outcome data that travels to a board meeting. A story about Compton students who found their direction. Three classrooms is enough to have both.</div>
+    </div>
+    <div class="panel-stat s-teal">
+      <div class="panel-stat-num">64%</div>
+      <div class="panel-stat-label">2030 CCR target with a clear data trail at every board meeting.</div>
+    </div>
+  </div>
+
+  <div id="panel-counselor" class="persona-panel counselor-bg">
+    <div>
+      <div class="panel-head">For the counselor</div>
+      <div class="panel-body">A student walks into the guidance meeting with something already started: two careers they tried, one word they are circling, one question that is finally specific. The caseload is still 491:1. The difference is that the counselor is not spending the first half of the appointment trying to find the starting line.</div>
+    </div>
+    <div class="panel-stat s-lav">
+      <div class="panel-stat-num">+18 min</div>
+      <div class="panel-stat-label">Of productive guidance time per appointment — recovered from a single shift in how students arrive.</div>
+    </div>
+  </div>
+
+  <div id="panel-student" class="persona-panel student-bg">
+    <div>
+      <div class="panel-head">For the student who shows up Monday</div>
+      <div class="panel-body">Career exploration stops being a form filled out once and forgotten. A student in Compton finds supply chain logistics, environmental health, or urban design because the platform showed them what those jobs actually look like in the city they already live in. That is a student who shows up differently on day one of senior year.</div>
+    </div>
+    <div class="panel-stat s-yellow">
+      <div class="panel-stat-num">Day 1</div>
+      <div class="panel-stat-label">Senior year — arrived with a direction, not a blank stare at a blank form.</div>
+    </div>
+  </div>
+</section>
+
+<!-- PILOT TIMELINE -->
+<section id="pilot" class="pilot-section">
+  <h2 class="sec-h2 fade-up" style="text-align:center;">A <span class="gr">90-day</span> start.</h2>
+  <span class="pilot-kicker">No contract. No commitment. Just three classrooms and a semester of attention.</span>
+  <div class="pilot-steps fade-up">
+    <div class="pilot-step ps-green">
+      <span class="ps-icon">🚀</span>
+      <div class="ps-badge">Day 1</div>
+      <h4>Launch</h4>
+      <p>Teacher setup. Free. Five minutes. No sign-up required. The platform is in the classroom the morning you decide to try it.</p>
+    </div>
+    <div class="pilot-step ps-yellow">
+      <span class="ps-icon">🗺️</span>
+      <div class="ps-badge">Week 2</div>
+      <h4>First quests</h4>
+      <p>Students complete their first career quests. Interests surface. Reflections appear in the teacher dashboard. The counselor gets a preview of who is coming in next.</p>
+    </div>
+    <div class="pilot-step ps-teal">
+      <span class="ps-icon">💡</span>
+      <div class="ps-badge">Month 2</div>
+      <h4>First story</h4>
+      <p>One student whose direction shifted. One counselor appointment that went differently. Numbers pulled from the dashboard.</p>
+    </div>
+    <div class="pilot-step ps-lav">
+      <span class="ps-icon">📋</span>
+      <div class="ps-badge">Day 90</div>
+      <h4>Board-ready</h4>
+      <p>A short film, a one-pager, and a data summary. Something to point to at the next board meeting and say: this is what changed for Compton students this semester.</p>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST BAR -->
+<div class="trust-bar">
+  <div class="trust-item fade-up">
+    <div class="trust-icon ti-teal">🔒</div>
+    <div class="trust-text">
+      <h5>No student data is sold.</h5>
+      <p>FERPA and ISO 27001 compliant. Districts approve what gets shown. Students stay inside the career lane.</p>
+    </div>
+  </div>
+  <div class="trust-item fade-up">
+    <div class="trust-icon ti-lav">🍎</div>
+    <div class="trust-text">
+      <h5>Career mentorship only.</h5>
+      <p>The AI stays in its lane. Students can explore careers, not wander into the rest of the internet.</p>
+    </div>
+  </div>
+  <div class="trust-item fade-up">
+    <div class="trust-icon ti-green">🌱</div>
+    <div class="trust-text">
+      <h5>Nonprofit. Always free for teachers.</h5>
+      <p>Kindred is a 501(c)(3). The tools are free for teachers. That is not a promotion. It is the model.</p>
+    </div>
+  </div>
+</div>
+
+<!-- CTA -->
+<section class="cta-section" id="cta">
+  <div class="cta-arc"></div>
+  <div class="cta-arc2"></div>
+  <h2 class="fade-up">20 minutes.<br>That's the <em>ask.</em></h2>
+  <p class="cta-sub">Not a commitment. Not a contract. One conversation, long enough to look at what happened at Sutter Union and decide whether three classrooms in Compton is worth trying.</p>
+  <span class="cta-pill">
+    <span class="arrow-left">👉</span> Get My Quick Start Kit <span class="arrow-right">👈</span>
+  </span>
+  <p class="cta-note">Opens instantly, no sign-up required</p>
+</section>
+
+<footer class="hs-site-footer">
+  <p class="foot-l">Essah &middot; Lead Storyteller</p>
+  <p class="foot-r">Kindred Portfolio &middot; 2026</p>
+</footer>
+<script>
+/* ── EXPAND/COLLAPSE ── */
+function toggleExpand(btn){
+  const body=btn.nextElementSibling;
+  const isOpen=btn.classList.contains('open');
+  btn.classList.toggle('open',!isOpen);
+  body.classList.toggle('open',!isOpen);
+}
+
+/* ── PERSONA TABS ── */
+const tabClasses={super:'active-super',counselor:'active-counselor',student:'active-student'};
+function switchTab(tab,which){
+  // Remove all active classes from tabs
+  document.querySelectorAll('.ptab').forEach(t=>{
+    t.classList.remove('active-super','active-counselor','active-student');
+  });
+  // Add active class to clicked tab
+  tab.classList.add(tabClasses[which]);
+  // Hide all panels
+  document.querySelectorAll('.persona-panel').forEach(p=>{
+    p.classList.remove('shown','animate-in');
+    p.style.display='none';
+  });
+  // Show selected panel
+  const panel=document.getElementById('panel-'+which);
+  panel.style.display='grid';
+  panel.classList.add('shown');
+  requestAnimationFrame(()=>{
+    requestAnimationFrame(()=>{
+      panel.classList.add('animate-in');
+    });
+  });
+}
+
+/* ── SCROLL ANIMATIONS ── */
+const observer=new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      e.target.classList.add('visible');
+    }
+  });
+},{threshold:0.12});
+document.querySelectorAll('.fade-up').forEach(el=>observer.observe(el));
+
+/* ── GAP BAR ── */
+const gapTile=document.querySelector('.stat-tile.yellow');
+if(gapTile){
+  const gapObs=new IntersectionObserver((entries)=>{
+    if(entries[0].isIntersecting){
+      setTimeout(()=>{
+        const bar=document.getElementById('gapBar');
+        if(bar)bar.style.width='67%';
+      },400);
+      gapObs.disconnect();
+    }
+  },{threshold:0.35});
+  gapObs.observe(gapTile);
+}
+
+/* ── PROGRESS RINGS ── */
+const circumference=2*Math.PI*50; // r=50 now
+function animateRing(id,pct){
+  const el=document.getElementById(id);
+  if(!el)return;
+  el.style.strokeDasharray=circumference;
+  el.style.strokeDashoffset=circumference;
+  el.style.transition='none';
+  requestAnimationFrame(()=>{
+    setTimeout(()=>{
+      el.style.transition='stroke-dashoffset 1.5s cubic-bezier(.4,0,.2,1)';
+      el.style.strokeDashoffset=circumference*(1-pct);
+    },150);
+  });
+}
+const evidenceSection=document.querySelector('.evidence-grid');
+if(evidenceSection){
+  const ringObs=new IntersectionObserver((entries)=>{
+    if(entries[0].isIntersecting){
+      animateRing('ring1',.49);
+      animateRing('ring2',.94);
+      ringObs.disconnect();
+    }
+  },{threshold:0.25});
+  ringObs.observe(evidenceSection);
+}
+
+/* ── TIMELINE DOTS ── */
+document.querySelectorAll('.timeline-step').forEach((step)=>{
+  const stepObs=new IntersectionObserver((entries)=>{
+    if(entries[0].isIntersecting){
+      step.classList.add('active');
+      stepObs.disconnect();
+    }
+  },{threshold:0.5});
+  stepObs.observe(step);
+});
+
+
+/* ── NAV REMOVED ── */
+
+
+
+/* ── DEMO TOOL JAVASCRIPT ── */
+var ROHAN_IMG='assets/demo/rohan.webp';
+var TAMARI_IMG='assets/demo/tamari.webp';
+var LOGO_IMG='assets/brand/kindred_icon.png';
+document.getElementById('logo-img').src=LOGO_IMG;
+
+var PROFESSIONALS=[
+  {id:'tamari',name:'Tamari Kailin',role:'Physical Therapist',city:'Chicago',salary:'$80,000'},
+  {id:'rohan',name:'Rohan Sidana',role:'Sports Medicine Physician',city:'Minneapolis',salary:'$120,000'}
+];
+var ROHAN_DATA={
+  intro:'Hey! So you\'re into health sciences and you love basketball. That\'s actually a great combo for this field. What do you want to know?',
+  suggested:[
+    'How did you know this was the right career for you?',
+    'What\'s the best part of your job?',
+    'How much do you earn?',
+    'What did you study in college?',
+    'Can I get into this starting at community college?',
+  ],
+  answers:{
+    'How did you know this was the right career for you?':'Honestly, I wasn\'t 100% sure at first. I grew up in Milwaukee, loved science and was really into watching sports. Then in high school I got to shadow a sports physician for a week, and something clicked. Seeing how medicine and athletics intersect every single day felt like exactly where I wanted to be.\n\nShadowing is genuinely one of the best things you can do if you\'re weighing a career. Even a day or two tells you whether it\'s real or just sounds good on paper.',
+    'What\'s the best part of your job?':'Seeing athletes come back. When someone tears their ACL and you\'re part of the team that gets them back on the court six months later, that feeling is hard to beat. And no two days are the same, which keeps things interesting.\n\nI also genuinely like that I stay close to sport. I\'m not just in a clinic, I\'m courtside, in the locker room. It never feels disconnected from what I loved growing up.',
+    'How much do you earn?':'Right now I\'m at about $120,000 a year, which is pretty typical for where I am in my career. Salaries range quite a bit depending on whether you\'re working with a professional team, a hospital, or a private clinic. Some physicians in this field earn significantly more as they build a specialty or take on senior roles.\n\nIt\'s solid pay, and the career progression is real if you put in the work.',
+    'What did you study in college?':'I started with a Biology degree, which gave me the foundation I needed for medical school. Then an MD after that. It\'s a long road, not going to pretend otherwise, but you build a lot along the way.\n\nIf you\'re drawn more to the sports side than the clinical side, athletic training or physical therapy are shorter paths that are still deeply involved in athlete care. Worth looking into both before committing.',
+    'Can I get into this starting at community college?':'Yes, definitely. A lot of people in medicine started at a community college. You take your foundational science courses, do well, and transfer to a four-year program. Admissions committees care about your grades and what you do with your time, not just the name of your school.\n\nCommunity college is actually a smart move if you want to keep your options open while you figure out which direction fits you best.',
+  }
+};
+var TAMARI_DATA={
+  intro:'Hi! I heard you\'re into health sciences and basketball. Physical therapy is a great fit for that combination. What\'s on your mind?',
+  suggested:[
+    'What does a physical therapist actually do?',
+    'How did you get into this career?',
+    'What does a typical day look like for you?',
+    'How much do physical therapists earn?',
+    'Do I need a specific degree for this?',
+  ],
+  answers:{
+    'What does a physical therapist actually do?':'We help people recover from injuries, surgeries, or anything that\'s affecting how their body moves. In a sports context that might be a sprained ankle, a torn ligament, or chronic knee pain from overtraining.\n\nIt\'s part science, part detective work. You\'re figuring out why someone is moving the way they are, then building a plan to get them back to full strength. I work with a lot of athletes, so understanding the demands of their sport is just as important as knowing the anatomy.',
+    'How did you get into this career?':'I came to it through sport, honestly. I played basketball through high school and had a knee injury my junior year. My PT was incredible, and I remember thinking I want to do that for someone someday.\n\nFrom there I did some research, shadowed a few therapists, and it just felt right. It combines the science I loved in school with actually working with people, which is where I feel most alive.',
+    'What does a typical day look like for you?':'It varies a lot, which I love. Some mornings I\'m doing assessments with new patients. Then I might run sessions with athletes working on strength and mobility after an injury. Afternoons could be anything from post-surgical rehab to working with a high school team on injury prevention.\n\nYou\'re on your feet, you\'re problem-solving, and you\'re talking to people all day. It\'s a lot, but it never gets boring.',
+    'How much do physical therapists earn?':'I\'m at around $80,000 a year right now, which is pretty typical for Chicago at my experience level. PTs working in sports or private practices can earn more, especially as you specialize. The national range is roughly $65,000 to $100,000 depending on location and setting.\n\nIt\'s not the highest-paying healthcare career, but the work-life balance is genuinely good and the job security is really solid.',
+    'Do I need a specific degree for this?':'You need a Doctor of Physical Therapy degree, which is a graduate program. Most people do a bachelor\'s first in something like biology, kinesiology, or exercise science, then apply to a DPT program, which is usually three years.\n\nStarting at a community college is completely fine. Get your science prerequisites done there, then transfer to a four-year school. A lot of successful PTs took exactly that path.',
+  }
+};
+
+var GENERIC_DATA={
+  intro:'Hey, good to meet you. What do you want to know about this career?',
+  suggested:['What do you love about your job?','What\'s the hardest part?','How much do you earn?','What did you study?','Any advice for someone just starting out?'],
+  answers:{default:'That\'s a solid question. Every path in this field is a bit different, but staying curious and getting real-world exposure early makes a huge difference. Keep asking questions like this.'}
+};
+
+var currentProf=null, chatPhase=0, isTyping=false, profTimer=null;
+
+function show(id){
+  document.querySelectorAll('.iscreen').forEach(function(s){s.classList.remove('active');s.style.display='none';});
+  var el=document.getElementById(id);
+  if(el){el.classList.add('active');el.style.display='flex';}
+}
+
+function hopeAv(){return '<div class="hope-av"><img src="'+LOGO_IMG+'" alt="Kindred"></div>';}
+function profAvHtml(prof){
+  if(prof&&prof.id==='rohan') return '<div class="prof-av-img"><img src="'+ROHAN_IMG+'" alt="'+prof.name+'"></div>';
+  if(prof&&prof.id==='tamari') return '<div class="prof-av-img"><img src="'+TAMARI_IMG+'" alt="'+prof.name+'"></div>';
+  return '<div class="user-dot" style="background:#6b7280;font-size:16px;">&#127939;</div>';
+}
+
+function appendRow(containerId,side,avatarHtml,text){
+  var c=document.getElementById(containerId);
+  if(!c)return;
+  var row=document.createElement('div');
+  row.className='msg-row'+(side==='user'?' user':'');
+  var cls=side==='user'?'bubble user':'bubble';
+  var content='<div class="'+cls+'">'+text.replace(/\n/g,'<br>')+'</div>';
+  row.innerHTML=side==='user'?content+avatarHtml:avatarHtml+content;
+  c.appendChild(row);
+  c.scrollTop=c.scrollHeight;
+  return row;
+}
+
+function showTyping(containerId,avatarHtml){
+  removeTyping(containerId);
+  var c=document.getElementById(containerId);
+  if(!c)return;
+  var row=document.createElement('div');
+  row.className='msg-row';
+  row.setAttribute('data-typing','1');
+  row.innerHTML=avatarHtml+'<div class="typing"><span></span><span></span><span></span></div>';
+  c.appendChild(row);
+  c.scrollTop=c.scrollHeight;
+}
+function removeTyping(containerId){
+  var root=containerId?document.getElementById(containerId):document;
+  if(!root)return;
+  var els=root.querySelectorAll('[data-typing]');
+  els.forEach(function(el){el.remove();});
+}
+
+function typeInInput(inputId,text,cb){
+  if(isTyping){if(cb)cb();return;}
+  isTyping=true;
+  var inp=document.getElementById(inputId);
+  if(!inp){isTyping=false;if(cb)cb();return;}
+  inp.value='';
+  var i=0;
+  function next(){
+    if(i<text.length){inp.value+=text[i++];setTimeout(next,45);}
+    else{isTyping=false;setTimeout(cb,400);}
+  }
+  next();
+}
+
+function dl(ms){return new Promise(function(r){setTimeout(r,ms);});}
+
+function startDemo(){show('s-intro');}
+function restartDemo(){show('s-landing');}
+
+async function gotoChat(){
+  show('s-chat');
+  document.getElementById('chat-msgs').innerHTML='';
+  chatPhase=0; isTyping=false;
+  await dl(600);
+  showTyping('chat-msgs',hopeAv());
+  await dl(900);
+  removeTyping('chat-msgs');
+  appendRow('chat-msgs','hope',hopeAv(),'Welcome! I\'m Kindred, your personal career advisor. Let\'s explore your future together. What CTE Pathway are you in? Totally fine if you\'re not sure yet.');
+  await dl(1400);
+  await new Promise(function(res){typeInInput('chat-inp','health sciences',res);});
+  document.getElementById('chat-inp').value='';
+  appendRow('chat-msgs','user','','health sciences');
+  chatPhase=1;
+  showTyping('chat-msgs',hopeAv());
+  await dl(900);
+  removeTyping('chat-msgs');
+  appendRow('chat-msgs','hope',hopeAv(),'Health sciences, great choice. Lots of directions in that world. Tell me a bit about your interests or hobbies and we can find careers that actually connect with your life.');
+  await dl(1600);
+  await new Promise(function(res){typeInInput('chat-inp','i dont know, i like basketball i guess',res);});
+  document.getElementById('chat-inp').value='';
+  appendRow('chat-msgs','user','','i dont know, i like basketball i guess');
+  chatPhase=2;
+  showTyping('chat-msgs',hopeAv());
+  await dl(1000);
+  removeTyping('chat-msgs');
+  appendRow('chat-msgs','hope',hopeAv(),'Basketball is a good one. The strategy, the physicality, understanding how the body performs and recovers, that overlap with health sciences is really natural. Let me pull up some professionals who sit right at that intersection.');
+  await dl(1400);
+  document.getElementById('ov-magic').classList.remove('hidden');
+  await dl(3500);
+  gotoProfs();
+}
+
+function sendChat(){
+  var inp=document.getElementById('chat-inp');
+  var val=inp.value.trim();
+  if(!val)return;
+  inp.value='';
+  appendRow('chat-msgs','user','',val);
+  showTyping('chat-msgs',hopeAv());
+  setTimeout(function(){
+    removeTyping('chat-msgs');
+    if(chatPhase<=1){
+      appendRow('chat-msgs','hope',hopeAv(),'Nice. Tell me about your interests or hobbies too so we can find something that actually connects with your life.');
+      chatPhase=1;
+    } else {
+      appendRow('chat-msgs','hope',hopeAv(),'Let me find some professionals who match your interests.');
+      setTimeout(function(){document.getElementById('ov-magic').classList.remove('hidden');},1000);
+    }
+  },900);
+}
+
+function buildProfCards(){
+  var row=document.getElementById('prof-cards-row');
+  row.innerHTML='';
+  PROFESSIONALS.forEach(function(p){
+    var imgSrc=p.id==='rohan'?ROHAN_IMG:p.id==='tamari'?TAMARI_IMG:null;
+    var avatarHtml=imgSrc
+      ?'<div class="prof-avatar"><img src="'+imgSrc+'" alt="'+p.name+'"></div>'
+      :'<div class="prof-avatar" style="background:#e8e8e8;display:flex;align-items:center;justify-content:center;font-size:28px;">&#127939;</div>';
+    var card=document.createElement('div');
+    card.className='prof-card';
+    card.innerHTML=avatarHtml+'<div class="prof-name">'+p.name+'</div><div class="prof-role2">'+p.role+'</div><div class="prof-meta"><span>&#128205; '+p.city+'</span><span>&#128179; '+p.salary+'</span></div><button class="btn-talk" onclick="talkTo(\''+p.id+'\')">Talk to '+p.name.split(' ')[0]+'</button>';
+    row.appendChild(card);
+  });
+}
+
+function gotoProfs(){
+  if(profTimer)clearTimeout(profTimer);
+  document.getElementById('ov-magic').classList.add('hidden');
+  show('s-profs');
+  buildProfCards();
+  document.getElementById('ov-choose').classList.remove('hidden');
+  document.getElementById('ov-hope-anything').classList.add('hidden');
+  profTimer=setTimeout(function(){
+    document.getElementById('ov-choose').classList.add('hidden');
+    document.getElementById('ov-hope-anything').classList.remove('hidden');
+    profTimer=setTimeout(function(){
+      document.getElementById('ov-hope-anything').classList.add('hidden');
+      talkTo('rohan');
+    },4000);
+  },3500);
+}
+
+function showHopeAnythingTip(){
+  document.getElementById('ov-choose').classList.add('hidden');
+  document.getElementById('ov-hope-anything').classList.remove('hidden');
+}
+
+function backToProfs(){
+  document.getElementById('ov-back').classList.add('hidden');
+  document.getElementById('ov-sugg').classList.add('hidden');
+  gotoProfs();
+}
+
+async function talkTo(profId){
+  currentProf=PROFESSIONALS.find(function(p){return p.id===profId;});
+  if(!currentProf)return;
+  document.getElementById('prof-hdr-name').textContent=currentProf.name;
+  document.getElementById('prof-hdr-role').textContent=currentProf.role;
+  document.getElementById('prof-msgs').innerHTML='';
+  document.getElementById('sugg-panel').innerHTML='';
+  document.getElementById('ov-sugg').classList.add('hidden');
+  document.getElementById('ov-back').classList.add('hidden');
+  show('s-prof-chat');
+  isTyping=false;
+  var data=profId==='rohan'?ROHAN_DATA:profId==='tamari'?TAMARI_DATA:GENERIC_DATA;
+  var av=profAvHtml(currentProf);
+  var tp=document.getElementById('thinking-panel');
+  tp.classList.remove('hidden');
+  await dl(1600);
+  tp.classList.add('hidden');
+  appendRow('prof-msgs','hope',av,data.intro);
+  await dl(2000);
+  document.getElementById('ov-sugg').classList.remove('hidden');
+  await dl(2800);
+  document.getElementById('ov-sugg').classList.add('hidden');
+  buildSuggestions(data);
+  await dl(2500);
+  await autoQ(data.suggested[0],data,av);
+  await dl(3500);
+  await autoQ(data.suggested[1],data,av);
+  await dl(2200);
+  var typedQ=profId==='rohan'?'How much do you earn?':'What does a typical day look like for you?';
+  await new Promise(function(res){typeInInput('prof-inp',typedQ,res);});
+  document.getElementById('prof-inp').value='';
+  appendRow('prof-msgs','user','',typedQ);
+  showTyping('prof-msgs',av);
+  await dl(1200);
+  removeTyping('prof-msgs');
+  var ans3=data.answers[typedQ]||GENERIC_DATA.answers.default;
+  appendRow('prof-msgs','hope',av,ans3);
+  await dl(3000);
+  await autoQ(data.suggested[3],data,av);
+  await dl(2000);
+  document.getElementById('ov-back').classList.remove('hidden');
+  await dl(2800);
+  document.getElementById('ov-back').classList.add('hidden');
+  await autoQ(data.suggested[4],data,av);
+  await dl(1800);
+  var wrapUp=profId==='rohan'
+    ?'Happy to answer more if you have questions. Good luck with health sciences, and keep playing basketball too.'
+    :'Really glad you came to chat. Physical therapy is a great career if you care about people and sport.';
+  showTyping('prof-msgs',av);
+  await dl(900);
+  removeTyping('prof-msgs');
+  appendRow('prof-msgs','hope',av,wrapUp);
+  await dl(2500);
+  show('s-email');
+}
+
+async function autoQ(q,data,av){
+  appendRow('prof-msgs','user','',q);
+  var tp=document.getElementById('thinking-panel');
+  tp.classList.remove('hidden');
+  await dl(1400);
+  tp.classList.add('hidden');
+  var ans=data&&data.answers&&data.answers[q]?data.answers[q]:GENERIC_DATA.answers.default;
+  showTyping('prof-msgs',av);
+  await dl(1000);
+  removeTyping('prof-msgs');
+  appendRow('prof-msgs','hope',av,ans);
+}
+
+function buildSuggestions(data){
+  var panel=document.getElementById('sugg-panel');
+  panel.innerHTML='';
+  (data.suggested||[]).forEach(function(q){
+    var btn=document.createElement('button');
+    btn.className='sugg-q';
+    btn.textContent=q;
+    panel.appendChild(btn);
+  });
+}
+
+function sendProfChat(){
+  var inp=document.getElementById('prof-inp');
+  var val=inp.value.trim();
+  if(!val||!currentProf)return;
+  inp.value='';
+  var data=currentProf.id==='rohan'?ROHAN_DATA:currentProf.id==='tamari'?TAMARI_DATA:GENERIC_DATA;
+  var av=profAvHtml(currentProf);
+  appendRow('prof-msgs','user','',val);
+  showTyping('prof-msgs',av);
+  setTimeout(function(){
+    removeTyping('prof-msgs');
+    var ans=data.answers&&data.answers[val]?data.answers[val]:GENERIC_DATA.answers.default;
+    appendRow('prof-msgs','hope',av,ans);
+  },1000);
+}
+
+function showEmailForm(){show('s-email-form');}
+
+function submitEmail(){
+  var val=document.getElementById('email-field').value.trim();
+  if(!val||!val.includes('@')){
+    document.getElementById('email-field').style.borderColor='#e74c8b';
+    return;
+  }
+  document.getElementById('email-field').value='';
+  document.querySelector('#s-email-form .email-bg h2').textContent='You\'re all set!';
+}
+</script>
+</body>
+</html>

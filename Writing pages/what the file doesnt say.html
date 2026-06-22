@@ -1,0 +1,743 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/svg+xml" href="../assets/brand/favicon.svg">
+<title>What the File Doesn't Say — Kindred</title>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;font-size:16px;}
+body{font-family:'Plus Jakarta Sans',sans-serif;letter-spacing:-0.01em;line-height:1.6;background:#FAFAF7;color:#12272B;overflow-x:hidden;}
+
+:root{
+  --dark:#12272B;
+  --yellow:#F5D03B;
+  --yellow-light:#FDF7E3;
+  --cream:#F7F3EC;
+  --cream2:#F2EDE3;
+  --green:#3DD97A;
+  --green-mid:#2FC96E;
+  --green-light:#E2F8EC;
+  --teal:#3DD4C0;
+  --teal-light:#E4F8F5;
+  --pink:#E8547A;
+  --pink-light:#FDE8EC;
+  --lav:#B89FE8;
+  --lav-light:#EDE5FF;
+  --mint:#A8DDD4;
+  --ink80:rgba(18,39,43,.8);
+  --ink60:rgba(18,39,43,.6);
+  --ink40:rgba(18,39,43,.4);
+  --ink20:rgba(18,39,43,.2);
+  --ink10:rgba(18,39,43,.1);
+  --ink05:rgba(18,39,43,.05);
+
+  /* ── SPACING SCALE (8-base) ─────────────────────────
+     xs  : 8px
+     sm  : 16px
+     md  : 24px
+     lg  : 32px
+     xl  : 48px
+     2xl : 64px
+     3xl : 88px
+  ──────────────────────────────────────────────────── */
+  --sp-xs : 8px;
+  --sp-sm : 16px;
+  --sp-md : 24px;
+  --sp-lg : 32px;
+  --sp-xl : 48px;
+  --sp-2xl: 64px;
+  --sp-3xl: 88px;
+}
+
+/* ── HERO (untouched per instructions) ── */
+@property --st-x1{syntax:'<percentage>';initial-value:10%;inherits:false;}
+@property --st-y1{syntax:'<percentage>';initial-value:20%;inherits:false;}
+@property --st-x2{syntax:'<percentage>';initial-value:82%;inherits:false;}
+@property --st-y2{syntax:'<percentage>';initial-value:18%;inherits:false;}
+@property --st-x3{syntax:'<percentage>';initial-value:50%;inherits:false;}
+@property --st-y3{syntax:'<percentage>';initial-value:82%;inherits:false;}
+.hero{
+  background:
+    radial-gradient(ellipse 70% 70% at var(--st-x1) var(--st-y1), rgba(239,168,183,.9) 0%, transparent 62%),
+    radial-gradient(ellipse 65% 60% at var(--st-x2) var(--st-y2), rgba(203,184,228,.9) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 60% at var(--st-x3) var(--st-y3), rgba(216,217,138,.9) 0%, transparent 58%),
+    radial-gradient(ellipse 50% 50% at 25% 75%, rgba(168,216,208,.9) 0%, transparent 56%),
+    radial-gradient(ellipse 45% 45% at 76% 60%, rgba(220,196,232,.9) 0%, transparent 54%),
+    radial-gradient(ellipse 100% 100% at 50% 50%, #D7E5E1 0%, #E5DCEB 100%);
+  animation: stdrift1 5s ease-in-out infinite alternate,
+             stdrift2 7s ease-in-out infinite alternate,
+             stdrift3 9s ease-in-out infinite alternate;
+  padding:150px 52px 80px;
+  position:relative;overflow:hidden;
+  min-height:520px;
+  display:flex;align-items:center;
+}
+.hero-blob{display:none;}
+.hero-blob2{display:none;}
+.hero-blob3{display:none;}
+@keyframes stdrift1{
+  0%  {--st-x1:10%;--st-y1:20%;}
+  33% {--st-x1:22%;--st-y1:34%;}
+  66% {--st-x1:6%; --st-y1:14%;}
+  100%{--st-x1:18%;--st-y1:28%;}
+}
+@keyframes stdrift2{
+  0%  {--st-x2:82%;--st-y2:18%;}
+  33% {--st-x2:91%;--st-y2:32%;}
+  66% {--st-x2:76%;--st-y2:14%;}
+  100%{--st-x2:88%;--st-y2:26%;}
+}
+@keyframes stdrift3{
+  0%  {--st-x3:50%;--st-y3:82%;}
+  33% {--st-x3:38%;--st-y3:90%;}
+  66% {--st-x3:62%;--st-y3:76%;}
+  100%{--st-x3:46%;--st-y3:86%;}
+}
+.hero-inner{position:relative;z-index:2;max-width:760px;}
+.hero-tag{
+  display:inline-flex;align-items:center;gap:8px;
+  background:rgba(255,255,255,.34);
+  border:1.5px solid rgba(232,84,122,.42);
+  border-radius:999px;
+  padding:8px 18px 8px 12px;
+  margin-bottom:32px;
+  box-shadow:0 10px 30px rgba(232,84,122,.14);
+  backdrop-filter:blur(16px) saturate(170%);
+  -webkit-backdrop-filter:blur(16px) saturate(170%);
+}
+.hero-dot{
+  width:7px;height:7px;border-radius:50%;
+  background:var(--pink);flex-shrink:0;
+  animation:pulse 2s ease-in-out infinite;
+}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(232,84,122,.5);}70%{box-shadow:0 0 0 7px rgba(232,84,122,0);}100%{box-shadow:0 0 0 0 rgba(232,84,122,0);}}
+.hero-tag-text{font-family:'Plus Jakarta Sans',sans-serif;font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--pink);}
+.hero h1{
+  font-family:'Plus Jakarta Sans',sans-serif;
+  font-size:clamp(64px,8vw,108px);
+  font-weight:800;line-height:.92;
+  letter-spacing:-0.07em;
+  margin-bottom:24px;
+  color:var(--dark);
+}
+.hero h1 em{
+  display:inline-block;
+  padding-right:.09em;
+  padding-bottom:.08em;
+  margin-right:-.035em;
+  line-height:1.08;
+  font-style:normal;
+  color:inherit;
+  background:
+    radial-gradient(circle at 20% 28%, #C73564 0%, transparent 32%),
+    radial-gradient(circle at 76% 64%, #F05B4F 0%, transparent 34%),
+    linear-gradient(115deg,#C22E61 0%,#E8547A 36%,#C75AA0 68%,#F06A42 100%);
+  background-size:220% 220%;
+  -webkit-background-clip:text;
+  background-clip:text;
+  -webkit-text-fill-color:transparent;
+  animation:accentFlow 6s ease-in-out infinite;
+}
+@keyframes accentFlow{0%{background-position:0% 45%;}50%{background-position:100% 55%;}100%{background-position:0% 45%;}}
+.hero-sub{
+  font-family:'Plus Jakarta Sans',sans-serif;
+  font-size:18px;
+  font-style:normal;
+  line-height:1.6;
+  letter-spacing:-0.02em;
+  color:var(--ink80);
+  max-width:520px;
+  margin-bottom:30px;
+}
+
+/* ── READING PROGRESS ── */
+.reading-progress{
+  position:fixed;
+  top:0;left:0;
+  width:0%;height:3px;
+  background:var(--pink);
+  z-index:9999;
+  transition:width .1s linear;
+}
+
+/* ── ARTICLE WRAPPER ── */
+.article-section{
+  background:#fff;
+  padding:0 52px var(--sp-3xl);
+}
+
+/* ── ARTICLE HEADER ── */
+.article-header{
+  max-width:740px;
+  margin:0 auto;
+  padding:var(--sp-lg) 0 var(--sp-lg);
+  border-bottom:2px solid var(--ink10);
+}
+
+/* Article title re-anchor — appears above byline once hero scrolls away */
+.article-title{
+  font-size:clamp(28px,3.5vw,38px);
+  font-weight:800;
+  letter-spacing:-0.05em;
+  line-height:1.08;
+  color:var(--dark);
+  margin-bottom:var(--sp-md);
+  max-width:680px;
+}
+
+.eyebrow{
+  font-size:12px;font-weight:700;letter-spacing:0.12em;
+  text-transform:uppercase;color:var(--teal);
+  display:block;margin-bottom:var(--sp-sm);
+}
+
+/* ── BYLINE ── */
+.byline-block{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 0 var(--sp-md);
+  flex-wrap:wrap;gap:var(--sp-sm);
+}
+.byline-left{display:flex;align-items:center;gap:var(--sp-sm);}
+.avatar{
+  width:48px;height:48px;border-radius:50%;overflow:hidden;
+  background:var(--ink10);flex-shrink:0;
+}
+.avatar img{width:100%;height:100%;object-fit:cover;display:block;}
+.byline-name{font-size:15px;font-weight:700;color:var(--dark);letter-spacing:-0.02em;}
+.byline-role{font-size:12px;color:var(--ink60);letter-spacing:-0.01em;margin-top:3px;}
+.byline-meta{
+  font-size:12px;color:var(--ink40);letter-spacing:-0.01em;
+  text-align:right;
+  line-height:1.9;
+  white-space:nowrap;
+}
+
+/* Thin rule separating meta from utility actions */
+.utility-row{
+  display:flex;gap:var(--sp-xs);
+  padding-top:var(--sp-md);
+  border-top:1px solid var(--ink10);
+}
+.utility-btn{
+  font-size:11px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;
+  color:var(--ink40);padding:7px 14px;border-radius:999px;
+  border:1px solid var(--ink10);background:white;cursor:pointer;
+  transition:all .2s ease;
+}
+.utility-btn:hover{color:var(--dark);border-color:var(--ink20);background:var(--ink05);}
+
+/* ── ARTICLE BODY ── */
+.article-body{
+  max-width:740px;
+  margin:0 auto;
+  padding:var(--sp-md) 0 var(--sp-3xl); /* 24px top — just enough to breathe off the border */
+}
+
+/* First child never needs extra top margin — it's already off the border */
+.article-body > *:first-child{
+  margin-top:0;
+}
+
+/* Body paragraphs – tighter than the original 2.1em */
+.article-body p{
+  font-size:clamp(16px,1.8vw,18px);
+  font-weight:400;
+  line-height:1.85;
+  color:var(--ink80);
+  margin-bottom:1.6em;   /* was 2.1em – all compounding removed */
+  text-wrap:pretty;
+}
+
+/* Last paragraph in a sequence before a structural element shouldn't add extra bottom */
+.article-body p + .break,
+.article-body p + .section-head,
+.article-body p + .article-image,
+.article-body p + .pull{
+  margin-top:0; /* spacing driven by the incoming element, not outgoing p */
+}
+
+/* ── DROP CAP ── */
+.article-body p.opening::first-letter{
+  font-size:3.6em;font-weight:800;
+  float:left;line-height:0.9;
+  margin-right:0.1em;margin-top:0.05em;
+  color:var(--pink);
+}
+.opening{font-size:1.06em;}
+
+/* ── ARTICLE INTRO (standfirst) ── */
+.article-intro{
+  font-size:clamp(18px,2vw,21px);
+  line-height:1.55;
+  letter-spacing:-0.02em;
+  font-weight:500;
+  color:var(--dark);
+  margin-bottom:var(--sp-xl);
+  max-width:680px;
+}
+
+/* ── DATELINE ── */
+.dateline{
+  font-size:11px;font-weight:700;letter-spacing:0.14em;
+  text-transform:uppercase;color:var(--ink40);
+  margin-bottom:var(--sp-md);
+  display:block;
+}
+
+/* ── SECTION HEADINGS ── */
+/* Rule: section-head gets space ABOVE from its own margin-top.
+   We halve it vs original (96→56) because preceding elements
+   no longer add their own large bottom margins.             */
+.section-head{
+  font-size:clamp(24px,3vw,30px);
+  line-height:1.1;
+  letter-spacing:-0.05em;
+  font-weight:800;
+  color:var(--dark);
+  margin-top:var(--sp-2xl);   /* 64px – single source of truth for section gap */
+  margin-bottom:var(--sp-lg); /* 32px */
+  max-width:620px;
+}
+
+/* When a break divider directly precedes a section-head,
+   the section-head's own margin-top takes over            */
+.break + .section-head{
+  margin-top:var(--sp-xl); /* 48px – break already contributed space */
+}
+
+/* ── SCENE BREAK ── */
+.break{
+  display:flex;align-items:center;justify-content:center;
+  gap:12px;
+  margin:var(--sp-xl) 0; /* 48px, was 48px but now nothing compounds with it */
+}
+.break span{
+  width:5px;height:5px;border-radius:50%;
+  background:var(--teal);opacity:0.5;display:block;
+}
+.break span:nth-child(2){opacity:0.8;}
+.break span:nth-child(3){opacity:0.5;}
+
+/* ── FIGURES ── */
+/* Single margin value: space before figure = space after figure.
+   Captions attach directly below with only 10px breathing room. */
+.article-image{
+  margin:var(--sp-xl) 0;  /* 48px top & bottom – was 64px + 60px from inner */
+}
+
+.article-image img{
+  width:100%;
+  aspect-ratio:16/9;
+  object-fit:cover;
+  border-radius:18px;
+  display:block;
+}
+
+.image-placeholder{
+  width:100%;
+  aspect-ratio:16/9;
+  background:linear-gradient(135deg,var(--cream2) 0%, #D9F0ED 100%);
+  border-radius:18px;
+  display:flex;align-items:center;justify-content:center;
+  position:relative;overflow:hidden;
+}
+.image-placeholder::before{
+  content:'';position:absolute;inset:0;
+  background:repeating-linear-gradient(
+    90deg,transparent,transparent 100px,
+    rgba(18,39,43,.02)100px,rgba(18,39,43,.02)101px
+  );
+}
+.image-guide{
+  position:relative;z-index:2;
+  text-align:center;padding:40px;max-width:700px;
+}
+.image-guide .label{
+  font-size:11px;font-weight:500;letter-spacing:0.04em;text-transform:uppercase;
+  color:var(--ink40);margin-bottom:var(--sp-sm);
+}
+.image-guide .query{
+  font-size:14px;color:var(--ink80);
+  background:rgba(255,255,255,.6);
+  border:1.5px solid rgba(18,39,43,.1);
+  padding:16px 24px;margin:var(--sp-sm) 0;
+  letter-spacing:-0.01em;line-height:1.6;
+  border-radius:12px;
+}
+.image-guide .art-note{
+  font-size:14px;color:var(--ink60);
+  font-style:italic;margin-top:var(--sp-sm);
+  line-height:1.6;
+}
+.image-wide{aspect-ratio:16/9;}
+
+/* Captions sit tight under the image */
+.article-image figcaption{
+  margin-top:10px;            /* was detached by 60px – now 10px */
+  font-size:13px;line-height:1.5;
+  color:var(--ink40);font-style:italic;
+  max-width:620px;
+  padding-left:4px;
+  border-left:2px solid var(--ink10);
+  padding-left:12px;
+}
+
+/* ── PULL QUOTE ── */
+.pull{
+  margin:var(--sp-xl) 0;    /* 48px, was 72px */
+  padding:var(--sp-lg) var(--sp-xl);
+  border-left:3px solid var(--green-mid);
+  background:linear-gradient(180deg,#EEF9F1 0%,#E7F6EB 100%);
+  border-radius:14px;
+  position:relative;
+}
+.pull::before{
+  content:"\201C";
+  position:absolute;
+  top:-12px;left:20px;
+  font-size:80px;line-height:1;
+  color:rgba(244,96,122,.13);
+  font-weight:700;
+}
+.pull p{
+  font-size:clamp(18px,2.2vw,22px);
+  font-weight:700;
+  line-height:1.45;
+  color:var(--dark);
+  margin:0;   /* reset article-body p rule */
+}
+
+/* ── DISTRIBUTION BLOCK ── */
+.distribution{
+  margin-top:var(--sp-2xl);
+  padding:var(--sp-lg) var(--sp-xl);
+  background:var(--ink05);
+  border-radius:0 12px 12px 0;
+  border:1px solid var(--ink10);
+  border-left:3px solid var(--ink20); /* accent bar — signals "internal metadata" */
+}
+.distribution .label{
+  font-size:10px;font-weight:700;text-transform:uppercase;
+  letter-spacing:0.14em;color:var(--ink40);
+  margin-bottom:var(--sp-md);
+  display:block;
+}
+.distribution p{
+  font-size:13px;color:var(--ink60);
+  line-height:1.7;margin-bottom:var(--sp-xs);
+}
+.distribution p strong{font-weight:700;color:var(--dark);}
+
+.tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:var(--sp-md);}
+.tag{
+  font-size:11px;font-weight:600;letter-spacing:0.04em;
+  padding:5px 12px;border-radius:999px;color:var(--dark);
+}
+.tag:nth-child(1){background:rgba(244,96,122,.11);}
+.tag:nth-child(2){background:rgba(61,212,192,.11);}
+.tag:nth-child(3){background:rgba(184,159,232,.11);}
+.tag:nth-child(4){background:rgba(245,208,59,.11);}
+.tag:nth-child(5){background:rgba(61,217,122,.11);}
+.tag:nth-child(6){background:rgba(253,232,236,.35);}
+.tag:nth-child(7){background:rgba(228,248,245,.35);}
+.tag:nth-child(8){background:rgba(237,229,255,.35);}
+
+/* ── ANNOTATION ── */
+.annotation{
+  font-family:'Caveat',cursive;
+  color:var(--pink);font-size:22px;
+  transform:rotate(-2deg);
+  display:inline-block;margin:var(--sp-xs) 0;
+}
+
+/* ── AUTHOR FOOTER ── */
+.author-footer{
+  margin-top:var(--sp-2xl);
+  padding-top:var(--sp-lg);
+  border-top:1px solid var(--ink10);
+  display:flex;gap:20px;align-items:flex-start;
+  max-width:720px;
+}
+.author-footer img{width:72px;height:72px;border-radius:50%;object-fit:cover;}
+.author-footer h3{font-size:18px;margin-bottom:var(--sp-xs);}
+.author-footer p{font-size:15px;line-height:1.7;color:var(--ink60);margin-bottom:0;}
+
+/* ── RELATED ── */
+.related-stories{
+  margin-top:var(--sp-2xl);
+  padding-top:var(--sp-xl);
+  border-top:1px solid var(--ink10);
+}
+.related-label{
+  font-size:12px;font-weight:700;letter-spacing:0.12em;
+  text-transform:uppercase;color:var(--ink40);
+  margin-bottom:var(--sp-lg);
+}
+.related-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:28px;
+}
+
+/* ── SECTION DIVIDER ── */
+.section-divider{
+  border:none;height:1px;
+  background:var(--ink10);
+  margin:var(--sp-2xl) 0;
+}
+
+/* ── RESPONSIVE ── */
+@media(max-width:900px){
+  .hero{padding-top:150px;padding-bottom:80px;}
+  .hero,.article-section{padding-left:24px;padding-right:24px;}
+  .article-body{padding-top:var(--sp-lg);padding-bottom:var(--sp-2xl);}
+  .pull{padding:var(--sp-md) var(--sp-lg);}
+  .byline-block{flex-direction:column;align-items:flex-start;gap:12px;}
+  .byline-meta{text-align:left;}
+  .distribution{padding:var(--sp-lg);}
+  .section-head{margin-top:var(--sp-xl);}
+}
+@media(max-width:640px){
+  .hero{padding-top:132px;padding-bottom:64px;min-height:420px;}
+  .hero h1{font-size:clamp(48px,16vw,70px);}
+  .hero-sub{font-size:14px;}
+  .article-section{padding-left:18px;padding-right:18px;}
+  .article-title{font-size:clamp(38px,13vw,58px);}
+  .utility-row{gap:8px;}
+  .utility-btn{padding:9px 12px;font-size:11px;}
+  .article-image img,.image-placeholder{border-radius:14px;aspect-ratio:4/3;}
+  .pull{margin:var(--sp-lg) 0;}
+}
+</style>
+<link rel="stylesheet" href="../kindred-nav.css?v=3">
+</head>
+<body>
+<!-- SHARED NAV -->
+<nav class="hs-nav" aria-label="Primary navigation">
+  <a class="hs-nav-brand" href="../index.html" aria-label="Kindred home">
+    <span class="hs-nav-logo" aria-hidden="true"></span>
+  </a>
+  <ul class="hs-nav-links">
+    <li><a class="hs-nav-item" href="../index.html">Home</a></li>
+    <li class="hs-nav-menu">
+      <a class="hs-nav-item is-active" href="what%20the%20file%20doesnt%20say.html">Writing</a>
+      <div class="hs-nav-dropdown" aria-label="Writing pages">
+        <a class="is-active" href="what%20the%20file%20doesnt%20say.html">Article 1</a>
+        <a href="didnt%20route%20them.html">Article 2</a>
+        <a href="three%20foot%20gap.html">Article 3</a>
+      </div>
+    </li>
+    <li><a class="hs-nav-item" href="../compton%20pitch.html">District Pitch</a></li>
+    <li><a class="hs-nav-item" href="../series.html">Series</a></li>
+    <li class="hs-nav-menu">
+      <a class="hs-nav-item" href="../documentary%20treatment.html">Documentary</a>
+      <div class="hs-nav-dropdown" aria-label="Documentary pages">
+        <a href="../documentary%20treatment.html">Treatment</a>
+        <a href="../documentary%20distribution.html">Distribution</a>
+      </div>
+    </li>
+  </ul>
+</nav>
+
+<div class="reading-progress" id="rp"></div>
+
+<!-- HERO — untouched -->
+<section id="top" class="hero">
+  <div class="hero-blob"></div>
+  <div class="hero-blob2"></div>
+  <div class="hero-blob3"></div>
+  <div class="hero-inner">
+    <div class="hero-tag">
+      <div class="hero-dot"></div>
+      <span class="hero-tag-text">Education &nbsp;·&nbsp; Labor</span>
+    </div>
+    <h1>Article<br><em>Sample 1</em></h1>
+    <p class="hero-sub">A school counselor in Fresno spent eleven years knowing 480 students by their problems. This is about the ones she still thinks about.</p>
+  </div>
+</section>
+<div class="hs-hero-divider"></div><!-- ARTICLE SECTION -->
+<section class="article-section">
+  <div class="article-header">
+
+    <h1 class="article-title">What the File Doesn't Say</h1>
+
+    <div class="byline-block">
+      <div class="byline-left">
+        <div class="avatar">
+          <img src="../assets/writing/chris-smith.webp" alt="Chris Smith">
+        </div>
+        <div>
+          <div class="byline-name">Chris Smith</div>
+          <div class="byline-role">Founding Head of GTM, Kindred</div>
+        </div>
+      </div>
+      <div class="byline-meta">
+        Published May 18, 2026<br>
+        9 min read
+      </div>
+    </div>
+    <!--
+    Google:
+    "professional editorial headshot natural light"
+
+    Square crop
+    400x400 minimum
+    Neutral background
+    Avoid LinkedIn corporate lighting
+    -->
+    <div class="utility-row">
+      <button class="utility-btn">Share</button>
+      <button class="utility-btn">Save</button>
+      <button class="utility-btn">Print</button>
+      <button class="utility-btn">Copy Link</button>
+    </div>
+  </div>
+
+  <div class="article-body">
+
+    <figure class="article-image">
+      <img src="../assets/writing/empty-counselor-office.webp" alt="Empty high school counselor office in natural light">
+      <figcaption>School counselors across California often manage caseloads far above recommended national ratios.</figcaption>
+    </figure>
+
+    <span class="dateline">Fresno, California</span>
+
+    <p class="article-intro">A counselor with 480 students cannot know all of them.</p>
+
+    <p class="opening">The notebook is in a drawer in her home office, which used to be a guest room and is now mostly boxes. Darlene Mays has not opened it since sometime in August. She knows what's in it. It is a list of students she meant to follow up with, written in the blue rollerball pen she used for everything because she bought them in bulk and they were always in reach. The list has about thirty names on it. Some of them have a small checkmark. Most don't.</p>
+
+    <p>She retired in June after eleven years as a school counselor in Fresno Unified. Not dramatically. She did not have a breakdown, or a moment, or a conversation that made her understand something irreversible. She did the math and left. That is how she describes it: she did the math.</p>
+
+    <p>The first morning she did not have to be anywhere, she woke up at 6:15 anyway. She lay in bed for a while. She thought about a student she had flagged for follow-up in April and then forgot. She got up, made coffee, sat at the kitchen table, and did not open her laptop. That was new. After a while she went outside. The neighborhood was quiet. She describes this as a good morning. It was also the morning she understood she was not going back.</p>
+
+    <p>The math is not complicated. She had 480 students. The American School Counselor Association recommends a ratio of 250 to one. California's average runs closer to 430. By that measure she was not an outlier. She was the norm, slightly above it, which is a way of saying she was doing exactly what the system asked of her, and the system asks quite a lot.</p>
+
+    <p>What she knew about, specifically, was thirty of them. The ones who came in because something went wrong. The ones whose parents called, or whose teachers flagged them, or who showed up after a grade that didn't make sense, or after a day that had clearly gone somewhere bad. "There were students I knew something real about," she said. "Then there were students I knew in the language of their files. That's most of them."</p>
+
+    <p>The language of a file is a particular kind of not-knowing. It tells you attendance, GPA, whether the student qualifies for free lunch, what courses she's enrolled in, whether anything has been flagged. It does not tell you what she is thinking about at 2:30 on a Tuesday. It does not tell you whether the thing showing up as a chemistry grade is actually chemistry.</p>
+
+    <figure class="article-image">
+      <img src="../assets/writing/empty-school-hallway.webp" alt="Empty school hallway in afternoon sunlight">
+      <figcaption>Much of a counselor's work happens in brief intervals between interruptions.</figcaption>
+    </figure>
+
+    <div class="break"><span></span><span></span><span></span></div>
+
+    <h2 class="section-head">The Twelve Minutes</h2>
+
+    <p>On a Thursday in February of her last year, Darlene had twelve minutes between appointments. A student named Jerome had been failing chemistry for a full semester. She pulled him in. He was a junior, quiet, the kind of quiet that reads as fine until it doesn't. He answered her questions carefully and none of his answers had anything to do with chemistry. There had been something at home in October. She could tell without him saying so. She did not push. She made a note in the margin of her calendar: <em>October. Come back to this.</em></p>
+
+    <figure class="article-image">
+      <img src="../assets/writing/school-counselor-desk-notes.webp" alt="School counselor desk with handwritten notes">
+      <figcaption>Notes written quickly between meetings often became reminders that never received enough time.</figcaption>
+    </figure>
+
+    <p>She did not come back to it. In the way the next five months unfolded, she never found another twelve minutes for Jerome, and then it was June and she was pulling things off walls and packing boxes, and Jerome was a junior who had failed chemistry and would need to retake it in the fall.</p>
+
+    <p>She is not telling this as a story about Jerome. Jerome is probably fine, she says. He was bright. She has not looked him up. What she is saying is that the twelve-minute appointment was the only chance she had, she spent it correctly, and it was still not enough. That is what it felt like to do the job well.</p>
+
+    <div class="pull">
+      <p>"There were students I knew something real about. Then there were students I knew in the language of their files. That's most of them."</p>
+    </div>
+
+    <p>When she talks about those years now she does not use words like crisis or failure. She uses the language of logistics. She had 480 students. The day had seven hours. The math did not work out.</p>
+
+    <div class="break"><span></span><span></span><span></span></div>
+
+    <h2 class="section-head">What the File Couldn't Show</h2>
+
+    <p>In her last two years at the school she started using a platform called Kindred, which works the way a good first conversation works: it asks students what they care about, listens to what comes back, and asks again. Students move through it on their own, usually on a school computer, during a free period or after class. When they finish, the counselor gets a notification. She can see what the student wrote, what interests surfaced, what careers came up, what they said in the reflection field at the end.</p>
+
+    <p>The first time she got one of those notifications she read it twice. A student she had never spoken to, a sophomore, had described wanting to work in something where she could argue on behalf of people who didn't know how to argue for themselves. She had written it in her own words, slightly grammatically loose, the way you write when nobody is grading it. Darlene looked at the name. She pulled the file. Attendance fine. GPA 2.9. Nothing flagged. The file told her nothing about this. The reflection told her something true.</p>
+
+    <p>She started scheduling those students first. The ones who had completed a reflection. Not because they needed her more than the others, but because she finally had something to work with. She could walk in knowing where they were starting from. She could ask a real question in the first two minutes instead of spending the appointment finding one. "It's not that the platform did the counseling," she said. "It just made the twelve minutes count for more."</p>
+
+    <p>She wishes she had had it for Jerome.</p>
+
+    <div class="break"><span></span><span></span><span></span></div>
+
+    <p>There is a printout still taped to the wall of her old office. She left it when she packed up because it didn't feel like hers to take. It was a career reflection from a student she had never spoken to. He had used the platform on a Thursday afternoon, alone, during a free period, and he had written about what he wanted with a specificity she hadn't expected from someone whose name she barely knew. He wrote about fairness, about wanting to be somewhere decisions got made, about something that had happened when he was twelve that she couldn't quite reconstruct from the paragraph but which had clearly stayed with him. She printed it and put it on the wall to remind herself that the ones she couldn't reach were thinking about things too.</p>
+
+    <p>She does not remember his name. She had 480 students.</p>
+
+    <p>His name was Marcus. He is twenty-two now and works the overnight shift at a distribution center outside Stockton, which means he is asleep by noon and up around eight in the evening and the day runs backward from most people's. He remembers her name.</p>
+
+    <div class="break"><span></span><span></span><span></span></div>
+
+    <h2 class="section-head">The Things That Stay With You</h2>
+
+    <figure class="article-image">
+      <img src="../assets/writing/high-school-library.webp" alt="Empty high school library">
+      <figcaption>Reflection systems gave counselors context before conversations even began.</figcaption>
+    </figure>
+
+    <p>Marcus used the platform in eleventh grade, during the spring semester, on a school computer in the library during a free period. He had not been to the counselor's office in two years. Not because anything was wrong. Because there was always a line and the line was always longer than the time between his classes, and at some point he stopped checking whether it had gotten shorter.</p>
+
+    <p>He remembers the library being mostly empty that afternoon. Two other kids at a table near the window, talking about something. The question on the screen asked what mattered to him and he sat with it for a minute before typing. He said he answered more honestly than he expected. "When nobody's going to grade it, you just say the thing."</p>
+
+    <p>What came back surprised him. Public policy. Urban planning. Something called civic technology. He did not know what civic technology was. He looked it up on his phone that evening, then again two days later, and wrote the words in the margin of a notebook next to some geometry he hadn't finished. He thought about it off and on through the spring.</p>
+
+    <figure class="article-image">
+      <img src="../assets/writing/teen-grocery-night-shift.webp" alt="Teen grocery store night shift">
+      <figcaption>Work schedules often reshaped educational plans long before students made formal decisions.</figcaption>
+    </figure>
+
+    <p>Then his senior year started, and his father's hours at the plant got cut in October, and Marcus picked up evening shifts at a grocery store to help cover the gap. He was stocking shelves from six to eleven, four nights a week, and getting home late enough that homework was a negotiation he usually lost. The college applications he had half-started in September sat open in a browser tab he kept meaning to return to. He looked at them in November and the deadlines had passed for two of the schools. He looked again in December and closed the tab. Not as a decision. It was just a thing that happened, the way things do when the space for them disappears a little at a time.</p>
+
+    <p>He is twenty-two. He works overnight. He enrolled in community college last spring and took two classes, which is what the shift schedule allows. He knows what he wants to study. He says it plainly, the way you state a fact about yourself that has been true long enough to stop being interesting. Public administration, maybe. Something where decisions get made. He is getting there.</p>
+
+    <p>What he has not forgotten is that someone asked him the right question when he was sixteen. He answered it. The answer is still true. He is clear about that: it is not nothing.</p>
+
+    <div class="break"><span></span><span></span><span></span></div>
+
+    <h2 class="section-head">The List in the Drawer</h2>
+
+    <p>Darlene does not know about Marcus. She knows there was a student. She knows she printed something and put it on the wall because she wanted to remember that the ones she couldn't reach in twelve minutes were not blank. "I always thought about the students I had appointments with," she said. "I never thought enough about the ones I didn't." She paused. "You can't, really. You'd never stop."</p>
+
+    <p>She still thinks about Jerome sometimes. She does not know why Jerome more than the others. Probably because of the calendar note. Something about writing a thing down and not returning to it makes it harder to let go than the things you simply forgot.</p>
+
+    <figure class="article-image">
+      <img src="../assets/writing/notebook-drawer.webp" alt="Notebook in a drawer in natural light">
+      <figcaption>Some names stayed in memory long after the school year ended.</figcaption>
+    </figure>
+
+    <p>She has the notebook in the drawer with the checkmarks and the names and the margins full of notes she meant to act on. She has not opened it because she already knows what it says. The names are still there. The checkmarks are still outnumbered.</p>
+
+    <p>The list does not get shorter by looking at it.</p>
+
+    <div class="distribution">
+      <div class="label">Distribution notes &nbsp;·&nbsp; Not for publication</div>
+      <p><strong>Home:</strong> The Atlantic, Hechinger Report. Anchor piece for unrestricted donor campaign.</p>
+      <p><strong>Audience:</strong> Donors asking what the gap looks like from inside it. Board members. Anyone who needs honest over polished.</p>
+      <p><strong>Goal:</strong> Earns the right to publish every other story by telling this one first. Credibility through honesty.</p>
+      <div class="tags">
+        <span class="tag">LongForm</span>
+        <span class="tag">DonorEditorial</span>
+        <span class="tag">Board-ready</span>
+        <span class="tag">school counselor caseload</span>
+        <span class="tag">ASCA 250:1</span>
+        <span class="tag">Fresno USD</span>
+        <span class="tag">first-gen students CA</span>
+        <span class="tag">counselor retention</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<footer class="hs-site-footer">
+  <p class="foot-l">Essah &middot; Lead Storyteller</p>
+  <p class="foot-r">Kindred Portfolio &middot; 2026</p>
+</footer>
+<script>
+  const rp = document.getElementById('rp');
+  window.addEventListener('scroll', () => {
+    const scrollTop = window.scrollY;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    rp.style.width = (scrollTop / docHeight * 100) + '%';
+  }, { passive: true });
+</script>
+
+</body>
+</html>

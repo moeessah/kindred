@@ -1,0 +1,627 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/svg+xml" href="../assets/brand/favicon.svg">
+<title>The Three-Foot Gap — Kindred</title>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;font-size:16px;}
+body{font-family:'Plus Jakarta Sans',sans-serif;letter-spacing:-0.01em;line-height:1.6;background:#FAFAF7;color:#12272B;overflow-x:hidden;}
+
+:root{
+  --dark:#12272B;
+  --yellow:#F5D03B;
+  --yellow-light:#FDF7E3;
+  --cream:#F7F3EC;
+  --cream2:#F2EDE3;
+  --green:#3DD97A;
+  --green-mid:#2FC96E;
+  --green-light:#E2F8EC;
+  --teal:#3DD4C0;
+  --teal-light:#E4F8F5;
+  --pink:#E8547A;
+  --pink-light:#FDE8EC;
+  --lav:#B89FE8;
+  --lav-light:#EDE5FF;
+  --mint:#A8DDD4;
+  --ink80:rgba(18,39,43,.8);
+  --ink60:rgba(18,39,43,.6);
+  --ink40:rgba(18,39,43,.4);
+  --ink20:rgba(18,39,43,.2);
+  --ink10:rgba(18,39,43,.1);
+  --ink05:rgba(18,39,43,.05);
+
+  --sp-xs : 8px;
+  --sp-sm : 16px;
+  --sp-md : 24px;
+  --sp-lg : 32px;
+  --sp-xl : 48px;
+  --sp-2xl: 64px;
+  --sp-3xl: 88px;
+}
+
+/* ── HERO ── */
+@property --tf-x1{syntax:'<percentage>';initial-value:10%;inherits:false;}
+@property --tf-y1{syntax:'<percentage>';initial-value:20%;inherits:false;}
+@property --tf-x2{syntax:'<percentage>';initial-value:82%;inherits:false;}
+@property --tf-y2{syntax:'<percentage>';initial-value:18%;inherits:false;}
+@property --tf-x3{syntax:'<percentage>';initial-value:50%;inherits:false;}
+@property --tf-y3{syntax:'<percentage>';initial-value:82%;inherits:false;}
+.hero{
+  background:
+    radial-gradient(ellipse 70% 70% at var(--tf-x1) var(--tf-y1), rgba(239,168,183,.9) 0%, transparent 62%),
+    radial-gradient(ellipse 65% 60% at var(--tf-x2) var(--tf-y2), rgba(203,184,228,.9) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 60% at var(--tf-x3) var(--tf-y3), rgba(213,216,138,.9) 0%, transparent 58%),
+    radial-gradient(ellipse 50% 50% at 26% 74%, rgba(241,200,184,.9) 0%, transparent 56%),
+    radial-gradient(ellipse 45% 45% at 75% 60%, rgba(224,231,160,.9) 0%, transparent 54%),
+    radial-gradient(ellipse 100% 100% at 50% 50%, #E4D7EA 0%, #E5E8B8 100%);
+  animation: tfdrift1 5s ease-in-out infinite alternate,
+             tfdrift2 7s ease-in-out infinite alternate,
+             tfdrift3 9s ease-in-out infinite alternate;
+  padding:150px 52px 80px;
+  position:relative;overflow:hidden;
+  min-height:520px;
+  display:flex;align-items:center;
+}
+.hero-blob{display:none;}
+.hero-blob2{display:none;}
+.hero-blob3{display:none;}
+@keyframes tfdrift1{
+  0%  {--tf-x1:10%;--tf-y1:20%;}
+  33% {--tf-x1:22%;--tf-y1:34%;}
+  66% {--tf-x1:6%; --tf-y1:14%;}
+  100%{--tf-x1:18%;--tf-y1:28%;}
+}
+@keyframes tfdrift2{
+  0%  {--tf-x2:82%;--tf-y2:18%;}
+  33% {--tf-x2:91%;--tf-y2:32%;}
+  66% {--tf-x2:76%;--tf-y2:14%;}
+  100%{--tf-x2:88%;--tf-y2:26%;}
+}
+@keyframes tfdrift3{
+  0%  {--tf-x3:50%;--tf-y3:82%;}
+  33% {--tf-x3:38%;--tf-y3:90%;}
+  66% {--tf-x3:62%;--tf-y3:76%;}
+  100%{--tf-x3:46%;--tf-y3:86%;}
+}
+.hero-inner{position:relative;z-index:2;max-width:760px;}
+.hero-tag{
+  display:inline-flex;align-items:center;gap:8px;
+  background:rgba(255,255,255,.34);
+  border:1.5px solid rgba(232,84,122,.42);
+  border-radius:999px;
+  padding:8px 18px 8px 12px;
+  margin-bottom:32px;
+  box-shadow:0 10px 30px rgba(232,84,122,.14);
+  backdrop-filter:blur(16px) saturate(170%);
+  -webkit-backdrop-filter:blur(16px) saturate(170%);
+}
+.hero-dot{
+  width:7px;height:7px;border-radius:50%;
+  background:var(--pink);flex-shrink:0;
+  animation:pulse 2s ease-in-out infinite;
+}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(232,84,122,.5);}70%{box-shadow:0 0 0 7px rgba(232,84,122,0);}100%{box-shadow:0 0 0 0 rgba(232,84,122,0);}}
+.hero-tag-text{font-family:'Plus Jakarta Sans',sans-serif;font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--pink);}
+.hero h1{
+  font-family:'Plus Jakarta Sans',sans-serif;
+  font-size:clamp(64px,8vw,108px);
+  font-weight:800;line-height:.92;
+  letter-spacing:-0.07em;
+  margin-bottom:24px;color:var(--dark);
+}
+.hero h1 em{
+  display:inline-block;
+  padding-right:.09em;
+  padding-bottom:.08em;
+  margin-right:-.035em;
+  line-height:1.08;
+  font-style:normal;
+  color:inherit;
+  background:
+    radial-gradient(circle at 20% 28%, #C73564 0%, transparent 32%),
+    radial-gradient(circle at 76% 64%, #F05B4F 0%, transparent 34%),
+    linear-gradient(115deg,#C22E61 0%,#E8547A 36%,#C75AA0 68%,#F06A42 100%);
+  background-size:220% 220%;
+  -webkit-background-clip:text;
+  background-clip:text;
+  -webkit-text-fill-color:transparent;
+  animation:accentFlow 6s ease-in-out infinite;
+}
+@keyframes accentFlow{0%{background-position:0% 45%;}50%{background-position:100% 55%;}100%{background-position:0% 45%;}}
+.hero-sub{
+  font-family:'Plus Jakarta Sans',sans-serif;
+  font-size:18px;line-height:1.6;
+  letter-spacing:-0.02em;color:var(--ink80);
+  max-width:520px;margin-bottom:30px;
+}
+
+/* ── READING PROGRESS ── */
+.reading-progress{
+  position:fixed;top:0;left:0;
+  width:0%;height:3px;
+  background:var(--yellow);
+  z-index:9999;transition:width .1s linear;
+}
+
+/* ── ARTICLE WRAPPER ── */
+.article-section{background:#fff;padding:0 52px var(--sp-3xl);}
+
+/* ── ARTICLE HEADER ── */
+.article-header{
+  max-width:740px;margin:0 auto;
+  padding:var(--sp-lg) 0 var(--sp-lg);
+  border-bottom:2px solid var(--ink10);
+}
+.article-title{
+  font-size:clamp(28px,3.5vw,38px);
+  font-weight:800;letter-spacing:-0.05em;
+  line-height:1.08;color:var(--dark);
+  margin-bottom:var(--sp-md);max-width:680px;
+}
+.eyebrow{
+  font-size:12px;font-weight:700;letter-spacing:0.12em;
+  text-transform:uppercase;color:var(--teal);
+  display:block;margin-bottom:var(--sp-sm);
+}
+
+/* ── BYLINE ── */
+.byline-block{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 0 var(--sp-md);flex-wrap:wrap;gap:var(--sp-sm);
+}
+.byline-left{display:flex;align-items:center;gap:var(--sp-sm);}
+.avatar{
+  width:48px;height:48px;border-radius:50%;overflow:hidden;
+  background:var(--ink10);flex-shrink:0;
+}
+.avatar img{width:100%;height:100%;object-fit:cover;display:block;}
+.byline-name{font-size:15px;font-weight:700;color:var(--dark);letter-spacing:-0.02em;}
+.byline-role{font-size:12px;color:var(--ink60);letter-spacing:-0.01em;margin-top:3px;}
+.byline-meta{
+  font-size:12px;color:var(--ink40);letter-spacing:-0.01em;
+  text-align:right;line-height:1.9;white-space:nowrap;
+}
+.utility-row{
+  display:flex;gap:var(--sp-xs);
+  padding-top:var(--sp-md);border-top:1px solid var(--ink10);
+}
+.utility-btn{
+  font-size:11px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;
+  color:var(--ink40);padding:7px 14px;border-radius:999px;
+  border:1px solid var(--ink10);background:white;cursor:pointer;
+  transition:all .2s ease;
+}
+.utility-btn:hover{color:var(--dark);border-color:var(--ink20);background:var(--ink05);}
+
+/* ── ARTICLE BODY ── */
+.article-body{
+  max-width:740px;margin:0 auto;
+  padding:var(--sp-md) 0 var(--sp-3xl);
+}
+.article-body > *:first-child{margin-top:0;}
+.article-body p{
+  font-size:clamp(16px,1.8vw,18px);
+  font-weight:400;line-height:1.85;
+  color:var(--ink80);margin-bottom:1.6em;text-wrap:pretty;
+}
+.article-body p + .break,
+.article-body p + .section-head,
+.article-body p + .article-image,
+.article-body p + .pull,
+.article-body p + .doc-quote{margin-top:0;}
+
+/* ── DROP CAP ── */
+.article-body p.opening::first-letter{
+  font-size:3.6em;font-weight:800;
+  float:left;line-height:0.9;
+  margin-right:0.1em;margin-top:0.05em;
+  color:var(--pink);
+}
+.opening{font-size:1.06em;}
+
+/* ── STANDFIRST ── */
+.article-intro{
+  font-size:clamp(18px,2vw,21px);
+  line-height:1.55;letter-spacing:-0.02em;
+  font-weight:500;color:var(--dark);
+  margin-bottom:var(--sp-xl);max-width:680px;
+}
+
+/* ── DATELINE ── */
+.dateline{
+  font-size:11px;font-weight:700;letter-spacing:0.14em;
+  text-transform:uppercase;color:var(--ink40);
+  margin-bottom:var(--sp-md);display:block;
+}
+
+/* ── SECTION HEADINGS ── */
+.section-head{
+  font-size:clamp(24px,3vw,30px);
+  line-height:1.1;letter-spacing:-0.05em;
+  font-weight:800;color:var(--dark);
+  margin-top:var(--sp-2xl);margin-bottom:var(--sp-lg);
+  max-width:620px;
+}
+.break + .section-head{margin-top:var(--sp-xl);}
+
+/* ── SCENE BREAK ── */
+.break{
+  display:flex;align-items:center;justify-content:center;
+  gap:12px;margin:var(--sp-xl) 0;
+}
+.break span{
+  width:5px;height:5px;border-radius:50%;
+  background:var(--teal);opacity:0.5;display:block;
+}
+.break span:nth-child(2){opacity:0.8;}
+.break span:nth-child(3){opacity:0.5;}
+
+/* ── FIGURES ── */
+.article-image{margin:var(--sp-xl) 0;}
+.article-image img{
+  width:100%;
+  aspect-ratio:16/9;
+  object-fit:cover;
+  border-radius:18px;
+  display:block;
+}
+.image-placeholder{
+  width:100%;aspect-ratio:16/9;
+  background:linear-gradient(135deg,var(--cream2) 0%,#D9F0ED 100%);
+  border-radius:18px;
+  display:flex;align-items:center;justify-content:center;
+  position:relative;overflow:hidden;
+}
+.image-placeholder::before{
+  content:'';position:absolute;inset:0;
+  background:repeating-linear-gradient(
+    90deg,transparent,transparent 100px,
+    rgba(18,39,43,.02)100px,rgba(18,39,43,.02)101px
+  );
+}
+.image-guide{position:relative;z-index:2;text-align:center;padding:40px;max-width:700px;}
+.image-guide .label{
+  font-size:11px;font-weight:500;letter-spacing:0.04em;text-transform:uppercase;
+  color:var(--ink40);margin-bottom:var(--sp-sm);
+}
+.image-guide .query{
+  font-size:14px;color:var(--ink80);
+  background:rgba(255,255,255,.6);
+  border:1.5px solid rgba(18,39,43,.1);
+  padding:16px 24px;margin:var(--sp-sm) 0;
+  letter-spacing:-0.01em;line-height:1.6;border-radius:12px;
+}
+.image-guide .art-note{
+  font-size:14px;color:var(--ink60);
+  font-style:italic;margin-top:var(--sp-sm);line-height:1.6;
+}
+.image-wide{aspect-ratio:16/9;}
+.article-image figcaption{
+  margin-top:10px;font-size:13px;line-height:1.5;
+  color:var(--ink40);font-style:italic;max-width:620px;
+  border-left:2px solid var(--ink10);padding-left:12px;
+}
+
+/* ── PULL QUOTE ── */
+.pull{
+  margin:var(--sp-xl) 0;
+  padding:var(--sp-lg) var(--sp-xl);
+  border-left:3px solid var(--green-mid);
+  background:linear-gradient(180deg,#EEF9F1 0%,#E7F6EB 100%);
+  border-radius:14px;position:relative;
+}
+.pull::before{
+  content:"\201C";
+  position:absolute;top:-12px;left:20px;
+  font-size:80px;line-height:1;
+  color:rgba(244,96,122,.13);font-weight:700;
+}
+.pull p{
+  font-size:clamp(18px,2.2vw,22px);
+  font-weight:700;line-height:1.45;
+  color:var(--dark);margin:0;
+}
+
+/* ── DOCUMENT QUOTE (bureaucratic language) ── */
+.doc-quote{
+  margin:var(--sp-xl) 0;
+  padding:var(--sp-md) var(--sp-lg);
+  background:var(--ink05);
+  border-left:3px solid var(--ink20);
+  border-radius:0 10px 10px 0;
+  font-size:14px;
+  line-height:1.75;
+  color:var(--ink60);
+  font-family:monospace;
+  letter-spacing:-0.01em;
+}
+.doc-quote .doc-source{
+  display:block;margin-top:var(--sp-sm);
+  font-size:10px;letter-spacing:0.1em;
+  text-transform:uppercase;color:var(--ink40);
+}
+
+/* ── DISTRIBUTION BLOCK ── */
+.distribution{
+  margin-top:var(--sp-2xl);
+  padding:var(--sp-lg) var(--sp-xl);
+  background:var(--ink05);
+  border-radius:0 12px 12px 0;
+  border:1px solid var(--ink10);
+  border-left:3px solid var(--ink20);
+}
+.distribution .label{
+  font-size:10px;font-weight:700;text-transform:uppercase;
+  letter-spacing:0.14em;color:var(--ink40);
+  margin-bottom:var(--sp-md);display:block;
+}
+.distribution p{
+  font-size:13px;color:var(--ink60);
+  line-height:1.7;margin-bottom:var(--sp-xs);
+}
+.distribution p strong{font-weight:700;color:var(--dark);}
+
+.tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:var(--sp-md);}
+.tag{
+  font-size:11px;font-weight:600;letter-spacing:0.04em;
+  padding:5px 12px;border-radius:999px;color:var(--dark);
+}
+.tag:nth-child(1){background:rgba(244,96,122,.11);}
+.tag:nth-child(2){background:rgba(61,212,192,.11);}
+.tag:nth-child(3){background:rgba(184,159,232,.11);}
+.tag:nth-child(4){background:rgba(245,208,59,.11);}
+.tag:nth-child(5){background:rgba(61,217,122,.11);}
+.tag:nth-child(6){background:rgba(253,232,236,.35);}
+.tag:nth-child(7){background:rgba(228,248,245,.35);}
+.tag:nth-child(8){background:rgba(237,229,255,.35);}
+.tag:nth-child(9){background:rgba(245,208,59,.11);}
+.tag:nth-child(10){background:rgba(61,212,192,.11);}
+
+/* ── RESPONSIVE ── */
+@media(max-width:900px){
+  .hero{padding-top:150px;padding-bottom:80px;}
+  .hero,.article-section{padding-left:24px;padding-right:24px;}
+  .article-body{padding-top:var(--sp-lg);padding-bottom:var(--sp-2xl);}
+  .pull{padding:var(--sp-md) var(--sp-lg);}
+  .byline-block{flex-direction:column;align-items:flex-start;gap:12px;}
+  .byline-meta{text-align:left;}
+  .distribution{padding:var(--sp-lg);}
+  .section-head{margin-top:var(--sp-xl);}
+}
+@media(max-width:640px){
+  .hero{padding-top:132px;padding-bottom:64px;min-height:420px;}
+  .hero h1{font-size:clamp(48px,16vw,70px);}
+  .hero-sub{font-size:14px;}
+  .article-section{padding-left:18px;padding-right:18px;}
+  .article-title{font-size:clamp(38px,13vw,58px);}
+  .utility-row{gap:8px;}
+  .utility-btn{padding:9px 12px;font-size:11px;}
+  .article-image img,.image-placeholder{border-radius:14px;aspect-ratio:4/3;}
+  .doc-quote{font-size:12px;padding:16px;}
+  .pull{margin:var(--sp-lg) 0;}
+}
+</style>
+<link rel="stylesheet" href="../kindred-nav.css?v=3">
+</head>
+<body>
+<!-- SHARED NAV -->
+<nav class="hs-nav" aria-label="Primary navigation">
+  <a class="hs-nav-brand" href="../index.html" aria-label="Kindred home">
+    <span class="hs-nav-logo" aria-hidden="true"></span>
+  </a>
+  <ul class="hs-nav-links">
+    <li><a class="hs-nav-item" href="../index.html">Home</a></li>
+    <li class="hs-nav-menu">
+      <a class="hs-nav-item is-active" href="what%20the%20file%20doesnt%20say.html">Writing</a>
+      <div class="hs-nav-dropdown" aria-label="Writing pages">
+        <a href="what%20the%20file%20doesnt%20say.html">Article 1</a>
+        <a href="didnt%20route%20them.html">Article 2</a>
+        <a class="is-active" href="three%20foot%20gap.html">Article 3</a>
+      </div>
+    </li>
+    <li><a class="hs-nav-item" href="../compton%20pitch.html">District Pitch</a></li>
+    <li><a class="hs-nav-item" href="../series.html">Series</a></li>
+    <li class="hs-nav-menu">
+      <a class="hs-nav-item" href="../documentary%20treatment.html">Documentary</a>
+      <div class="hs-nav-dropdown" aria-label="Documentary pages">
+        <a href="../documentary%20treatment.html">Treatment</a>
+        <a href="../documentary%20distribution.html">Distribution</a>
+      </div>
+    </li>
+  </ul>
+</nav>
+
+<div class="reading-progress" id="rp"></div>
+
+<!-- HERO -->
+<section id="top" class="hero">
+  <div class="hero-blob"></div>
+  <div class="hero-blob2"></div>
+  <div class="hero-blob3"></div>
+  <div class="hero-inner">
+    <div class="hero-tag">
+      <div class="hero-dot"></div>
+      <span class="hero-tag-text">Education &nbsp;·&nbsp; Poverty</span>
+    </div>
+    <h1>Article<br><em>Sample 3</em></h1>
+    <p class="hero-sub">A student in Brawley knows what he wants. Between knowing and enrolling there are eleven steps, four deadlines, two offices that close at 4pm, and one form his father has never heard of.</p>
+  </div>
+</section>
+<div class="hs-hero-divider"></div><!-- ARTICLE SECTION -->
+<section class="article-section">
+  <div class="article-header">
+
+    <h1 class="article-title">The Three-Foot Gap</h1>
+
+    <div class="byline-block">
+      <div class="byline-left">
+        <div class="avatar">
+          <img src="../assets/writing/chris-smith.webp" alt="Chris Smith">
+        </div>
+        <div>
+          <div class="byline-name">Chris Smith</div>
+          <div class="byline-role">Founding Head of GTM, Kindred</div>
+        </div>
+      </div>
+      <div class="byline-meta">
+        Published June 1, 2026<br>
+        12 min read
+      </div>
+    </div>
+
+    <div class="utility-row">
+      <button class="utility-btn">Share</button>
+      <button class="utility-btn">Save</button>
+      <button class="utility-btn">Print</button>
+      <button class="utility-btn">Copy Link</button>
+    </div>
+  </div>
+
+  <div class="article-body">
+
+    <figure class="article-image">
+      <img src="../assets/writing/financial-aid-office.webp" alt="Financial aid officer at a community college desk">
+      <figcaption>The financial aid office at Imperial Valley College is open Monday through Thursday, 8am to 4:30pm. Closed Wednesdays.</figcaption>
+    </figure>
+
+    <span class="dateline">Brawley, California</span>
+
+    <p class="article-intro">The gap isn't motivation. It isn't ambition. It is a sequence of forms, deadlines, and office hours that nobody had twelve minutes to explain.</p>
+
+    <p class="opening">The form is called an AB 540 Affidavit. It is two pages. It requires a parent's signature. It is available at the financial aid office at Imperial Valley College, at 380 East Aten Road in Imperial, California, open Monday through Thursday, 8am to 4:30pm, and Friday until noon. Miguel Rivas turned 18 in June. His father broke his hip in February. The form was due March 2.</p>
+
+    <p>Nobody told them about the form. That is not entirely true. The college's website lists it, buried under a tab for the California Dream Act Application, which Miguel had never heard of, because what he had heard of was FAFSA, because that was what his high school counselor mentioned once during a group session in November, and FAFSA was for citizens, and Miguel was a citizen, but his father was not, and the income section of FAFSA asks for parental tax information, and Miguel's father, who has worked packing lettuce in the Imperial Valley fields since 2004, has never filed a federal tax return.</p>
+
+    <p>This is where the gap begins. Not in August when Miguel did not show up for orientation. In November, in a school counseling session that lasted forty minutes, covered nineteen juniors, and mentioned FAFSA once.</p>
+
+    <p>Miguel is not confused about what he wants. He wants to study environmental science. He has wanted this since his sophomore year, when his biology teacher spent two weeks on the Salton Sea, which is forty minutes north of Brawley, which is shrinking, which is releasing arsenic dust that doctors have linked to the respiratory problems his grandmother has had since 2019. He knew what he wanted before anyone gave him language for it.</p>
+
+    <p>Last spring a platform called Kindred came to his classroom. It asks students questions, not about career categories, about what they care about, what pulls at them, what kind of problem they would choose to work on. Miguel answered honestly. He said he wanted to fix something that was already broken. The platform came back with environmental remediation, water resource management, air quality analysis. It told him Imperial Valley College had a pathway. It told him the pathway could transfer to UC Riverside.</p>
+
+    <p>Ninety-four percent of students who use the platform come out knowing their next steps. Miguel knew his next steps. The steps he knew were not the problem.</p>
+
+    <div class="break"><span></span><span></span><span></span></div>
+
+    <h2 class="section-head">Carmen's Queue</h2>
+
+    <figure class="article-image">
+      <img src="../assets/writing/counselor-desk-still-life.webp" alt="Office desk and filing cabinet with paper stacks">
+      <figcaption>Carmen Mendoza has worked in financial aid for fourteen years. She has seen every version of this form.</figcaption>
+    </figure>
+
+    <p>Carmen Delgado has worked in the financial aid office at Imperial Valley College for eleven years. On a Thursday morning in April, there are six people in the waiting area when she arrives. She takes her seat, pulls up the queue, and the first file is a student whose CADAA, the California Dream Act Application, is flagged incomplete because the income section lists her father's employer as a labor contractor who pays in cash and has no EIN on record. Carmen has seen this before. She picks up the phone and calls the number on the file. It rings through to voicemail. She leaves a message in Spanish asking the student to come in with any bank statements or money order receipts that show regular income. She knows the student probably doesn't have those either.</p>
+
+    <p>She is not the villain of this story. She works inside a system that was not designed for the families she is trying to serve. The CADAA opened for the following academic year last October. The deadline was March 2. "By the time most students come to me," she said, "they've already missed it."</p>
+
+    <p>The most common reason she sees for incomplete applications is not fraud, not misrepresentation. It is documents. Parents who work cash-based agricultural labor and do not have tax records. Parents who have the records but cannot take a day off work to bring them in person, because the office does not accept documents by email, and their employers do not offer time off for paperwork.</p>
+
+    <p>"People think the application is the hard part," she said. "The application is not the hard part."</p>
+
+    <p>She has seen students complete the application and still lose financial aid because a GPA verification form, a separate document the high school, not the student, submits to the California Student Aid Commission, went out a week late. The commission does not accept late submissions. One form, filed by a third party the student cannot control, filed one week late because the registrar was managing senior graduation in May.</p>
+
+    <div class="doc-quote">
+      "IMPORTANT NOTE: We do not accept documents by email. Be sure your name and student ID number are on every page you send. Keep a copy of everything for your own records."
+      <span class="doc-source">Imperial Valley College Financial Aid Office — imperial.edu/financial-aid-and-scholarships/frequently-asked-questions.html</span>
+    </div>
+
+    <p>The note assumes you have a printer. It assumes you have an envelope and a stamp. It assumes you know your student ID number, which requires first creating an account in the college's online portal, which requires a personal email address. Miguel's mother, Rosa, does not have one. She uses her phone for calls. Her daughter uses it for everything else. Rosa packs vegetables from 5am to 3pm, then takes two buses home, then makes dinner. The phone is a shared resource managed by whoever has time.</p>
+
+    <div class="pull">
+      <p>"By the time most students come to me, they've already missed it."</p>
+    </div>
+
+    <div class="break"><span></span><span></span><span></span></div>
+
+    <h2 class="section-head">Summer Melt</h2>
+
+    <p>In high school, Miguel goes to a building every day where adults know his name and notice if he doesn't appear. In June, that building closes. His counselor, Mr. Vasquez, sends an email to the graduating class with a list of next steps. The email goes to a school address that stops working July 1.</p>
+
+    <p>Between 10 and 40 percent of students who plan to start college in the fall don't. The upper end is for low-income, first-generation, community college-bound students, which is Miguel's demographic. For Latino graduates, recent cohort data puts the figure at 59 percent. More than half of the students who say in June they are going to college in September don't get there. The cause, in study after study, is not motivation. It is the disappearance of the people and structures that held the plan in place.</p>
+
+    <figure class="article-image">
+      <img src="../assets/writing/empty-school-hallway.webp" alt="Empty school hallway in afternoon sunlight">
+      <figcaption>In June, the building closes. The email addresses stop working. The structures that held the plan in place disappear.</figcaption>
+    </figure>
+
+    <p>Miguel's Mr. Contreras retired in June. Mr. Vasquez left for a different district in July. His father came home from the hip surgery in March to a rental house with one bathroom and no shower, spent April learning to use a walker, cannot drive, cannot return to work until September. The family's income is Rosa's packing wages and what Miguel makes working three shifts a week at a gas station on Highway 86.</p>
+
+    <p>He tried to complete the CADAA in April, when he still believed it was the same as FAFSA. He stopped at the section requiring his father's income documentation. He drove to the college on a Wednesday. The financial aid office was closed Wednesdays. He came back Thursday, waited forty minutes, and was told he needed to speak to a CADAA specialist who was not in. He should make an appointment. The next available slot was three weeks out.</p>
+
+    <p>He made the appointment. His gas station shift was changed. He rescheduled. The appointment moved again. It is late July. He has not yet spoken to a CADAA specialist.</p>
+
+    <div class="pull">
+      <p>He still wants to fix something that is already broken. The platform came back with the same answer it gave him a year ago.</p>
+    </div>
+
+    <div class="break"><span></span><span></span><span></span></div>
+
+    <h2 class="section-head">Twelve Minutes Per Student</h2>
+
+    <p>Brawley Union High School has approximately 2,300 students and four counselors. The recommended ratio is one to 250. At Brawley Union it is closer to one to 575. Before he left, Mr. Vasquez was managing college applications for 95 seniors while also handling mental health referrals, attendance interventions, discipline cases, and scheduling conflicts. He sat down once and calculated that during peak application season he could spend about twelve minutes per student per month on college guidance. He wrote the number on a piece of paper. He looked at it. He said it out loud. The number did not change.</p>
+
+    <p>Twelve minutes is enough time to say: there are two applications, FAFSA and the California Dream Act, and which one you file depends on your parents' status, and if your parents are undocumented there is a separate affidavit called the AB 540, and the deadline is March 2, and you will also need your high school to submit a GPA form separately, and the financial aid office is closed Wednesdays. It is not enough time to make sure any of it was understood.</p>
+
+    <p>In 2022 and 2023, 35 percent of California community college students identified as first-generation. At Imperial Valley College, where 81 percent of the surrounding population is Hispanic and more than a quarter were born outside the country, that percentage is higher. The college was built to serve this population. Its financial aid office, its CADAA specialists, its counseling staff, they are there specifically because these students need them. The system is not indifferent to Miguel. It is overwhelmed.</p>
+
+    <p>When Kindred told Miguel he had a pathway to UC Riverside through Imperial Valley College, it was telling him something true. The pathway exists. The coursework transfers. The financial aid, if he can access it, would make the cost manageable for a family earning what his family earns. The California Dream Act exists precisely for students like him.</p>
+
+    <p>What the platform cannot tell him is that the pathway has eleven steps, four non-obvious deadlines, two offices with limited hours, one specialist with a three-week backlog, and one form, the AB 540 Affidavit, that requires a parent's signature and was due March 2, and that no one in his life who knew this had twelve minutes to say so.</p>
+
+    <div class="break"><span></span><span></span><span></span></div>
+
+    <h2 class="section-head">October 1</h2>
+
+    <figure class="article-image">
+      <img src="../assets/writing/teen-grocery-night-shift.webp" alt="Teen working a night shift">
+      <figcaption>Miguel used the Kindred platform again in July, sitting in the gas station parking lot before his shift, because the air conditioning in the house was broken and it was 97 degrees inside.</figcaption>
+    </figure>
+
+    <p>Miguel is still planning. He is looking at the spring semester now. The CADAA opens again in October. The deadline will again be March 2. He knows the office is closed Wednesdays. He knows to call before making the drive.</p>
+
+    <p>He used Kindred again in July, sitting in the gas station parking lot before his shift, because the air conditioning in the house was broken and it was 97 degrees inside. He answered the questions the same way he had a year earlier, because nothing had changed about what he wanted. He still wants to fix something that is already broken. The platform came back with the same answer it gave him a year ago.</p>
+
+    <p>The California Dream Act Application opens October 1. The deadline is March 2. The financial aid office at Imperial Valley College is at 380 East Aten Road, Imperial, California. Monday through Thursday, 8am to 4:30pm. Friday until noon.</p>
+
+    <p>He knows where to go. The office will open at 8.</p>
+
+    <div class="distribution">
+      <div class="label">Distribution notes &nbsp;·&nbsp; Not for publication</div>
+      <p><strong>Home:</strong> Hechinger Report lead piece. The Atlantic. Policy brief companion. Foundation pitch decks.</p>
+      <p><strong>Audience:</strong> Donors focused on access not just aspiration. Policy makers. District and college administrators. Foundation officers. Education journalists.</p>
+      <p><strong>Goal:</strong> The piece that tells donors what they're actually funding. The gap isn't motivation. The gap is structural and specific. The piece that makes someone wire money.</p>
+      <div class="tags">
+        <span class="tag">Education</span>
+        <span class="tag">Poverty</span>
+        <span class="tag">summer melt first-gen</span>
+        <span class="tag">FAFSA completion gap</span>
+        <span class="tag">community college enrollment</span>
+        <span class="tag">Imperial Valley</span>
+        <span class="tag">Brawley CA</span>
+        <span class="tag">California Dream Act</span>
+        <span class="tag">agricultural worker families</span>
+        <span class="tag">first-gen college CA</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<footer class="hs-site-footer">
+  <p class="foot-l">Essah &middot; Lead Storyteller</p>
+  <p class="foot-r">Kindred Portfolio &middot; 2026</p>
+</footer>
+<script>
+  const rp = document.getElementById('rp');
+  window.addEventListener('scroll', () => {
+    const scrollTop = window.scrollY;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    rp.style.width = (scrollTop / docHeight * 100) + '%';
+  }, { passive: true });
+</script>
+
+</body>
+</html>
